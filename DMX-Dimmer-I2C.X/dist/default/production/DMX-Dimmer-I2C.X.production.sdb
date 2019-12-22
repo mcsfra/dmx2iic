@@ -1,0 +1,577 @@
+[p LITE_MODE AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F14K22 ]
+[d frameptr 4065 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"20 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"15 D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\channels.c
+[v _initChannels initChannels `(v  1 e 1 0 ]
+"25
+[v _setChannelLevel setChannelLevel `(v  1 e 1 0 ]
+"34
+[v _sendChangedChannels sendChangedChannels `(v  1 e 1 0 ]
+"67
+[v _testChannelLevels testChannelLevels `(v  1 e 1 0 ]
+"17 D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+[v _initDMX initDMX `(v  1 e 1 0 ]
+"44
+[v _getDMXBaseAddress getDMXBaseAddress `(uc  1 e 1 0 ]
+"56
+[v _handleDMX handleDMX `(v  1 e 1 0 ]
+"6 D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
+[v _initHardware initHardware `(v  1 e 1 0 ]
+"8 D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\i2c.c
+[v _i2cInit i2cInit `(v  1 e 1 0 ]
+"33
+[v _i2cStart i2cStart `(v  1 e 1 0 ]
+"46
+[v _i2cStop i2cStop `(v  1 e 1 0 ]
+"113
+[v _i2cWait i2cWait `(v  1 e 1 0 ]
+"126
+[v _i2cSend i2cSend `(v  1 e 1 0 ]
+"20 D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\interrupts.c
+[v _low_isr low_isr `IIL(v  1 e 1 0 ]
+"51 D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\lookuptable.c
+[v _getLookup getLookup `(ui  1 e 2 0 ]
+"16 D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\main.c
+[v _main main `(v  1 e 1 0 ]
+"6 D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\pca9685.c
+[v _pcaGetAddress pcaGetAddress `(uc  1 e 1 0 ]
+"11
+[v _pcaInit pcaInit `(v  1 e 1 0 ]
+"22
+[v _pcaSetChannelRaw pcaSetChannelRaw `(v  1 e 1 0 ]
+"40
+[v _pcaSetChannelLog pcaSetChannelLog `(v  1 e 1 0 ]
+"45
+[v _pcaSleep pcaSleep `(v  1 e 1 0 ]
+"54
+[v _pcaWakeUp pcaWakeUp `(v  1 e 1 0 ]
+"183 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f14k22.h
+[v _CM2CON0 CM2CON0 `VEuc  1 e 1 @3947 ]
+"315
+[v _CM1CON0 CM1CON0 `VEuc  1 e 1 @3949 ]
+"767
+[v _ANSEL ANSEL `VEuc  1 e 1 @3966 ]
+"887
+[v _ANSELH ANSELH `VEuc  1 e 1 @3967 ]
+"959
+[v _PORTA PORTA `VEuc  1 e 1 @3968 ]
+"1193
+[v _PORTB PORTB `VEuc  1 e 1 @3969 ]
+"1301
+[v _PORTC PORTC `VEuc  1 e 1 @3970 ]
+"1540
+[v _LATA LATA `VEuc  1 e 1 @3977 ]
+"1618
+[v _LATB LATB `VEuc  1 e 1 @3978 ]
+"1684
+[v _LATC LATC `VEuc  1 e 1 @3979 ]
+"1796
+[v _TRISA TRISA `VEuc  1 e 1 @3986 ]
+"1950
+[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
+[s S315 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+"1976
+[s S321 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+[u S327 . 1 `S315 1 . 1 0 `S321 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES327  1 e 1 @3987 ]
+"2080
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+[s S156 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 CCP1IE 1 0 :1:2 
+`uc 1 SSPIE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+]
+"2393
+[s S164 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TX1IE 1 0 :1:4 
+`uc 1 RC1IE 1 0 :1:5 
+]
+[u S168 . 1 `S156 1 . 1 0 `S164 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES168  1 e 1 @3997 ]
+[s S566 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+]
+"2464
+[s S574 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TX1IF 1 0 :1:4 
+`uc 1 RC1IF 1 0 :1:5 
+]
+[u S578 . 1 `S566 1 . 1 0 `S574 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES578  1 e 1 @3998 ]
+[s S184 . 1 `uc 1 TMR1IP 1 0 :1:0 
+`uc 1 TMR2IP 1 0 :1:1 
+`uc 1 CCP1IP 1 0 :1:2 
+`uc 1 SSPIP 1 0 :1:3 
+`uc 1 TXIP 1 0 :1:4 
+`uc 1 RCIP 1 0 :1:5 
+`uc 1 ADIP 1 0 :1:6 
+]
+"2535
+[s S192 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TX1IP 1 0 :1:4 
+`uc 1 RC1IP 1 0 :1:5 
+]
+[u S196 . 1 `S184 1 . 1 0 `S192 1 . 1 0 ]
+[v _IPR1bits IPR1bits `VES196  1 e 1 @3999 ]
+[s S102 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"3050
+[s S111 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 ADEN 1 0 :1:3 
+]
+[s S114 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 SRENA 1 0 :1:5 
+]
+[s S117 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC8_9 1 0 :1:6 
+]
+[s S120 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC9 1 0 :1:6 
+]
+[s S123 . 1 `uc 1 RCD8 1 0 :1:0 
+]
+[u S125 . 1 `S102 1 . 1 0 `S111 1 . 1 0 `S114 1 . 1 0 `S117 1 . 1 0 `S120 1 . 1 0 `S123 1 . 1 0 ]
+[v _RCSTA1bits RCSTA1bits `VES125  1 e 1 @4011 ]
+"3388
+[v _RCREG RCREG `VEuc  1 e 1 @4014 ]
+"3405
+[v _SPBRG1 SPBRG1 `VEuc  1 e 1 @4015 ]
+"3412
+[v _SPBRGH SPBRGH `VEuc  1 e 1 @4016 ]
+[s S58 . 1 `uc 1 ABDEN 1 0 :1:0 
+`uc 1 WUE 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 BRG16 1 0 :1:3 
+`uc 1 CKTXP 1 0 :1:4 
+`uc 1 DTRXP 1 0 :1:5 
+`uc 1 RCIDL 1 0 :1:6 
+`uc 1 ABDOVF 1 0 :1:7 
+]
+"3733
+[s S67 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 SCKP 1 0 :1:4 
+]
+[s S70 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RXCKP 1 0 :1:5 
+]
+[s S73 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 W4E 1 0 :1:1 
+]
+[u S76 . 1 `S58 1 . 1 0 `S67 1 . 1 0 `S70 1 . 1 0 `S73 1 . 1 0 ]
+[v _BAUDCONbits BAUDCONbits `VES76  1 e 1 @4024 ]
+"4596
+[v _SSPCON2 SSPCON2 `VEuc  1 e 1 @4037 ]
+[s S372 . 1 `uc 1 SEN 1 0 :1:0 
+`uc 1 RSEN 1 0 :1:1 
+`uc 1 PEN 1 0 :1:2 
+`uc 1 RCEN 1 0 :1:3 
+`uc 1 ACKEN 1 0 :1:4 
+`uc 1 ACKDT 1 0 :1:5 
+`uc 1 ACKSTAT 1 0 :1:6 
+`uc 1 GCEN 1 0 :1:7 
+]
+"4613
+[u S381 . 1 `S372 1 . 1 0 ]
+[v _SSPCON2bits SSPCON2bits `VES381  1 e 1 @4037 ]
+"4658
+[v _SSPCON1 SSPCON1 `VEuc  1 e 1 @4038 ]
+[s S343 . 1 `uc 1 SSPM 1 0 :4:0 
+`uc 1 CKP 1 0 :1:4 
+`uc 1 SSPEN 1 0 :1:5 
+`uc 1 SSPOV 1 0 :1:6 
+`uc 1 WCOL 1 0 :1:7 
+]
+"4678
+[s S349 . 1 `uc 1 SSPM0 1 0 :1:0 
+`uc 1 SSPM1 1 0 :1:1 
+`uc 1 SSPM2 1 0 :1:2 
+`uc 1 SSPM3 1 0 :1:3 
+]
+[u S354 . 1 `S343 1 . 1 0 `S349 1 . 1 0 ]
+[v _SSPCON1bits SSPCON1bits `VES354  1 e 1 @4038 ]
+"4728
+[v _SSPSTAT SSPSTAT `VEuc  1 e 1 @4039 ]
+[s S396 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_NOT_W 1 0 :1:2 
+]
+"4804
+[s S399 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 D_NOT_A 1 0 :1:5 
+]
+[s S402 . 1 `uc 1 BF 1 0 :1:0 
+`uc 1 UA 1 0 :1:1 
+`uc 1 R_nW 1 0 :1:2 
+`uc 1 S 1 0 :1:3 
+`uc 1 P 1 0 :1:4 
+`uc 1 D_nA 1 0 :1:5 
+`uc 1 CKE 1 0 :1:6 
+`uc 1 SMP 1 0 :1:7 
+]
+[s S411 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D 1 0 :1:5 
+]
+[s S416 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 W 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 A 1 0 :1:5 
+]
+[s S421 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nW 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nA 1 0 :1:5 
+]
+[s S426 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_W 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D_A 1 0 :1:5 
+]
+[s S431 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_WRITE 1 0 :1:2 
+]
+[s S434 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 NOT_ADDRESS 1 0 :1:5 
+]
+[s S437 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nWRITE 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nADDRESS 1 0 :1:5 
+]
+[s S442 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 RW 1 0 :1:2 
+`uc 1 START 1 0 :1:3 
+`uc 1 STOP 1 0 :1:4 
+`uc 1 DA 1 0 :1:5 
+]
+[s S448 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_W 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 NOT_A 1 0 :1:5 
+]
+[u S453 . 1 `S396 1 . 1 0 `S399 1 . 1 0 `S402 1 . 1 0 `S411 1 . 1 0 `S416 1 . 1 0 `S421 1 . 1 0 `S426 1 . 1 0 `S431 1 . 1 0 `S434 1 . 1 0 `S437 1 . 1 0 `S442 1 . 1 0 `S448 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES453  1 e 1 @4039 ]
+"4949
+[v _SSPADD SSPADD `VEuc  1 e 1 @4040 ]
+"4956
+[v _SSPBUF SSPBUF `VEuc  1 e 1 @4041 ]
+[s S621 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+]
+"5318
+[s S623 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_POR 1 0 :1:1 
+]
+[s S626 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_PD 1 0 :1:2 
+]
+[s S629 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 NOT_TO 1 0 :1:3 
+]
+[s S632 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 NOT_RI 1 0 :1:4 
+]
+[s S635 . 1 `uc 1 nBOR 1 0 :1:0 
+`uc 1 nPOR 1 0 :1:1 
+`uc 1 nPD 1 0 :1:2 
+`uc 1 nTO 1 0 :1:3 
+`uc 1 nRI 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 SBOREN 1 0 :1:6 
+`uc 1 IPEN 1 0 :1:7 
+]
+[s S644 . 1 `uc 1 BOR 1 0 :1:0 
+`uc 1 POR 1 0 :1:1 
+`uc 1 PD 1 0 :1:2 
+`uc 1 TO 1 0 :1:3 
+`uc 1 RI 1 0 :1:4 
+]
+[u S650 . 1 `S621 1 . 1 0 `S623 1 . 1 0 `S626 1 . 1 0 `S629 1 . 1 0 `S632 1 . 1 0 `S635 1 . 1 0 `S644 1 . 1 0 ]
+[v _RCONbits RCONbits `VES650  1 e 1 @4048 ]
+[s S257 . 1 `uc 1 SCS 1 0 :2:0 
+`uc 1 HFIOFS 1 0 :1:2 
+`uc 1 OSTS 1 0 :1:3 
+`uc 1 IRCF 1 0 :3:4 
+`uc 1 IDLEN 1 0 :1:7 
+]
+"5491
+[s S263 . 1 `uc 1 SCS0 1 0 :1:0 
+`uc 1 SCS1 1 0 :1:1 
+`uc 1 FLTS 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 IRCF0 1 0 :1:4 
+`uc 1 IRCF1 1 0 :1:5 
+`uc 1 IRCF2 1 0 :1:6 
+]
+[u S271 . 1 `S257 1 . 1 0 `S263 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES271  1 e 1 @4051 ]
+[s S688 . 1 `uc 1 RABIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RABIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"6122
+[s S697 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S706 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[s S710 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 PIE 1 0 :1:6 
+]
+[u S713 . 1 `S688 1 . 1 0 `S697 1 . 1 0 `S706 1 . 1 0 `S710 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES713  1 e 1 @4082 ]
+"6538
+[v _BF BF `VEb  1 e 0 @32312 ]
+"6758
+[v _FERR FERR `VEb  1 e 0 @32090 ]
+"7004
+[v _OERR OERR `VEb  1 e 0 @32089 ]
+"7156
+[v _RCIE RCIE `VEb  1 e 0 @31981 ]
+"7234
+[v _SPEN SPEN `VEb  1 e 0 @32095 ]
+[s S21 channelinfo 2 `uc 1 bChanged 1 0 `uc 1 level 1 1 ]
+"13 D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\channels.c
+[v _channels channels `[32]S21  1 e 64 0 ]
+"65
+[v _bAllChannelsOff bAllChannelsOff `uc  1 s 1 bAllChannelsOff ]
+"14 D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+[v _dmxState dmxState `uc  1 e 1 0 ]
+"15
+[v _currentAdress currentAdress `ui  1 e 2 0 ]
+"51
+[v _errflag errflag `uc  1 e 1 0 ]
+"52
+[v _received received `uc  1 e 1 0 ]
+"5 D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\i2c.c
+[v _bI2CTimeout bI2CTimeout `uc  1 e 1 0 ]
+"30 D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\lookuptable.c
+[v _lookup lookup `C[256]ui  1 e 512 0 ]
+"10 D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\main.c
+[v _errorCounter errorCounter `uc  1 e 1 0 ]
+"16
+[v _main main `(v  1 e 1 0 ]
+{
+"60
+} 0
+"67 D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\channels.c
+[v _testChannelLevels testChannelLevels `(v  1 e 1 0 ]
+{
+"70
+[v testChannelLevels@i i `uc  1 a 1 32 ]
+"69
+[v testChannelLevels@aChannelIsOn aChannelIsOn `uc  1 a 1 31 ]
+"95
+} 0
+"45 D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\pca9685.c
+[v _pcaSleep pcaSleep `(v  1 e 1 0 ]
+{
+[v pcaSleep@which which `uc  1 a 1 wreg ]
+[v pcaSleep@which which `uc  1 a 1 wreg ]
+"47
+[v pcaSleep@which which `uc  1 a 1 30 ]
+"52
+} 0
+"34 D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\channels.c
+[v _sendChangedChannels sendChangedChannels `(v  1 e 1 0 ]
+{
+"36
+[v sendChangedChannels@i i `uc  1 a 1 40 ]
+"39
+[v sendChangedChannels@channel channel `uc  1 a 1 39 ]
+"38
+[v sendChangedChannels@device device `uc  1 a 1 38 ]
+"58
+} 0
+"40 D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\pca9685.c
+[v _pcaSetChannelLog pcaSetChannelLog `(v  1 e 1 0 ]
+{
+[v pcaSetChannelLog@which which `uc  1 a 1 wreg ]
+[v pcaSetChannelLog@which which `uc  1 a 1 wreg ]
+[v pcaSetChannelLog@channel channel `uc  1 p 1 34 ]
+[v pcaSetChannelLog@value value `uc  1 p 1 35 ]
+"42
+[v pcaSetChannelLog@which which `uc  1 a 1 36 ]
+"43
+} 0
+"22
+[v _pcaSetChannelRaw pcaSetChannelRaw `(v  1 e 1 0 ]
+{
+[v pcaSetChannelRaw@which which `uc  1 a 1 wreg ]
+[v pcaSetChannelRaw@which which `uc  1 a 1 wreg ]
+[v pcaSetChannelRaw@channel channel `uc  1 p 1 30 ]
+[v pcaSetChannelRaw@level level `ui  1 p 2 31 ]
+"24
+[v pcaSetChannelRaw@which which `uc  1 a 1 33 ]
+"32
+} 0
+"51 D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\lookuptable.c
+[v _getLookup getLookup `(ui  1 e 2 0 ]
+{
+[v getLookup@value value `uc  1 a 1 wreg ]
+[v getLookup@value value `uc  1 a 1 wreg ]
+"53
+[v getLookup@value value `uc  1 a 1 29 ]
+"55
+} 0
+"11 D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\pca9685.c
+[v _pcaInit pcaInit `(v  1 e 1 0 ]
+{
+[v pcaInit@which which `uc  1 a 1 wreg ]
+[v pcaInit@which which `uc  1 a 1 wreg ]
+"17
+[v pcaInit@which which `uc  1 a 1 31 ]
+"19
+} 0
+"54
+[v _pcaWakeUp pcaWakeUp `(v  1 e 1 0 ]
+{
+[v pcaWakeUp@which which `uc  1 a 1 wreg ]
+[v pcaWakeUp@which which `uc  1 a 1 wreg ]
+"56
+[v pcaWakeUp@which which `uc  1 a 1 30 ]
+"61
+} 0
+"6
+[v _pcaGetAddress pcaGetAddress `(uc  1 e 1 0 ]
+{
+[v pcaGetAddress@which which `uc  1 a 1 wreg ]
+[v pcaGetAddress@which which `uc  1 a 1 wreg ]
+"8
+[v pcaGetAddress@which which `uc  1 a 1 27 ]
+"9
+} 0
+"46 D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\i2c.c
+[v _i2cStop i2cStop `(v  1 e 1 0 ]
+{
+"51
+} 0
+"33
+[v _i2cStart i2cStart `(v  1 e 1 0 ]
+{
+"38
+} 0
+"126
+[v _i2cSend i2cSend `(v  1 e 1 0 ]
+{
+[v i2cSend@dat dat `uc  1 a 1 wreg ]
+[v i2cSend@dat dat `uc  1 a 1 wreg ]
+"128
+[v i2cSend@dat dat `uc  1 a 1 27 ]
+"132
+} 0
+"113
+[v _i2cWait i2cWait `(v  1 e 1 0 ]
+{
+"117
+} 0
+"6 D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
+[v _initHardware initHardware `(v  1 e 1 0 ]
+{
+"47
+} 0
+"17 D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+[v _initDMX initDMX `(v  1 e 1 0 ]
+{
+"34
+} 0
+"15 D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\channels.c
+[v _initChannels initChannels `(v  1 e 1 0 ]
+{
+"17
+[v initChannels@i i `uc  1 a 1 27 ]
+"23
+} 0
+"8 D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\i2c.c
+[v _i2cInit i2cInit `(v  1 e 1 0 ]
+{
+"21
+} 0
+"20 D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\interrupts.c
+[v _low_isr low_isr `IIL(v  1 e 1 0 ]
+{
+"29
+} 0
+"56 D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+[v _handleDMX handleDMX `(v  1 e 1 0 ]
+{
+"58
+[v handleDMX@baseAddress baseAddress `uc  1 a 1 5 ]
+"101
+} 0
+"25 D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\channels.c
+[v _setChannelLevel setChannelLevel `(v  1 e 1 0 ]
+{
+[v setChannelLevel@channel channel `uc  1 a 1 wreg ]
+[v setChannelLevel@channel channel `uc  1 a 1 wreg ]
+[v setChannelLevel@level level `uc  1 p 1 0 ]
+"27
+[v setChannelLevel@channel channel `uc  1 a 1 2 ]
+"31
+} 0
+"44 D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+[v _getDMXBaseAddress getDMXBaseAddress `(uc  1 e 1 0 ]
+{
+"47
+} 0
