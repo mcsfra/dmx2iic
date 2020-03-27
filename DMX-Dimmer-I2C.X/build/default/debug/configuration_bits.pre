@@ -1,5 +1,5 @@
 
-# 1 "i2c.c"
+# 1 "configuration_bits.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -3696,126 +3696,54 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 5 "i2c.h"
-extern void i2cInit(void);
-extern void i2cStart(void);
-extern void i2cStop(void);
-extern void i2cRestart(void);
-extern void i2cAck(void);
-extern void i2cNak(void);
-extern void i2cWait(void);
-extern void i2cSend(unsigned char dat);
-extern unsigned char i2cRead(void);
 
-# 5 "i2c.c"
-unsigned char bI2CTimeout;
+# 12 "configuration_bits.c"
+#pragma config FOSC = IRC
+#pragma config PLLEN = OFF
+#pragma config PCLKEN = ON
+#pragma config FCMEN = OFF
+#pragma config IESO = OFF
 
 
-
-void i2cInit(void) {
-
-
-
-TRISBbits.RB4 = 1;
-TRISBbits.RB6 = 1;
-
-SSPCON1bits.SSPEN = 1;
-SSPADD = 0x08;
-SSPCON1 = 0x28;
-SSPSTAT = 0x00;
-
-bI2CTimeout = 0;
-
-}
-
-# 35
-void i2cStart() {
-
-SSPCON2bits.SEN = 1;
-while(SSPCON2bits.SEN)
-;
-}
-
-# 48
-void i2cStop() {
-
-SSPCON2bits.PEN = 1;
-while(SSPCON2bits.PEN)
-;
-}
-
-# 61
-void i2cRestart() {
-
-SSPCON2bits.RSEN = 1;
-while(SSPCON2bits.RSEN)
-;
-}
-
-# 74
-void i2cAck() {
-
-unsigned char timeout = 0xFFU;
-
-SSPCON2bits.ACKDT = 0;
-SSPCON2bits.ACKEN = 1;
-while(SSPCON2bits.ACKEN) {
-if ( timeout-- == 0) {
-bI2CTimeout = 1;
-return;
-}
-}
-}
-
-# 94
-void i2cNak() {
-
-unsigned char timeout = 0xFFU;
-
-SSPCON2bits.ACKDT = 1;
-SSPCON2bits.ACKEN = 1;
-
-while(SSPCON2bits.ACKEN) {
-if ( timeout-- == 0) {
-bI2CTimeout = 1;
-return;
-}
-}
-}
-
-# 115
-void i2cWait() {
-
-while ((SSPCON2 == 0x1F ) || ( SSPSTAT == 0x04 ) )
-;
-}
-
-# 128
-void i2cSend(unsigned char dat) {
-
-SSPBUF = dat;
-while(BF)
-;
-i2cWait();
-}
-
-# 142
-unsigned char i2cRead(void) {
-
-unsigned char timeout = 0xFFU;
+#pragma config PWRTEN = ON
+#pragma config BOREN = SBORDIS
+#pragma config BORV = 19
 
 
-SSPCON2bits.RCEN = 1;
-while(!SSPSTATbits.BF) {
+#pragma config WDTEN = OFF
+#pragma config WDTPS = 32768
 
-if ( timeout-- == 0) {
-bI2CTimeout = 1;
-return 0;
-}
-}
 
-unsigned char temp = SSPBUF;
-i2cWait();
-return temp;
-}
+#pragma config HFOFST = ON
+#pragma config MCLRE = ON
+
+
+#pragma config STVREN = ON
+#pragma config LVP = OFF
+#pragma config BBSIZ = OFF
+#pragma config XINST = OFF
+
+
+#pragma config CP0 = OFF
+#pragma config CP1 = OFF
+
+
+#pragma config CPB = OFF
+#pragma config CPD = OFF
+
+
+#pragma config WRT0 = OFF
+#pragma config WRT1 = OFF
+
+
+#pragma config WRTC = OFF
+#pragma config WRTB = OFF
+#pragma config WRTD = OFF
+
+
+#pragma config EBTR0 = OFF
+#pragma config EBTR1 = OFF
+
+
+#pragma config EBTRB = OFF
 

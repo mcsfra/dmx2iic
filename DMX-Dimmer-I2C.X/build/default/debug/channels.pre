@@ -1,5 +1,5 @@
 
-# 1 "i2c.c"
+# 1 "channels.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -3696,126 +3696,115 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 5 "i2c.h"
-extern void i2cInit(void);
-extern void i2cStart(void);
-extern void i2cStop(void);
-extern void i2cRestart(void);
-extern void i2cAck(void);
-extern void i2cNak(void);
-extern void i2cWait(void);
-extern void i2cSend(unsigned char dat);
-extern unsigned char i2cRead(void);
+# 11 "channels.h"
+typedef struct channelinfo {
 
-# 5 "i2c.c"
-unsigned char bI2CTimeout;
+unsigned char bChanged;
+unsigned char level;
+
+} CHANNELINFO;
 
 
+extern void initChannels(void);
+extern void setChannelLevel(unsigned char channel, unsigned char value);
+extern unsigned char getChannelValue(unsigned char channel);
+extern void sendChangedChannels(void);
+extern void testChannelLevels(void);
 
-void i2cInit(void) {
+# 39 "pca9685.h"
+extern void pcaInit(unsigned char which);
+extern unsigned char pcaGetAddress(unsigned char which);
+extern void pcaSetChannelRaw(unsigned char which, unsigned char channel, unsigned int level);
+extern void pcaSetChannelLin(unsigned char which, unsigned char channel, unsigned char value);
+extern void pcaSetChannelLog(unsigned char which, unsigned char channel, unsigned char value);
+extern void pcaSleep(unsigned char which );
+extern void pcaWakeUp(unsigned char which );
 
+extern void pcaSetSpeed(unsigned char which, unsigned int hertz );
 
+extern void pcaSweepTest(void);
 
-TRISBbits.RB4 = 1;
-TRISBbits.RB6 = 1;
+# 11 "lookuptable.h"
+extern unsigned int getLookup(unsigned char value);
 
-SSPCON1bits.SSPEN = 1;
-SSPADD = 0x08;
-SSPCON1 = 0x28;
-SSPSTAT = 0x00;
+# 13 "channels.c"
+CHANNELINFO channels[32U];
 
-bI2CTimeout = 0;
+void initChannels() {
 
-}
+unsigned char i;
 
-# 35
-void i2cStart() {
-
-SSPCON2bits.SEN = 1;
-while(SSPCON2bits.SEN)
-;
-}
-
-# 48
-void i2cStop() {
-
-SSPCON2bits.PEN = 1;
-while(SSPCON2bits.PEN)
-;
-}
-
-# 61
-void i2cRestart() {
-
-SSPCON2bits.RSEN = 1;
-while(SSPCON2bits.RSEN)
-;
-}
-
-# 74
-void i2cAck() {
-
-unsigned char timeout = 0xFFU;
-
-SSPCON2bits.ACKDT = 0;
-SSPCON2bits.ACKEN = 1;
-while(SSPCON2bits.ACKEN) {
-if ( timeout-- == 0) {
-bI2CTimeout = 1;
-return;
-}
+for (i = 0; i < 32U; i++) {
+channels[i].bChanged = 0;
+channels[i].level = 0;
 }
 }
 
-# 94
-void i2cNak() {
+void setChannelLevel(unsigned char channel, unsigned char level) {
 
-unsigned char timeout = 0xFFU;
+if ( channels[channel].level != level) {
+channels[channel].level = level;
+channels[channel].bChanged = 1;
+}
+}
 
-SSPCON2bits.ACKDT = 1;
-SSPCON2bits.ACKEN = 1;
 
-while(SSPCON2bits.ACKEN) {
-if ( timeout-- == 0) {
-bI2CTimeout = 1;
-return;
+void sendChangedChannels(void) {
+
+unsigned char i;
+unsigned int lookup;
+unsigned char device ;
+unsigned char channel;
+
+for (i = 0; i < 32U; i++ ) {
+
+if ( channels[i].bChanged == 1) {
+channels[i].bChanged = 0;
+
+if ( i > 15) {
+device = 1;
+channel = i - 16U;
+}
+else {
+device = 0;
+channel = i;
+}
+
+pcaSetChannelLog(device, channel, channels[i].level);
 }
 }
 }
 
-# 115
-void i2cWait() {
+# 65
+static unsigned char bAllChannelsOff = 1;
 
-while ((SSPCON2 == 0x1F ) || ( SSPSTAT == 0x04 ) )
-;
-}
+void testChannelLevels(void) {
 
-# 128
-void i2cSend(unsigned char dat) {
+unsigned char aChannelIsOn = 0;
+unsigned char i;
 
-SSPBUF = dat;
-while(BF)
-;
-i2cWait();
-}
+for (i = 0; i < 32U; i++ ) {
 
-# 142
-unsigned char i2cRead(void) {
-
-unsigned char timeout = 0xFFU;
-
-
-SSPCON2bits.RCEN = 1;
-while(!SSPSTATbits.BF) {
-
-if ( timeout-- == 0) {
-bI2CTimeout = 1;
-return 0;
+if ( channels[i].level > 0) {
+aChannelIsOn = 1;
+break;
 }
 }
 
-unsigned char temp = SSPBUF;
-i2cWait();
-return temp;
+if ( bAllChannelsOff == 1 ) {
+
+if (aChannelIsOn == 1) {
+pcaWakeUp(0);
+pcaWakeUp(1);
+bAllChannelsOff = 0;
+}
+}
+else {
+if (aChannelIsOn == 0) {
+pcaSleep(0);
+pcaSleep(1);
+bAllChannelsOff = 1;
+}
+}
 }
 

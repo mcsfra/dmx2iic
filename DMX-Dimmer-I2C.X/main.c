@@ -18,6 +18,8 @@ void main(void)  {
     initHardware();
     initChannels();
     
+    initDebugBuffer(); 
+    
     i2cInit(); 
     
     pcaInit(0);
@@ -53,7 +55,7 @@ void main(void)  {
 
         sendChangedChannels(); 
 
-        testChannelLevels(); 
+    //    testChannelLevels(); 
     }
 
 

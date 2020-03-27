@@ -11,11 +11,29 @@
 #define MEGAHERTZ 1000000
 #define FOSC (8 * MEGAHERTZ)
 
+
+/*
+ *  Debug Buffer
+ */
+
+unsigned char dmxDebugBuffer[128];
+
+
 unsigned char dmxState; 
 unsigned int  currentAdress;
 
-void initDMX(void)  {
+void initDebugBuffer()  {
+    unsigned char i; 
 
+    for (i = 0; i < 128;i++)  {
+        dmxDebugBuffer[i] = 0;
+    }
+ 
+}
+
+
+void initDMX(void)  {
+    
     BAUDCONbits.BRG16 = 1;     // Baudratengenerator 8-Bit
     BAUDCONbits.CKTXP = 1;     // polaritaet verdrehen
     SPBRG1            = 1;     // Baudrate einstellen
@@ -28,9 +46,8 @@ void initDMX(void)  {
     IPR1bits.RCIP     = 0;  // Low Priority
 
     currentAdress     = 0;
- 
     dmxState          = DMX_NOTSYNCED;
-
+   
 }
 
 /*
@@ -67,13 +84,13 @@ void handleDMX()  {
    */
    received = RCREG;
 
-   if ((errflag == 1) && ( dmxState == DMX_NOTSYNCED)  )  {
+   if ( (errflag == 1) && ( dmxState == DMX_NOTSYNCED)  )  {
        currentAdress = 0;
        dmxState = DMX_WAITSTART;
        return;
    }
 
-   if ( (dmxState == DMX_WAITSTART) && (received == 0x00))  {
+   if ( (dmxState == DMX_WAITSTART) && (received == 0x00) )  {
 
       dmxState = DMX_PAYLOAD;
       return;
@@ -81,6 +98,10 @@ void handleDMX()  {
 
    if ( dmxState == DMX_PAYLOAD)  {
 
+      if ( currentAdress < 128)  {
+          dmxDebugBuffer[currentAdress] = received;
+      }  
+       
       if ( (currentAdress >= baseAddress) &&  (currentAdress < baseAddress + MAXCHANNELS))  {
 
           /* Dieses Konstrukt verstehe ich nicht

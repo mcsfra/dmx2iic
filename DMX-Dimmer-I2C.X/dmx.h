@@ -12,6 +12,8 @@
 #define DMX_WAITSTART 0x01
 #define DMX_PAYLOAD	  0x02
 
+extern void initDebugBuffer();
+
 
 extern void initDMX(void);
 extern void handleDMX(void);

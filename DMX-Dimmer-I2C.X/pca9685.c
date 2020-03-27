@@ -2,6 +2,7 @@
 #include "i2c.h"
 #include "lookuptable.h"
 
+static unsigned char debugState[128];
 
 unsigned char pcaGetAddress(unsigned char which)  {
     
@@ -10,6 +11,11 @@ unsigned char pcaGetAddress(unsigned char which)  {
 
 void pcaInit(unsigned char which)  {
   
+    unsigned char i; 
+    for (i = 0; i < 128; i++)  {
+        debugState[i] = 0; 
+    }
+    
     // Es hat sich gezeigt, dass die 50 Hz a) nichts bringen und b) noch schlimmeres Flackern produzieren. 
     // Also nicht verwenden.
     // pcaSleep(which);

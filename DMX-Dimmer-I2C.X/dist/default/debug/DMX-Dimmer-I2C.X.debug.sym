@@ -93,16 +93,16 @@ __Hstruct 0 0 COMRAM 1
 __Lstruct 0 0 COMRAM 1
 __Hbigdata 0 0 BIGRAM 1
 __Lbigdata 0 0 BIGRAM 1
-__Hmediumconst 4000 0 MEDIUMCONST 0
-__Lmediumconst 3DFE 0 MEDIUMCONST 0
+__Hmediumconst 3E00 0 MEDIUMCONST 0
+__Lmediumconst 3BFE 0 MEDIUMCONST 0
 _SPBRGH FB0 0 ABS 0
 _ANSELH F7F 0 ABS 0
 __Hfarbss 0 0 FARRAM 0
 __Lfarbss 0 0 FARRAM 0
-__pmediumconst 3DFE 0 MEDIUMCONST 0
-__Hintcode 4 0 CODE 0
+__pmediumconst 3BFE 0 MEDIUMCONST 0
+__Hintcode 6 0 CODE 0
 _SSPBUF FC9 0 ABS 0
-__Lintcode 4 0 CODE 0
+__Lintcode 6 0 CODE 0
 __Hfardata 0 0 FARRAM 0
 __Lfardata 0 0 FARRAM 0
 __size_of_sendChangedChannels 0 0 ABS 0
@@ -117,7 +117,7 @@ __LnvFARRAM 0 0 FARRAM 0
 __end_of_pcaSetChannelRaw 54C 0 CODE 0
 __CFG_EBTR1$OFF 0 0 ABS 0
 setChannelLevel@channel 3 0 COMRAM 1
-__end_of_lookup 3FFF 0 MEDIUMCONST 0
+__end_of_lookup 3DFF 0 MEDIUMCONST 0
 __Hdata 0 0 ABS 0
 __Ldata 0 0 ABS 0
 __size_of_pcaSetChannelRaw 0 0 ABS 0
@@ -136,7 +136,7 @@ __end_of_main 3EA 0 CODE 0
 __Lrbss 0 0 COMRAM 1
 __pintcodelo 18 0 CODE 0
 __end_of_initHardware 510 0 CODE 0
-_lookup 3DFF 0 MEDIUMCONST 0
+_lookup 3BFF 0 MEDIUMCONST 0
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
 __size_of_getLookup 0 0 ABS 0
@@ -252,7 +252,7 @@ __Lcinit 0 0 ABS 0
 __pcinit 43A 0 CODE 0
 __CFG_EBTRB$OFF 0 0 ABS 0
 __ramtop 200 0 RAM 0
-__mediumconst 3DFE 0 MEDIUMCONST 0
+__mediumconst 3BFE 0 MEDIUMCONST 0
 _low_isr 18 0 CODE 0
 __size_of_main 0 0 ABS 0
 __size_of_i2cStop 0 0 ABS 0
@@ -333,7 +333,7 @@ __size_of_pcaInit 0 0 ABS 0
 __CFG_CP0$OFF 0 0 ABS 0
 __smallconst 0 0 SMALLCONST 0
 __CFG_CP1$OFF 0 0 ABS 0
-__Hreset_vec 4 0 CODE 0
+__Hreset_vec 6 0 CODE 0
 __Lreset_vec 0 0 CODE 0
 ?_getLookup 1C 0 COMRAM 1
 __end_of_pcaGetAddress 580 0 CODE 0
@@ -374,18 +374,18 @@ _errorCounter 2D 0 COMRAM 1
 __CFG_LVP$OFF 0 0 ABS 0
 _initChannels 2C6 0 CODE 0
 %segments
-reset_vec 0 3 CODE 0 0
+reset_vec 0 5 CODE 0 0
 intcodelo 18 6B0 CODE 18 0
-mediumconst 3DFE 3FFF MEDIUMCONST 3DFE 0
+mediumconst 3BFE 3DFF MEDIUMCONST 3BFE 0
 config 300000 30000D CONFIG 300000 0
 idloc 200000 200007 IDLOC 200000 0
 cstackCOMRAM 1 34 COMRAM 1 1
 bssBANK0 60 9F BANK0 60 1
 bssBANK1 100 1FF BANK1 100 1
 %locals
-dist/default/production\DMX-Dimmer-I2C.X.production.obj
+dist/default/debug\DMX-Dimmer-I2C.X.debug.obj
 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f14k22.h
-C:\Users\mcs-f\AppData\Local\Temp\sevc.
+C:\Users\mcs-f\AppData\Local\Temp\sik0.
 2483 43A 0 CODE 0
 2485 43A 0 CODE 0
 2488 43A 0 CODE 0

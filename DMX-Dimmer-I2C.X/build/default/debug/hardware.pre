@@ -1,5 +1,5 @@
 
-# 1 "i2c.c"
+# 1 "hardware.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -3696,126 +3696,41 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 5 "i2c.h"
-extern void i2cInit(void);
-extern void i2cStart(void);
-extern void i2cStop(void);
-extern void i2cRestart(void);
-extern void i2cAck(void);
-extern void i2cNak(void);
-extern void i2cWait(void);
-extern void i2cSend(unsigned char dat);
-extern unsigned char i2cRead(void);
+# 11 "hardware.h"
+extern void initHardware(void);
 
-# 5 "i2c.c"
-unsigned char bI2CTimeout;
+# 6 "hardware.c"
+void initHardware(void) {
 
 
 
-void i2cInit(void) {
+OSCCONbits.IDLEN = 0;
 
+OSCCONbits.IRCF2 = 1;
+OSCCONbits.IRCF1 = 1;
+OSCCONbits.IRCF0 = 0;
 
+OSCCONbits.SCS1 = 1;
+OSCCONbits.SCS0 = 0;
 
-TRISBbits.RB4 = 1;
-TRISBbits.RB6 = 1;
+# 23
+CM1CON0 = 0;
+CM2CON0 = 0;
 
-SSPCON1bits.SSPEN = 1;
-SSPADD = 0x08;
-SSPCON1 = 0x28;
-SSPSTAT = 0x00;
+ANSEL = 0x00;
+ANSELH = 0x00;
 
-bI2CTimeout = 0;
+LATA = 0x00;
+PORTA = 0x00;
+TRISA = 0b00000111;
 
+PORTB = 0x00;
+LATB = 0x00;
+TRISB = 0b00100111;
+
+LATC = 0x00;
+PORTC = 0x00;
+TRISC = 0b11111000;
+
+# 47
 }
-
-# 35
-void i2cStart() {
-
-SSPCON2bits.SEN = 1;
-while(SSPCON2bits.SEN)
-;
-}
-
-# 48
-void i2cStop() {
-
-SSPCON2bits.PEN = 1;
-while(SSPCON2bits.PEN)
-;
-}
-
-# 61
-void i2cRestart() {
-
-SSPCON2bits.RSEN = 1;
-while(SSPCON2bits.RSEN)
-;
-}
-
-# 74
-void i2cAck() {
-
-unsigned char timeout = 0xFFU;
-
-SSPCON2bits.ACKDT = 0;
-SSPCON2bits.ACKEN = 1;
-while(SSPCON2bits.ACKEN) {
-if ( timeout-- == 0) {
-bI2CTimeout = 1;
-return;
-}
-}
-}
-
-# 94
-void i2cNak() {
-
-unsigned char timeout = 0xFFU;
-
-SSPCON2bits.ACKDT = 1;
-SSPCON2bits.ACKEN = 1;
-
-while(SSPCON2bits.ACKEN) {
-if ( timeout-- == 0) {
-bI2CTimeout = 1;
-return;
-}
-}
-}
-
-# 115
-void i2cWait() {
-
-while ((SSPCON2 == 0x1F ) || ( SSPSTAT == 0x04 ) )
-;
-}
-
-# 128
-void i2cSend(unsigned char dat) {
-
-SSPBUF = dat;
-while(BF)
-;
-i2cWait();
-}
-
-# 142
-unsigned char i2cRead(void) {
-
-unsigned char timeout = 0xFFU;
-
-
-SSPCON2bits.RCEN = 1;
-while(!SSPSTATbits.BF) {
-
-if ( timeout-- == 0) {
-bI2CTimeout = 1;
-return 0;
-}
-}
-
-unsigned char temp = SSPBUF;
-i2cWait();
-return temp;
-}
-

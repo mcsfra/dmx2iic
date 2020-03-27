@@ -5,8 +5,10 @@
 unsigned char bI2CTimeout;
 
 
+
 void i2cInit(void)  {
- 
+  
+   
     
     TRISBbits.RB4 = 1; 
     TRISBbits.RB6 = 1; 

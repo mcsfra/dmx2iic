@@ -1,87 +1,13 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"1961 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f14k22.h
-[s S82 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S82 . . TRISB4 TRISB5 TRISB6 TRISB7 ]
-"1968
-[s S83 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S83 . . RB4 RB5 RB6 RB7 ]
-"1960
-[u S81 `S82 1 `S83 1 ]
-[n S81 . . . ]
-"1976
-[v _TRISBbits `VS81 ~T0 @X0 0 e@3987 ]
-"4664
-[s S205 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S205 . SSPM CKP SSPEN SSPOV WCOL ]
-"4671
-[s S206 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S206 . SSPM0 SSPM1 SSPM2 SSPM3 ]
-"4663
-[u S204 `S205 1 `S206 1 ]
-[n S204 . . . ]
-"4678
-[v _SSPCON1bits `VS204 ~T0 @X0 0 e@4038 ]
-"4949
-[v _SSPADD `Vuc ~T0 @X0 0 e@4040 ]
-"4658
-[v _SSPCON1 `Vuc ~T0 @X0 0 e@4038 ]
-"4728
-[v _SSPSTAT `Vuc ~T0 @X0 0 e@4039 ]
-"4602
-[s S203 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S203 . SEN RSEN PEN RCEN ACKEN ACKDT ACKSTAT GCEN ]
-"4601
-[u S202 `S203 1 ]
-[n S202 . . ]
-"4613
-[v _SSPCON2bits `VS202 ~T0 @X0 0 e@4037 ]
-"4596
-[v _SSPCON2 `Vuc ~T0 @X0 0 e@4037 ]
-"4956
-[v _SSPBUF `Vuc ~T0 @X0 0 e@4041 ]
-"6538
-[v _BF `Vb ~T0 @X0 0 e@32312 ]
-"4734
-[s S208 :2 `uc 1 :1 `uc 1 ]
-[n S208 . . R_NOT_W ]
-"4738
-[s S209 :5 `uc 1 :1 `uc 1 ]
-[n S209 . . D_NOT_A ]
-"4742
-[s S210 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S210 . BF UA R_nW S P D_nA CKE SMP ]
-"4752
-[s S211 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S211 . . R . D ]
-"4758
-[s S212 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S212 . . W . A ]
-"4764
-[s S213 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S213 . . nW . nA ]
-"4770
-[s S214 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S214 . . R_W . D_A ]
-"4776
-[s S215 :2 `uc 1 :1 `uc 1 ]
-[n S215 . . NOT_WRITE ]
-"4780
-[s S216 :5 `uc 1 :1 `uc 1 ]
-[n S216 . . NOT_ADDRESS ]
-"4784
-[s S217 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S217 . . nWRITE . nADDRESS ]
-"4790
-[s S218 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S218 . . RW START STOP DA ]
-"4797
-[s S219 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S219 . . NOT_W . NOT_A ]
-"4733
-[u S207 `S208 1 `S209 1 `S210 1 `S211 1 `S212 1 `S213 1 `S214 1 `S215 1 `S216 1 `S217 1 `S218 1 `S219 1 ]
-[n S207 . . . . . . . . . . . . . ]
-"4804
-[v _SSPSTATbits `VS207 ~T0 @X0 0 e@4039 ]
+"11 channels.h
+[s S279 `uc 1 `uc 1 ]
+[n S279 channelinfo bChanged level ]
+"43 pca9685.h
+[v _pcaSetChannelLog `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"45
+[v _pcaWakeUp `(v ~T0 @X0 0 ef1`uc ]
+"44
+[v _pcaSleep `(v ~T0 @X0 0 ef1`uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2760,309 +2686,272 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
-[; ;i2c.h: 5: extern void i2cInit(void);
-[; ;i2c.h: 6: extern void i2cStart(void);
-[; ;i2c.h: 7: extern void i2cStop(void);
-[; ;i2c.h: 8: extern void i2cRestart(void);
-[; ;i2c.h: 9: extern void i2cAck(void);
-[; ;i2c.h: 10: extern void i2cNak(void);
-[; ;i2c.h: 11: extern void i2cWait(void);
-[; ;i2c.h: 12: extern void i2cSend(unsigned char dat);
-[; ;i2c.h: 13: extern unsigned char i2cRead(void);
-"5 i2c.c
-[v _bI2CTimeout `uc ~T0 @X0 1 e ]
-[; ;i2c.c: 5: unsigned char bI2CTimeout;
-"9
-[v _i2cInit `(v ~T0 @X0 1 ef ]
+[; ;channels.h: 11: typedef struct channelinfo {
+[; ;channels.h: 13: unsigned char bChanged;
+[; ;channels.h: 14: unsigned char level;
+[; ;channels.h: 16: } CHANNELINFO;
+[; ;channels.h: 19: extern void initChannels(void);
+[; ;channels.h: 20: extern void setChannelLevel(unsigned char channel, unsigned char value);
+[; ;channels.h: 21: extern unsigned char getChannelValue(unsigned char channel);
+[; ;channels.h: 22: extern void sendChangedChannels(void);
+[; ;channels.h: 23: extern void testChannelLevels(void);
+[; ;pca9685.h: 39: extern void pcaInit(unsigned char which);
+[; ;pca9685.h: 40: extern unsigned char pcaGetAddress(unsigned char which);
+[; ;pca9685.h: 41: extern void pcaSetChannelRaw(unsigned char which, unsigned char channel, unsigned int level);
+[; ;pca9685.h: 42: extern void pcaSetChannelLin(unsigned char which, unsigned char channel, unsigned char value);
+[; ;pca9685.h: 43: extern void pcaSetChannelLog(unsigned char which, unsigned char channel, unsigned char value);
+[; ;pca9685.h: 44: extern void pcaSleep(unsigned char which );
+[; ;pca9685.h: 45: extern void pcaWakeUp(unsigned char which );
+[; ;pca9685.h: 47: extern void pcaSetSpeed(unsigned char which, unsigned int hertz );
+[; ;pca9685.h: 49: extern void pcaSweepTest(void);
+[; ;lookuptable.h: 11: extern unsigned int getLookup(unsigned char value);
+"13 channels.c
+[v _channels `S279 ~T0 @X0 -> 32 `ui e ]
+[; ;channels.c: 13: CHANNELINFO channels[32U];
+"15
+[v _initChannels `(v ~T0 @X0 1 ef ]
 {
-[; ;i2c.c: 9: void i2cInit(void) {
-[e :U _i2cInit ]
+[; ;channels.c: 15: void initChannels() {
+[e :U _initChannels ]
 [f ]
-[; ;i2c.c: 13: TRISBbits.RB4 = 1;
-"13
-[e = . . _TRISBbits 1 1 -> -> 1 `i `uc ]
-[; ;i2c.c: 14: TRISBbits.RB6 = 1;
-"14
-[e = . . _TRISBbits 1 3 -> -> 1 `i `uc ]
-[; ;i2c.c: 16: SSPCON1bits.SSPEN = 1;
-"16
-[e = . . _SSPCON1bits 0 2 -> -> 1 `i `uc ]
-[; ;i2c.c: 17: SSPADD = 0x08;
 "17
-[e = _SSPADD -> -> 8 `i `uc ]
-[; ;i2c.c: 18: SSPCON1 = 0x28;
-"18
-[e = _SSPCON1 -> -> 40 `i `uc ]
-[; ;i2c.c: 19: SSPSTAT = 0x00;
+[v _i `uc ~T0 @X0 1 a ]
+[; ;channels.c: 17: unsigned char i;
+[; ;channels.c: 19: for (i = 0; i < 32U; i++) {
 "19
-[e = _SSPSTAT -> -> 0 `i `uc ]
-[; ;i2c.c: 21: bI2CTimeout = 0;
-"21
-[e = _bI2CTimeout -> -> 0 `i `uc ]
-[; ;i2c.c: 23: }
-"23
-[e :UE 279 ]
-}
-"35
-[v _i2cStart `(v ~T0 @X0 1 ef ]
 {
-[; ;i2c.c: 35: void i2cStart() {
-[e :U _i2cStart ]
-[f ]
-[; ;i2c.c: 37: SSPCON2bits.SEN = 1;
-"37
-[e = . . _SSPCON2bits 0 0 -> -> 1 `i `uc ]
-[; ;i2c.c: 38: while(SSPCON2bits.SEN)
-"38
-[e $U 281  ]
-[e :U 282 ]
-[; ;i2c.c: 39: ;
-"39
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `ui -> 32 `ui 281  ]
+[e $U 282  ]
 [e :U 281 ]
-"38
-[e $ != -> . . _SSPCON2bits 0 0 `i -> -> -> 0 `i `Vuc `i 282  ]
-[e :U 283 ]
-[; ;i2c.c: 40: }
-"40
+{
+[; ;channels.c: 20: channels[i].bChanged = 0;
+"20
+[e = . *U + &U _channels * -> _i `ux -> -> # *U &U _channels `ui `ux 0 -> -> 0 `i `uc ]
+[; ;channels.c: 21: channels[i].level = 0;
+"21
+[e = . *U + &U _channels * -> _i `ux -> -> # *U &U _channels `ui `ux 1 -> -> 0 `i `uc ]
+"22
+}
+"19
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `ui -> 32 `ui 281  ]
+[e :U 282 ]
+"22
+}
+[; ;channels.c: 22: }
+[; ;channels.c: 23: }
+"23
 [e :UE 280 ]
 }
-"48
-[v _i2cStop `(v ~T0 @X0 1 ef ]
+"25
+[v _setChannelLevel `(v ~T0 @X0 1 ef2`uc`uc ]
 {
-[; ;i2c.c: 48: void i2cStop() {
-[e :U _i2cStop ]
+[; ;channels.c: 25: void setChannelLevel(unsigned char channel, unsigned char level) {
+[e :U _setChannelLevel ]
+[v _channel `uc ~T0 @X0 1 r1 ]
+[v _level `uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;i2c.c: 50: SSPCON2bits.PEN = 1;
-"50
-[e = . . _SSPCON2bits 0 2 -> -> 1 `i `uc ]
-[; ;i2c.c: 51: while(SSPCON2bits.PEN)
-"51
-[e $U 285  ]
-[e :U 286 ]
-[; ;i2c.c: 52: ;
-"52
+[; ;channels.c: 27: if ( channels[channel].level != level) {
+"27
+[e $ ! != -> . *U + &U _channels * -> _channel `ux -> -> # *U &U _channels `ui `ux 1 `i -> _level `i 285  ]
+{
+[; ;channels.c: 28: channels[channel].level = level;
+"28
+[e = . *U + &U _channels * -> _channel `ux -> -> # *U &U _channels `ui `ux 1 _level ]
+[; ;channels.c: 29: channels[channel].bChanged = 1;
+"29
+[e = . *U + &U _channels * -> _channel `ux -> -> # *U &U _channels `ui `ux 0 -> -> 1 `i `uc ]
+"30
+}
 [e :U 285 ]
-"51
-[e $ != -> . . _SSPCON2bits 0 2 `i -> -> -> 0 `i `Vuc `i 286  ]
-[e :U 287 ]
-[; ;i2c.c: 53: }
-"53
+[; ;channels.c: 30: }
+[; ;channels.c: 31: }
+"31
 [e :UE 284 ]
 }
-"61
-[v _i2cRestart `(v ~T0 @X0 1 ef ]
+"34
+[v _sendChangedChannels `(v ~T0 @X0 1 ef ]
 {
-[; ;i2c.c: 61: void i2cRestart() {
-[e :U _i2cRestart ]
+[; ;channels.c: 34: void sendChangedChannels(void) {
+[e :U _sendChangedChannels ]
 [f ]
-[; ;i2c.c: 63: SSPCON2bits.RSEN = 1;
-"63
-[e = . . _SSPCON2bits 0 1 -> -> 1 `i `uc ]
-[; ;i2c.c: 64: while(SSPCON2bits.RSEN)
-"64
-[e $U 289  ]
-[e :U 290 ]
-[; ;i2c.c: 65: ;
-"65
-[e :U 289 ]
-"64
-[e $ != -> . . _SSPCON2bits 0 1 `i -> -> -> 0 `i `Vuc `i 290  ]
-[e :U 291 ]
-[; ;i2c.c: 66: }
-"66
-[e :UE 288 ]
+"36
+[v _i `uc ~T0 @X0 1 a ]
+"37
+[v _lookup `ui ~T0 @X0 1 a ]
+"38
+[v _device `uc ~T0 @X0 1 a ]
+"39
+[v _channel `uc ~T0 @X0 1 a ]
+[; ;channels.c: 36: unsigned char i;
+[; ;channels.c: 37: unsigned int lookup;
+[; ;channels.c: 38: unsigned char device ;
+[; ;channels.c: 39: unsigned char channel;
+[; ;channels.c: 41: for (i = 0; i < 32U; i++ ) {
+"41
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `ui -> 32 `ui 287  ]
+[e $U 288  ]
+[e :U 287 ]
+{
+[; ;channels.c: 43: if ( channels[i].bChanged == 1) {
+"43
+[e $ ! == -> . *U + &U _channels * -> _i `ux -> -> # *U &U _channels `ui `ux 0 `i -> 1 `i 290  ]
+{
+[; ;channels.c: 44: channels[i].bChanged = 0;
+"44
+[e = . *U + &U _channels * -> _i `ux -> -> # *U &U _channels `ui `ux 0 -> -> 0 `i `uc ]
+[; ;channels.c: 46: if ( i > 15) {
+"46
+[e $ ! > -> _i `i -> 15 `i 291  ]
+{
+[; ;channels.c: 47: device = 1;
+"47
+[e = _device -> -> 1 `i `uc ]
+[; ;channels.c: 48: channel = i - 16U;
+"48
+[e = _channel -> - -> _i `ui -> 16 `ui `uc ]
+"49
 }
-"74
-[v _i2cAck `(v ~T0 @X0 1 ef ]
+[; ;channels.c: 49: }
+[e $U 292  ]
+"50
+[e :U 291 ]
+[; ;channels.c: 50: else {
 {
-[; ;i2c.c: 74: void i2cAck() {
-[e :U _i2cAck ]
+[; ;channels.c: 51: device = 0;
+"51
+[e = _device -> -> 0 `i `uc ]
+[; ;channels.c: 52: channel = i;
+"52
+[e = _channel _i ]
+"53
+}
+[e :U 292 ]
+[; ;channels.c: 53: }
+[; ;channels.c: 55: pcaSetChannelLog(device, channel, channels[i].level);
+"55
+[e ( _pcaSetChannelLog (3 , , _device _channel . *U + &U _channels * -> _i `ux -> -> # *U &U _channels `ui `ux 1 ]
+"56
+}
+[e :U 290 ]
+"57
+}
+"41
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `ui -> 32 `ui 287  ]
+[e :U 288 ]
+"57
+}
+[; ;channels.c: 56: }
+[; ;channels.c: 57: }
+[; ;channels.c: 58: }
+"58
+[e :UE 286 ]
+}
+"65
+[v _bAllChannelsOff `uc ~T0 @X0 1 s ]
+[i _bAllChannelsOff
+-> -> 1 `i `uc
+]
+[; ;channels.c: 65: static unsigned char bAllChannelsOff = 1;
+"67
+[v _testChannelLevels `(v ~T0 @X0 1 ef ]
+{
+[; ;channels.c: 67: void testChannelLevels(void) {
+[e :U _testChannelLevels ]
 [f ]
-"76
-[v _timeout `uc ~T0 @X0 1 a ]
-[; ;i2c.c: 76: unsigned char timeout = 0xFFU;
-[e = _timeout -> -> 255 `ui `uc ]
-[; ;i2c.c: 78: SSPCON2bits.ACKDT = 0;
-"78
-[e = . . _SSPCON2bits 0 5 -> -> 0 `i `uc ]
-[; ;i2c.c: 79: SSPCON2bits.ACKEN = 1;
-"79
-[e = . . _SSPCON2bits 0 4 -> -> 1 `i `uc ]
-[; ;i2c.c: 80: while(SSPCON2bits.ACKEN) {
-"80
-[e $U 293  ]
+"69
+[v _aChannelIsOn `uc ~T0 @X0 1 a ]
+[; ;channels.c: 69: unsigned char aChannelIsOn = 0;
+[e = _aChannelIsOn -> -> 0 `i `uc ]
+"70
+[v _i `uc ~T0 @X0 1 a ]
+[; ;channels.c: 70: unsigned char i;
+[; ;channels.c: 72: for (i = 0; i < 32U; i++ ) {
+"72
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `ui -> 32 `ui 294  ]
+[e $U 295  ]
 [e :U 294 ]
 {
-[; ;i2c.c: 81: if ( timeout-- == 0) {
-"81
-[e $ ! == -> -- _timeout -> -> 1 `i `uc `i -> 0 `i 296  ]
+[; ;channels.c: 74: if ( channels[i].level > 0) {
+"74
+[e $ ! > -> . *U + &U _channels * -> _i `ux -> -> # *U &U _channels `ui `ux 1 `i -> 0 `i 297  ]
 {
-[; ;i2c.c: 82: bI2CTimeout = 1;
-"82
-[e = _bI2CTimeout -> -> 1 `i `uc ]
-[; ;i2c.c: 83: return;
-"83
-[e $UE 292  ]
-"84
+[; ;channels.c: 75: aChannelIsOn = 1;
+"75
+[e = _aChannelIsOn -> -> 1 `i `uc ]
+[; ;channels.c: 76: break;
+"76
+[e $U 295  ]
+"77
 }
-[e :U 296 ]
-"85
+[e :U 297 ]
+"78
 }
-[e :U 293 ]
-"80
-[e $ != -> . . _SSPCON2bits 0 4 `i -> -> -> 0 `i `Vuc `i 294  ]
+"72
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `ui -> 32 `ui 294  ]
 [e :U 295 ]
-[; ;i2c.c: 84: }
-[; ;i2c.c: 85: }
-[; ;i2c.c: 86: }
-"86
-[e :UE 292 ]
+"78
 }
-"94
-[v _i2cNak `(v ~T0 @X0 1 ef ]
+[; ;channels.c: 77: }
+[; ;channels.c: 78: }
+[; ;channels.c: 80: if ( bAllChannelsOff == 1 ) {
+"80
+[e $ ! == -> _bAllChannelsOff `i -> 1 `i 298  ]
 {
-[; ;i2c.c: 94: void i2cNak() {
-[e :U _i2cNak ]
-[f ]
-"96
-[v _timeout `uc ~T0 @X0 1 a ]
-[; ;i2c.c: 96: unsigned char timeout = 0xFFU;
-[e = _timeout -> -> 255 `ui `uc ]
-[; ;i2c.c: 98: SSPCON2bits.ACKDT = 1;
-"98
-[e = . . _SSPCON2bits 0 5 -> -> 1 `i `uc ]
-[; ;i2c.c: 99: SSPCON2bits.ACKEN = 1;
-"99
-[e = . . _SSPCON2bits 0 4 -> -> 1 `i `uc ]
-[; ;i2c.c: 101: while(SSPCON2bits.ACKEN) {
-"101
-[e $U 298  ]
+[; ;channels.c: 82: if (aChannelIsOn == 1) {
+"82
+[e $ ! == -> _aChannelIsOn `i -> 1 `i 299  ]
+{
+[; ;channels.c: 83: pcaWakeUp(0);
+"83
+[e ( _pcaWakeUp (1 -> -> 0 `i `uc ]
+[; ;channels.c: 84: pcaWakeUp(1);
+"84
+[e ( _pcaWakeUp (1 -> -> 1 `i `uc ]
+[; ;channels.c: 85: bAllChannelsOff = 0;
+"85
+[e = _bAllChannelsOff -> -> 0 `i `uc ]
+"86
+}
 [e :U 299 ]
+"87
+}
+[; ;channels.c: 86: }
+[; ;channels.c: 87: }
+[e $U 300  ]
+"88
+[e :U 298 ]
+[; ;channels.c: 88: else {
 {
-[; ;i2c.c: 102: if ( timeout-- == 0) {
-"102
-[e $ ! == -> -- _timeout -> -> 1 `i `uc `i -> 0 `i 301  ]
+[; ;channels.c: 89: if (aChannelIsOn == 0) {
+"89
+[e $ ! == -> _aChannelIsOn `i -> 0 `i 301  ]
 {
-[; ;i2c.c: 103: bI2CTimeout = 1;
-"103
-[e = _bI2CTimeout -> -> 1 `i `uc ]
-[; ;i2c.c: 104: return;
-"104
-[e $UE 297  ]
-"105
+[; ;channels.c: 90: pcaSleep(0);
+"90
+[e ( _pcaSleep (1 -> -> 0 `i `uc ]
+[; ;channels.c: 91: pcaSleep(1);
+"91
+[e ( _pcaSleep (1 -> -> 1 `i `uc ]
+[; ;channels.c: 92: bAllChannelsOff = 1;
+"92
+[e = _bAllChannelsOff -> -> 1 `i `uc ]
+"93
 }
 [e :U 301 ]
-"106
+"94
 }
-[e :U 298 ]
-"101
-[e $ != -> . . _SSPCON2bits 0 4 `i -> -> -> 0 `i `Vuc `i 299  ]
 [e :U 300 ]
-[; ;i2c.c: 105: }
-[; ;i2c.c: 106: }
-[; ;i2c.c: 107: }
-"107
-[e :UE 297 ]
-}
-"115
-[v _i2cWait `(v ~T0 @X0 1 ef ]
-{
-[; ;i2c.c: 115: void i2cWait() {
-[e :U _i2cWait ]
-[f ]
-[; ;i2c.c: 117: while ((SSPCON2 == 0x1F ) || ( SSPSTAT == 0x04 ) )
-"117
-[e $U 303  ]
-[e :U 304 ]
-[; ;i2c.c: 118: ;
-"118
-[e :U 303 ]
-"117
-[e $ || == -> _SSPCON2 `i -> 31 `i == -> _SSPSTAT `i -> 4 `i 304  ]
-[e :U 305 ]
-[; ;i2c.c: 119: }
-"119
-[e :UE 302 ]
-}
-"128
-[v _i2cSend `(v ~T0 @X0 1 ef1`uc ]
-{
-[; ;i2c.c: 128: void i2cSend(unsigned char dat) {
-[e :U _i2cSend ]
-[v _dat `uc ~T0 @X0 1 r1 ]
-[f ]
-[; ;i2c.c: 130: SSPBUF = dat;
-"130
-[e = _SSPBUF _dat ]
-[; ;i2c.c: 131: while(BF)
-"131
-[e $U 307  ]
-[e :U 308 ]
-[; ;i2c.c: 132: ;
-"132
-[e :U 307 ]
-"131
-[e $ _BF 308  ]
-[e :U 309 ]
-[; ;i2c.c: 133: i2cWait();
-"133
-[e ( _i2cWait ..  ]
-[; ;i2c.c: 134: }
-"134
-[e :UE 306 ]
-}
-"142
-[v _i2cRead `(uc ~T0 @X0 1 ef ]
-{
-[; ;i2c.c: 142: unsigned char i2cRead(void) {
-[e :U _i2cRead ]
-[f ]
-"144
-[v _timeout `uc ~T0 @X0 1 a ]
-[; ;i2c.c: 144: unsigned char timeout = 0xFFU;
-[e = _timeout -> -> 255 `ui `uc ]
-[; ;i2c.c: 147: SSPCON2bits.RCEN = 1;
-"147
-[e = . . _SSPCON2bits 0 3 -> -> 1 `i `uc ]
-[; ;i2c.c: 148: while(!SSPSTATbits.BF) {
-"148
-[e $U 311  ]
-[e :U 312 ]
-{
-[; ;i2c.c: 150: if ( timeout-- == 0) {
-"150
-[e $ ! == -> -- _timeout -> -> 1 `i `uc `i -> 0 `i 314  ]
-{
-[; ;i2c.c: 151: bI2CTimeout = 1;
-"151
-[e = _bI2CTimeout -> -> 1 `i `uc ]
-[; ;i2c.c: 152: return 0;
-"152
-[e ) -> -> 0 `i `uc ]
-[e $UE 310  ]
-"153
-}
-[e :U 314 ]
-"154
-}
-[e :U 311 ]
-"148
-[e $ ! != -> . . _SSPSTATbits 2 0 `i -> -> -> 0 `i `Vuc `i 312  ]
-[e :U 313 ]
-"156
-[v _temp `uc ~T0 @X0 1 a ]
-[; ;i2c.c: 153: }
-[; ;i2c.c: 154: }
-[; ;i2c.c: 156: unsigned char temp = SSPBUF;
-[e = _temp _SSPBUF ]
-[; ;i2c.c: 157: i2cWait();
-"157
-[e ( _i2cWait ..  ]
-[; ;i2c.c: 158: return temp;
-"158
-[e ) _temp ]
-[e $UE 310  ]
-[; ;i2c.c: 159: }
-"159
-[e :UE 310 ]
+[; ;channels.c: 93: }
+[; ;channels.c: 94: }
+[; ;channels.c: 95: }
+"95
+[e :UE 293 ]
 }
