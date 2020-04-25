@@ -14,7 +14,7 @@ extern void pcaSetSpeed(unsigned char which, unsigned int hertz );
 
 extern void pcaSweepTest(void);
 
-# 5 "i2c.h"
+# 4 "i2c.h"
 extern void i2cInit(void);
 extern void i2cStart(void);
 extern void i2cStop(void);
@@ -28,9 +28,7 @@ extern unsigned char i2cRead(void);
 # 11 "lookuptable.h"
 extern unsigned int getLookup(unsigned char value);
 
-# 5 "pca9685.c"
-static unsigned char debugState[128];
-
+# 10 "pca9685.c"
 unsigned char pcaGetAddress(unsigned char which) {
 
 return (unsigned char)((unsigned char)0x80 + ( which == 0 ? 0 : 2));
@@ -38,12 +36,7 @@ return (unsigned char)((unsigned char)0x80 + ( which == 0 ? 0 : 2));
 
 void pcaInit(unsigned char which) {
 
-unsigned char i;
-for (i = 0; i < 128; i++) {
-debugState[i] = 0;
-}
-
-# 23
+# 27
 pcaWakeUp(which);
 
 }
@@ -99,10 +92,9 @@ i2cSend(pcaGetAddress(which));
 i2cSend(0xFE);
 i2cSend((unsigned char) data);
 i2cStop();
-
 }
 
-# 85
+# 88
 void pcaSweepTest(void) {
 
 unsigned char i, j;

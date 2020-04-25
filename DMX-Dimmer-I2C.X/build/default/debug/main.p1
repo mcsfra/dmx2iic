@@ -4,13 +4,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _initHardware `(v ~T0 @X0 0 ef ]
 "19 channels.h
 [v _initChannels `(v ~T0 @X0 0 ef ]
-"15 dmx.h
-[v _initDebugBuffer `(v ~T0 @X0 0 ef ]
 "5 i2c.h
 [v _i2cInit `(v ~T0 @X0 0 ef ]
 "39 pca9685.h
 [v _pcaInit `(v ~T0 @X0 0 ef1`uc ]
-"18 dmx.h
+"16 dmx.h
 [v _initDMX `(v ~T0 @X0 0 ef ]
 "5281 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f14k22.h
 [s S241 :1 `uc 1 ]
@@ -57,14 +55,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _INTCONbits `VS271 ~T0 @X0 0 e@4082 ]
 "45 pca9685.h
 [v _pcaWakeUp `(v ~T0 @X0 0 ef1`uc ]
-"7004 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f14k22.h
-[v _OERR `Vb ~T0 @X0 0 e@32089 ]
-"7234
+"21 channels.h
+[v _sendChangedChannels `(v ~T0 @X0 0 ef ]
+"22 dmx.h
+[v _decrementDataWatchdog `(v ~T0 @X0 0 ef ]
+"28
+[v _decrementFramingWatchdog `(v ~T0 @X0 0 ef ]
+"25
+[v _decrementSignalWatchdog `(uc ~T0 @X0 0 ef ]
+"7234 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f14k22.h
 [v _SPEN `Vb ~T0 @X0 0 e@32095 ]
 "7156
 [v _RCIE `Vb ~T0 @X0 0 e@31981 ]
-"22 channels.h
-[v _sendChangedChannels `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2744,11 +2746,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
 [; ;hardware.h: 11: extern void initHardware(void);
-[; ;dmx.h: 15: extern void initDebugBuffer();
-[; ;dmx.h: 18: extern void initDMX(void);
-[; ;dmx.h: 19: extern void handleDMX(void);
-[; ;dmx.h: 20: extern void setDMXNotSynced(void);
-[; ;dmx.h: 21: extern unsigned char getDMXBaseAddress(void);
+[; ;dmx.h: 16: extern void initDMX(void);
+[; ;dmx.h: 17: extern void handleDMX(void);
+[; ;dmx.h: 19: extern unsigned char getDMXBaseAddress(void);
+[; ;dmx.h: 21: void resetDataWatchdog(void);
+[; ;dmx.h: 22: extern void decrementDataWatchdog(void);
+[; ;dmx.h: 24: void resetSignalWatchdog(void);
+[; ;dmx.h: 25: extern unsigned char decrementSignalWatchdog(void);
+[; ;dmx.h: 27: void resetFramingWatchdog() ;
+[; ;dmx.h: 28: extern void decrementFramingWatchdog(void);
 [; ;i2c.h: 5: extern void i2cInit(void);
 [; ;i2c.h: 6: extern void i2cStart(void);
 [; ;i2c.h: 7: extern void i2cStop(void);
@@ -2773,9 +2779,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;channels.h: 16: } CHANNELINFO;
 [; ;channels.h: 19: extern void initChannels(void);
 [; ;channels.h: 20: extern void setChannelLevel(unsigned char channel, unsigned char value);
-[; ;channels.h: 21: extern unsigned char getChannelValue(unsigned char channel);
-[; ;channels.h: 22: extern void sendChangedChannels(void);
-[; ;channels.h: 23: extern void testChannelLevels(void);
+[; ;channels.h: 21: extern void sendChangedChannels(void);
+[; ;channels.h: 22: extern void testChannelLevels(void);
 "10 main.c
 [v _errorCounter `uc ~T0 @X0 1 e ]
 [i _errorCounter
@@ -2785,85 +2790,93 @@ Version 3.2 HI-TECH Software Intermediate Code
 "12
 [v _baseAddress `uc ~T0 @X0 1 e ]
 [; ;main.c: 12: unsigned char baseAddress;
-[; ;main.c: 14: void generateValues(void);
+"42
+[v _loopcounter `ul ~T0 @X0 1 e ]
+[i _loopcounter
+-> -> -> 0 `i `l `ul
+]
+[; ;main.c: 42: unsigned long loopcounter = 0;
 [v $root$_main `(v ~T0 @X0 0 e ]
-"16
+"44
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 16: void main(void) {
+[; ;main.c: 44: void main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 18: initHardware();
-"18
+[; ;main.c: 46: initHardware();
+"46
 [e ( _initHardware ..  ]
-[; ;main.c: 19: initChannels();
-"19
+[; ;main.c: 47: initChannels();
+"47
 [e ( _initChannels ..  ]
-[; ;main.c: 21: initDebugBuffer();
-"21
-[e ( _initDebugBuffer ..  ]
-[; ;main.c: 23: i2cInit();
-"23
+[; ;main.c: 50: i2cInit();
+"50
 [e ( _i2cInit ..  ]
-[; ;main.c: 25: pcaInit(0);
-"25
+[; ;main.c: 52: pcaInit(0);
+"52
 [e ( _pcaInit (1 -> -> 0 `i `uc ]
-[; ;main.c: 26: pcaInit(1);
-"26
+[; ;main.c: 53: pcaInit(1);
+"53
 [e ( _pcaInit (1 -> -> 1 `i `uc ]
-[; ;main.c: 28: initDMX();
-"28
+[; ;main.c: 55: initDMX();
+"55
 [e ( _initDMX ..  ]
-[; ;main.c: 30: RCONbits.IPEN = 1;
-"30
+[; ;main.c: 57: RCONbits.IPEN = 1;
+"57
 [e = . . _RCONbits 5 7 -> -> 1 `i `uc ]
-[; ;main.c: 37: INTCONbits.GIEH = 1;
-"37
+[; ;main.c: 64: INTCONbits.GIEH = 1;
+"64
 [e = . . _INTCONbits 2 2 -> -> 1 `i `uc ]
-[; ;main.c: 38: INTCONbits.GIEL = 1;
-"38
+[; ;main.c: 65: INTCONbits.GIEL = 1;
+"65
 [e = . . _INTCONbits 2 1 -> -> 1 `i `uc ]
-[; ;main.c: 40: pcaWakeUp(0);
-"40
+[; ;main.c: 67: pcaWakeUp(0);
+"67
 [e ( _pcaWakeUp (1 -> -> 0 `i `uc ]
-[; ;main.c: 41: pcaWakeUp(1);
-"41
+[; ;main.c: 68: pcaWakeUp(1);
+"68
 [e ( _pcaWakeUp (1 -> -> 1 `i `uc ]
-[; ;main.c: 43: for (;;) {
-"43
+[; ;main.c: 72: for (;;) {
+"72
 {
 [e :U 281 ]
 {
-[; ;main.c: 49: if (OERR == 1) {
-"49
-[e $ ! == -> _OERR `i -> 1 `i 284  ]
+[; ;main.c: 74: loopcounter++;
+"74
+[e ++ _loopcounter -> -> -> 1 `i `l `ul ]
+[; ;main.c: 76: sendChangedChannels();
+"76
+[e ( _sendChangedChannels ..  ]
+[; ;main.c: 78: decrementDataWatchdog();
+"78
+[e ( _decrementDataWatchdog ..  ]
+[; ;main.c: 79: decrementFramingWatchdog();
+"79
+[e ( _decrementFramingWatchdog ..  ]
+[; ;main.c: 81: if ( decrementSignalWatchdog() == 1 ) {
+"81
+[e $ ! == -> ( _decrementSignalWatchdog ..  `i -> 1 `i 284  ]
 {
-[; ;main.c: 50: errorCounter++;
-"50
-[e ++ _errorCounter -> -> 1 `i `uc ]
-[; ;main.c: 51: SPEN = 0;
-"51
+[; ;main.c: 82: SPEN = 0;
+"82
 [e = _SPEN -> -> 0 `i `b ]
-[; ;main.c: 52: RCIE = 0;
-"52
+[; ;main.c: 83: RCIE = 0;
+"83
 [e = _RCIE -> -> 0 `i `b ]
-[; ;main.c: 53: initDMX();
-"53
+[; ;main.c: 84: initDMX();
+"84
 [e ( _initDMX ..  ]
-"54
+"85
 }
 [e :U 284 ]
-[; ;main.c: 54: }
-[; ;main.c: 56: sendChangedChannels();
-"56
-[e ( _sendChangedChannels ..  ]
-"59
+"88
 }
-[; ;main.c: 59: }
+[; ;main.c: 85: }
+[; ;main.c: 88: }
 [e $U 281  ]
 [e :U 282 ]
 }
-[; ;main.c: 62: }
-"62
+[; ;main.c: 91: }
+"91
 [e :UE 280 ]
 }

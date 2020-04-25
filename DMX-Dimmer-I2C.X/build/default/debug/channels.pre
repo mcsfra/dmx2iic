@@ -3707,7 +3707,6 @@ unsigned char level;
 
 extern void initChannels(void);
 extern void setChannelLevel(unsigned char channel, unsigned char value);
-extern unsigned char getChannelValue(unsigned char channel);
 extern void sendChangedChannels(void);
 extern void testChannelLevels(void);
 
@@ -3727,9 +3726,10 @@ extern void pcaSweepTest(void);
 # 11 "lookuptable.h"
 extern unsigned int getLookup(unsigned char value);
 
-# 13 "channels.c"
-CHANNELINFO channels[32U];
+# 12 "channels.c"
+volatile CHANNELINFO channels[32U];
 
+# 17
 void initChannels() {
 
 unsigned char i;
@@ -3740,7 +3740,12 @@ channels[i].level = 0;
 }
 }
 
+# 32
 void setChannelLevel(unsigned char channel, unsigned char level) {
+
+if ( channel >= 32U ) {
+return;
+}
 
 if ( channels[channel].level != level) {
 channels[channel].level = level;
@@ -3748,11 +3753,10 @@ channels[channel].bChanged = 1;
 }
 }
 
-
+# 48
 void sendChangedChannels(void) {
 
 unsigned char i;
-unsigned int lookup;
 unsigned char device ;
 unsigned char channel;
 
@@ -3775,7 +3779,7 @@ pcaSetChannelLog(device, channel, channels[i].level);
 }
 }
 
-# 65
+# 85
 static unsigned char bAllChannelsOff = 1;
 
 void testChannelLevels(void) {

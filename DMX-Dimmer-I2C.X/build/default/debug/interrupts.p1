@@ -10,7 +10,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S99 . . . ]
 "2464
 [v _PIR1bits `VS99 ~T0 @X0 0 e@3998 ]
-"19 dmx.h
+"17 dmx.h
 [v _handleDMX `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -2690,15 +2690,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
-[; ;dmx.h: 15: extern void initDebugBuffer();
-[; ;dmx.h: 18: extern void initDMX(void);
-[; ;dmx.h: 19: extern void handleDMX(void);
-[; ;dmx.h: 20: extern void setDMXNotSynced(void);
-[; ;dmx.h: 21: extern unsigned char getDMXBaseAddress(void);
+[; ;dmx.h: 16: extern void initDMX(void);
+[; ;dmx.h: 17: extern void handleDMX(void);
+[; ;dmx.h: 19: extern unsigned char getDMXBaseAddress(void);
+[; ;dmx.h: 21: void resetDataWatchdog(void);
+[; ;dmx.h: 22: extern void decrementDataWatchdog(void);
+[; ;dmx.h: 24: void resetSignalWatchdog(void);
+[; ;dmx.h: 25: extern unsigned char decrementSignalWatchdog(void);
+[; ;dmx.h: 27: void resetFramingWatchdog() ;
+[; ;dmx.h: 28: extern void decrementFramingWatchdog(void);
 [v $root$_low_isr `(v ~T0 @X0 0 e ]
-[v F2862 `(v ~T0 @X0 1 tf ]
+[v F2870 `(v ~T0 @X0 1 tf ]
 "20 interrupts.c
-[v _low_isr `ILF2862 ~T0 @X0 1 e ]
+[v _low_isr `ILF2870 ~T0 @X0 1 e ]
 {
 [; ;interrupts.c: 20: void low_priority interrupt low_isr(void) {
 [e :U _low_isr ]

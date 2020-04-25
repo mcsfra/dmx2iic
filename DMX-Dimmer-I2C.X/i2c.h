@@ -1,7 +1,6 @@
 #ifndef I2C_H
 #define I2C_H
 
-
 extern void i2cInit(void);
 extern void i2cStart(void);
 extern void i2cStop(void);

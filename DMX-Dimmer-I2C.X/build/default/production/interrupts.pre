@@ -3696,19 +3696,25 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 15 "dmx.h"
-extern void initDebugBuffer();
-
-
+# 16 "dmx.h"
 extern void initDMX(void);
 extern void handleDMX(void);
-extern void setDMXNotSynced(void);
+
 extern unsigned char getDMXBaseAddress(void);
 
-# 20 "interrupts.c"
+void resetDataWatchdog(void);
+extern void decrementDataWatchdog(void);
+
+void resetSignalWatchdog(void);
+extern unsigned char decrementSignalWatchdog(void);
+
+void resetFramingWatchdog() ;
+extern void decrementFramingWatchdog(void);
+
+# 19 "interrupts.c"
 void low_priority interrupt low_isr(void) {
 
-# 25
+# 24
 if (PIR1bits.RCIF == 1) {
 handleDMX();
 PIR1bits.RCIF = 0;

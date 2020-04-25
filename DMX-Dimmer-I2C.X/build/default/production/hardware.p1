@@ -2757,9 +2757,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;hardware.c: 30: PORTA = 0x00;
 "30
 [e = _PORTA -> -> 0 `i `uc ]
-[; ;hardware.c: 31: TRISA = 0b00000111;
+[; ;hardware.c: 31: TRISA = 0b00000011;
 "31
-[e = _TRISA -> -> 7 `i `uc ]
+[e = _TRISA -> -> 3 `i `uc ]
 [; ;hardware.c: 33: PORTB = 0x00;
 "33
 [e = _PORTB -> -> 0 `i `uc ]
@@ -2778,7 +2778,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;hardware.c: 39: TRISC = 0b11111000;
 "39
 [e = _TRISC -> -> 248 `i `uc ]
-[; ;hardware.c: 47: }
-"47
+[; ;hardware.c: 46: }
+"46
 [e :UE 279 ]
 }

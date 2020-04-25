@@ -67,12 +67,31 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _IPR1bits `VS102 ~T0 @X0 0 e@3999 ]
 "1301
 [v _PORTC `Vuc ~T0 @X0 0 e@3970 ]
+"7004
+[v _OERR `Vb ~T0 @X0 0 e@32089 ]
 "6758
 [v _FERR `Vb ~T0 @X0 0 e@32090 ]
 "3388
 [v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
+"24 dmx.h
+[v _resetSignalWatchdog `(v ~T0 @X0 0 ef ]
+"27
+[v _resetFramingWatchdog `(v ~T0 @X0 0 ef ]
+"21
+[v _resetDataWatchdog `(v ~T0 @X0 0 ef ]
 "20 channels.h
 [v _setChannelLevel `(v ~T0 @X0 0 ef2`uc`uc ]
+"1690 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f14k22.h
+[s S73 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S73 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
+"1700
+[s S74 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S74 . LC0 LC1 LC2 LC3 LC4 LC5 LC6 LC7 ]
+"1689
+[u S72 `S73 1 `S74 1 ]
+[n S72 . . . ]
+"1711
+[v _LATCbits `VS72 ~T0 @X0 0 e@3979 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2751,213 +2770,366 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
-[; ;dmx.h: 15: extern void initDebugBuffer();
-[; ;dmx.h: 18: extern void initDMX(void);
-[; ;dmx.h: 19: extern void handleDMX(void);
-[; ;dmx.h: 20: extern void setDMXNotSynced(void);
-[; ;dmx.h: 21: extern unsigned char getDMXBaseAddress(void);
+[; ;dmx.h: 16: extern void initDMX(void);
+[; ;dmx.h: 17: extern void handleDMX(void);
+[; ;dmx.h: 19: extern unsigned char getDMXBaseAddress(void);
+[; ;dmx.h: 21: void resetDataWatchdog(void);
+[; ;dmx.h: 22: extern void decrementDataWatchdog(void);
+[; ;dmx.h: 24: void resetSignalWatchdog(void);
+[; ;dmx.h: 25: extern unsigned char decrementSignalWatchdog(void);
+[; ;dmx.h: 27: void resetFramingWatchdog() ;
+[; ;dmx.h: 28: extern void decrementFramingWatchdog(void);
 [; ;channels.h: 11: typedef struct channelinfo {
 [; ;channels.h: 13: unsigned char bChanged;
 [; ;channels.h: 14: unsigned char level;
 [; ;channels.h: 16: } CHANNELINFO;
 [; ;channels.h: 19: extern void initChannels(void);
 [; ;channels.h: 20: extern void setChannelLevel(unsigned char channel, unsigned char value);
-[; ;channels.h: 21: extern unsigned char getChannelValue(unsigned char channel);
-[; ;channels.h: 22: extern void sendChangedChannels(void);
-[; ;channels.h: 23: extern void testChannelLevels(void);
-"19 dmx.c
-[v _dmxDebugBuffer `uc ~T0 @X0 -> 128 `i e ]
-[; ;dmx.c: 19: unsigned char dmxDebugBuffer[128];
-"22
+[; ;channels.h: 21: extern void sendChangedChannels(void);
+[; ;channels.h: 22: extern void testChannelLevels(void);
+"26 dmx.c
 [v _dmxState `uc ~T0 @X0 1 e ]
-[; ;dmx.c: 22: unsigned char dmxState;
-"23
-[v _currentAdress `ui ~T0 @X0 1 e ]
-[; ;dmx.c: 23: unsigned int currentAdress;
-"25
-[v _initDebugBuffer `(v ~T0 @X0 1 ef ]
-{
-[; ;dmx.c: 25: void initDebugBuffer() {
-[e :U _initDebugBuffer ]
-[f ]
-"26
-[v _i `uc ~T0 @X0 1 a ]
-[; ;dmx.c: 26: unsigned char i;
-[; ;dmx.c: 28: for (i = 0; i < 128;i++) {
-"28
-{
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 128 `i 281  ]
-[e $U 282  ]
-[e :U 281 ]
-{
-[; ;dmx.c: 29: dmxDebugBuffer[i] = 0;
-"29
-[e = *U + &U _dmxDebugBuffer * -> _i `ux -> -> # *U &U _dmxDebugBuffer `ui `ux -> -> 0 `i `uc ]
-"30
-}
-"28
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 128 `i 281  ]
-[e :U 282 ]
-"30
-}
-[; ;dmx.c: 30: }
-[; ;dmx.c: 32: }
+[; ;dmx.c: 26: unsigned char dmxState;
+"27
+[v _currentAdress `uc ~T0 @X0 1 e ]
+[; ;dmx.c: 27: unsigned char currentAdress;
 "32
-[e :UE 280 ]
-}
-"35
 [v _initDMX `(v ~T0 @X0 1 ef ]
 {
-[; ;dmx.c: 35: void initDMX(void) {
+[; ;dmx.c: 32: void initDMX(void) {
 [e :U _initDMX ]
 [f ]
-[; ;dmx.c: 37: BAUDCONbits.BRG16 = 1;
-"37
+[; ;dmx.c: 34: BAUDCONbits.BRG16 = 1;
+"34
 [e = . . _BAUDCONbits 0 3 -> -> 1 `i `uc ]
-[; ;dmx.c: 38: BAUDCONbits.CKTXP = 1;
-"38
+[; ;dmx.c: 35: BAUDCONbits.CKTXP = 1;
+"35
 [e = . . _BAUDCONbits 0 4 -> -> 1 `i `uc ]
-[; ;dmx.c: 39: SPBRG1 = 1;
-"39
+[; ;dmx.c: 36: SPBRG1 = 1;
+"36
 [e = _SPBRG1 -> -> 1 `i `uc ]
-[; ;dmx.c: 40: SPBRGH = 0;
-"40
+[; ;dmx.c: 37: SPBRGH = 0;
+"37
 [e = _SPBRGH -> -> 0 `i `uc ]
-[; ;dmx.c: 42: RCSTA1bits.CREN = 1;
-"42
+[; ;dmx.c: 39: RCSTA1bits.CREN = 1;
+"39
 [e = . . _RCSTA1bits 0 4 -> -> 1 `i `uc ]
-[; ;dmx.c: 43: RCSTA1bits.SPEN = 1;
-"43
+[; ;dmx.c: 40: RCSTA1bits.SPEN = 1;
+"40
 [e = . . _RCSTA1bits 0 7 -> -> 1 `i `uc ]
-[; ;dmx.c: 45: PIE1bits.RCIE = 1;
-"45
+[; ;dmx.c: 42: PIE1bits.RCIE = 1;
+"42
 [e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
-[; ;dmx.c: 46: IPR1bits.RCIP = 0;
-"46
+[; ;dmx.c: 43: IPR1bits.RCIP = 0;
+"43
 [e = . . _IPR1bits 0 5 -> -> 0 `i `uc ]
-[; ;dmx.c: 48: currentAdress = 0;
-"48
-[e = _currentAdress -> -> 0 `i `ui ]
-[; ;dmx.c: 49: dmxState = 0x00;
-"49
+[; ;dmx.c: 45: currentAdress = 0;
+"45
+[e = _currentAdress -> -> 0 `i `uc ]
+[; ;dmx.c: 46: dmxState = 0x00;
+"46
 [e = _dmxState -> -> 0 `i `uc ]
-[; ;dmx.c: 51: }
-"51
-[e :UE 284 ]
+[; ;dmx.c: 47: }
+"47
+[e :UE 280 ]
 }
-"61
+"55
 [v _getDMXBaseAddress `(uc ~T0 @X0 1 ef ]
 {
-[; ;dmx.c: 61: unsigned char getDMXBaseAddress(void) {
+[; ;dmx.c: 55: unsigned char getDMXBaseAddress(void) {
 [e :U _getDMXBaseAddress ]
 [f ]
-[; ;dmx.c: 63: return (unsigned char)(PORTC >> 1U) & 0b01111100U;
-"63
+[; ;dmx.c: 57: return (unsigned char)(PORTC >> 1U) & 0b01111100U;
+"57
 [e ) -> & -> -> >> -> _PORTC `i -> 1 `ui `uc `ui -> 124 `ui `uc ]
-[e $UE 285  ]
-[; ;dmx.c: 64: }
-"64
-[e :UE 285 ]
+[e $UE 281  ]
+[; ;dmx.c: 58: }
+"58
+[e :UE 281 ]
 }
-"68
-[v _errflag `uc ~T0 @X0 1 e ]
-[; ;dmx.c: 68: unsigned char errflag;
-"69
-[v _received `uc ~T0 @X0 1 e ]
-[; ;dmx.c: 69: unsigned char received;
-"71
-[v _dummy `uc ~T0 @X0 1 e ]
-[; ;dmx.c: 71: unsigned char dummy;
-"73
+"61
 [v _handleDMX `(v ~T0 @X0 1 ef ]
 {
-[; ;dmx.c: 73: void handleDMX() {
+[; ;dmx.c: 61: void handleDMX() {
 [e :U _handleDMX ]
 [f ]
-"75
+"63
 [v _baseAddress `uc ~T0 @X0 1 a ]
-[; ;dmx.c: 75: unsigned char baseAddress = getDMXBaseAddress();
+[; ;dmx.c: 63: unsigned char baseAddress = getDMXBaseAddress();
 [e = _baseAddress ( _getDMXBaseAddress ..  ]
-[; ;dmx.c: 80: errflag = (unsigned char)FERR;
-"80
-[e = _errflag -> -> _FERR `i `uc ]
-[; ;dmx.c: 85: received = RCREG;
-"85
+"64
+[v _eOverflow `uc ~T0 @X0 1 a ]
+[; ;dmx.c: 64: unsigned char eOverflow = (unsigned char)OERR;
+[e = _eOverflow -> -> _OERR `i `uc ]
+"65
+[v _eFraming `uc ~T0 @X0 1 a ]
+[; ;dmx.c: 65: unsigned char eFraming = (unsigned char)FERR;
+[e = _eFraming -> -> _FERR `i `uc ]
+"66
+[v _received `uc ~T0 @X0 1 a ]
+[; ;dmx.c: 66: unsigned char received = RCREG;
 [e = _received _RCREG ]
-[; ;dmx.c: 87: if ( (errflag == 1) && ( dmxState == 0x00) ) {
-"87
-[e $ ! && == -> _errflag `i -> 1 `i == -> _dmxState `i -> 0 `i 287  ]
+[; ;dmx.c: 68: resetSignalWatchdog();
+"68
+[e ( _resetSignalWatchdog ..  ]
+[; ;dmx.c: 70: if ( eFraming == 1) {
+"70
+[e $ ! == -> _eFraming `i -> 1 `i 283  ]
 {
-[; ;dmx.c: 88: currentAdress = 0;
-"88
-[e = _currentAdress -> -> 0 `i `ui ]
-[; ;dmx.c: 89: dmxState = 0x01;
-"89
+[; ;dmx.c: 72: if ( dmxState == 0x00 ) {
+"72
+[e $ ! == -> _dmxState `i -> 0 `i 284  ]
+{
+[; ;dmx.c: 73: currentAdress = 0;
+"73
+[e = _currentAdress -> -> 0 `i `uc ]
+[; ;dmx.c: 74: dmxState = 0x01;
+"74
 [e = _dmxState -> -> 1 `i `uc ]
-[; ;dmx.c: 90: return;
-"90
-[e $UE 286  ]
-"91
+"75
 }
-[e :U 287 ]
-[; ;dmx.c: 91: }
-[; ;dmx.c: 93: if ( (dmxState == 0x01) && (received == 0x00) ) {
-"93
-[e $ ! && == -> _dmxState `i -> 1 `i == -> _received `i -> 0 `i 288  ]
+[; ;dmx.c: 75: }
+[e $U 285  ]
+"76
+[e :U 284 ]
+[; ;dmx.c: 76: else {
 {
-[; ;dmx.c: 95: dmxState = 0x02;
-"95
+[; ;dmx.c: 77: resetFramingWatchdog();
+"77
+[e ( _resetFramingWatchdog ..  ]
+"78
+}
+[e :U 285 ]
+[; ;dmx.c: 78: }
+[; ;dmx.c: 79: return;
+"79
+[e $UE 282  ]
+"80
+}
+[e :U 283 ]
+[; ;dmx.c: 80: }
+[; ;dmx.c: 82: if ( (dmxState == 0x01) && (received == 0x00) ) {
+"82
+[e $ ! && == -> _dmxState `i -> 1 `i == -> _received `i -> 0 `i 286  ]
+{
+[; ;dmx.c: 84: dmxState = 0x02;
+"84
 [e = _dmxState -> -> 2 `i `uc ]
-[; ;dmx.c: 96: return;
-"96
-[e $UE 286  ]
-"97
+[; ;dmx.c: 85: return;
+"85
+[e $UE 282  ]
+"86
 }
-[e :U 288 ]
-[; ;dmx.c: 97: }
-[; ;dmx.c: 99: if ( dmxState == 0x02) {
-"99
-[e $ ! == -> _dmxState `i -> 2 `i 289  ]
+[e :U 286 ]
+[; ;dmx.c: 86: }
+[; ;dmx.c: 88: if ( dmxState == 0x02) {
+"88
+[e $ ! == -> _dmxState `i -> 2 `i 287  ]
 {
-[; ;dmx.c: 101: if ( currentAdress < 128) {
-"101
-[e $ ! < _currentAdress -> -> 128 `i `ui 290  ]
+[; ;dmx.c: 90: if ( (currentAdress >= baseAddress) && (currentAdress < baseAddress + 32U)) {
+"90
+[e $ ! && >= -> _currentAdress `i -> _baseAddress `i < -> _currentAdress `ui + -> _baseAddress `ui -> 32 `ui 288  ]
 {
-[; ;dmx.c: 102: dmxDebugBuffer[currentAdress] = received;
-"102
-[e = *U + &U _dmxDebugBuffer * -> _currentAdress `ux -> -> # *U &U _dmxDebugBuffer `ui `ux _received ]
-"103
-}
-[e :U 290 ]
-[; ;dmx.c: 103: }
-[; ;dmx.c: 105: if ( (currentAdress >= baseAddress) && (currentAdress < baseAddress + 32U)) {
-"105
-[e $ ! && >= _currentAdress -> _baseAddress `ui < _currentAdress + -> _baseAddress `ui -> 32 `ui 291  ]
+[; ;dmx.c: 92: if (received > 0) {
+"92
+[e $ ! > -> _received `i -> 0 `i 289  ]
 {
-[; ;dmx.c: 113: setChannelLevel(currentAdress - baseAddress, received);
-"113
-[e ( _setChannelLevel (2 , -> - _currentAdress -> _baseAddress `ui `uc _received ]
-"114
-}
-[e :U 291 ]
-[; ;dmx.c: 114: }
-[; ;dmx.c: 116: currentAdress++;
-"116
-[e ++ _currentAdress -> -> 1 `i `ui ]
-[; ;dmx.c: 118: if ( currentAdress >= 128)
-"118
-[e $ ! >= _currentAdress -> -> 128 `i `ui 292  ]
-[; ;dmx.c: 119: dmxState = 0x00;
-"119
-[e = _dmxState -> -> 0 `i `uc ]
-[e :U 292 ]
-"121
+[; ;dmx.c: 93: resetDataWatchdog();
+"93
+[e ( _resetDataWatchdog ..  ]
+"94
 }
 [e :U 289 ]
+[; ;dmx.c: 94: }
+[; ;dmx.c: 95: setChannelLevel((unsigned char)(currentAdress - baseAddress), received);
+"95
+[e ( _setChannelLevel (2 , -> - -> _currentAdress `i -> _baseAddress `i `uc _received ]
+"96
+}
+[e :U 288 ]
+[; ;dmx.c: 96: }
+[; ;dmx.c: 98: if ( ++currentAdress >= 128)
+"98
+[e $ ! >= -> =+ _currentAdress -> -> 1 `i `uc `i -> 128 `i 290  ]
+[; ;dmx.c: 99: dmxState = 0x00;
+"99
+[e = _dmxState -> -> 0 `i `uc ]
+[e :U 290 ]
+"100
+}
+[e :U 287 ]
+[; ;dmx.c: 100: }
+[; ;dmx.c: 101: }
+"101
+[e :UE 282 ]
+}
+"117
+[v _dataWatchdog `Vui ~T0 @X0 1 e ]
+[i _dataWatchdog
+-> -> 0 `i `ui
+]
+[; ;dmx.c: 117: volatile unsigned int dataWatchdog = 0;
+"119
+[v _resetDataWatchdog `(v ~T0 @X0 1 ef ]
+{
+[; ;dmx.c: 119: void resetDataWatchdog() {
+[e :U _resetDataWatchdog ]
+[f ]
+[; ;dmx.c: 120: dataWatchdog = 100;
+"120
+[e = _dataWatchdog -> -> 100 `i `ui ]
 [; ;dmx.c: 121: }
-[; ;dmx.c: 122: }
-"122
-[e :UE 286 ]
+"121
+[e :UE 291 ]
+}
+"123
+[v _decrementDataWatchdog `(v ~T0 @X0 1 ef ]
+{
+[; ;dmx.c: 123: void decrementDataWatchdog() {
+[e :U _decrementDataWatchdog ]
+[f ]
+[; ;dmx.c: 132: if ( dataWatchdog > 0) {
+"132
+[e $ ! > _dataWatchdog -> -> 0 `i `ui 293  ]
+{
+[; ;dmx.c: 133: dataWatchdog--;
+"133
+[e -- _dataWatchdog -> -> 1 `i `ui ]
+[; ;dmx.c: 134: LATCbits.LATC0 = 1;
+"134
+[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
+"135
+}
+[; ;dmx.c: 135: }
+[e $U 294  ]
+"136
+[e :U 293 ]
+[; ;dmx.c: 136: else {
+{
+[; ;dmx.c: 137: LATCbits.LATC0 = 0;
+"137
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+"138
+}
+[e :U 294 ]
+[; ;dmx.c: 138: }
+[; ;dmx.c: 139: }
+"139
+[e :UE 292 ]
+}
+"145
+[v _signalWatchdog `Vui ~T0 @X0 1 e ]
+[i _signalWatchdog
+-> -> 0 `i `ui
+]
+[; ;dmx.c: 145: volatile unsigned int signalWatchdog = 0;
+"147
+[v _resetSignalWatchdog `(v ~T0 @X0 1 ef ]
+{
+[; ;dmx.c: 147: void resetSignalWatchdog() {
+[e :U _resetSignalWatchdog ]
+[f ]
+[; ;dmx.c: 149: signalWatchdog = 1000;
+"149
+[e = _signalWatchdog -> -> 1000 `i `ui ]
+[; ;dmx.c: 150: }
+"150
+[e :UE 295 ]
+}
+"152
+[v _decrementSignalWatchdog `(uc ~T0 @X0 1 ef ]
+{
+[; ;dmx.c: 152: unsigned char decrementSignalWatchdog() {
+[e :U _decrementSignalWatchdog ]
+[f ]
+[; ;dmx.c: 154: if ( signalWatchdog > 0) {
+"154
+[e $ ! > _signalWatchdog -> -> 0 `i `ui 297  ]
+{
+[; ;dmx.c: 155: signalWatchdog--;
+"155
+[e -- _signalWatchdog -> -> 1 `i `ui ]
+[; ;dmx.c: 156: LATCbits.LATC1 = 0;
+"156
+[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
+[; ;dmx.c: 157: return 0;
+"157
+[e ) -> -> 0 `i `uc ]
+[e $UE 296  ]
+"158
+}
+[; ;dmx.c: 158: }
+[e $U 298  ]
+"159
+[e :U 297 ]
+[; ;dmx.c: 159: else {
+{
+[; ;dmx.c: 160: LATCbits.LATC1 = 1;
+"160
+[e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
+[; ;dmx.c: 161: return 1;
+"161
+[e ) -> -> 1 `i `uc ]
+[e $UE 296  ]
+"162
+}
+[e :U 298 ]
+[; ;dmx.c: 162: }
+[; ;dmx.c: 163: }
+"163
+[e :UE 296 ]
+}
+"172
+[v _framingErrorWatchdog `Vui ~T0 @X0 1 e ]
+[i _framingErrorWatchdog
+-> -> 0 `i `ui
+]
+[; ;dmx.c: 172: volatile unsigned int framingErrorWatchdog = 0;
+"174
+[v _resetFramingWatchdog `(v ~T0 @X0 1 ef ]
+{
+[; ;dmx.c: 174: void resetFramingWatchdog() {
+[e :U _resetFramingWatchdog ]
+[f ]
+[; ;dmx.c: 175: LATCbits.LATC2 = 1;
+"175
+[e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
+[; ;dmx.c: 176: framingErrorWatchdog = 1000;
+"176
+[e = _framingErrorWatchdog -> -> 1000 `i `ui ]
+[; ;dmx.c: 177: }
+"177
+[e :UE 299 ]
+}
+"179
+[v _decrementFramingWatchdog `(v ~T0 @X0 1 ef ]
+{
+[; ;dmx.c: 179: void decrementFramingWatchdog() {
+[e :U _decrementFramingWatchdog ]
+[f ]
+[; ;dmx.c: 181: if (framingErrorWatchdog > 0) {
+"181
+[e $ ! > _framingErrorWatchdog -> -> 0 `i `ui 301  ]
+{
+[; ;dmx.c: 182: framingErrorWatchdog--;
+"182
+[e -- _framingErrorWatchdog -> -> 1 `i `ui ]
+"183
+}
+[; ;dmx.c: 183: }
+[e $U 302  ]
+"184
+[e :U 301 ]
+[; ;dmx.c: 184: else {
+{
+[; ;dmx.c: 185: LATCbits.LATC2 = 0;
+"185
+[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
+"186
+}
+[e :U 302 ]
+[; ;dmx.c: 186: }
+[; ;dmx.c: 187: }
+"187
+[e :UE 300 ]
 }

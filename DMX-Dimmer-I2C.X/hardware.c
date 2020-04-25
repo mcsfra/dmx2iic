@@ -28,7 +28,7 @@ void initHardware(void)  {
 
   LATA    = 0x00;
   PORTA   = 0x00;
-  TRISA   = 0b00000111;              
+  TRISA   = 0b00000011;              
 
   PORTB   = 0x00;
   LATB    = 0x00;
@@ -36,12 +36,11 @@ void initHardware(void)  {
 
   LATC    = 0x00;
   PORTC   = 0x00;
-  TRISC   = 0b11111000;  // für DMX-Basisadresse              
+  TRISC   = 0b11111000;  // für DMX-Basisadresse  
+  
             // 2^0 - RC3 - Pin7
             // 2^1 - RC4 - Pin6
             // 2^2 - RC5 - Pin5
             // 2^3 - RC6 - Pin8
             // 2^4 - RC7 - Pin9
-            
-
 }

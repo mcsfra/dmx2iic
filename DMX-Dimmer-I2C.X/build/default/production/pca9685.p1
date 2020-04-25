@@ -1,11 +1,11 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "45 pca9685.h
 [v _pcaWakeUp `(v ~T0 @X0 0 ef1`uc ]
-"6 i2c.h
+"5 i2c.h
 [v _i2cStart `(v ~T0 @X0 0 ef ]
-"12
+"11
 [v _i2cSend `(v ~T0 @X0 0 ef1`uc ]
-"7
+"6
 [v _i2cStop `(v ~T0 @X0 0 ef ]
 "11 lookuptable.h
 [v _getLookup `(ui ~T0 @X0 0 ef1`uc ]
@@ -18,286 +18,260 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pca9685.h: 45: extern void pcaWakeUp(unsigned char which );
 [; ;pca9685.h: 47: extern void pcaSetSpeed(unsigned char which, unsigned int hertz );
 [; ;pca9685.h: 49: extern void pcaSweepTest(void);
-[; ;i2c.h: 5: extern void i2cInit(void);
-[; ;i2c.h: 6: extern void i2cStart(void);
-[; ;i2c.h: 7: extern void i2cStop(void);
-[; ;i2c.h: 8: extern void i2cRestart(void);
-[; ;i2c.h: 9: extern void i2cAck(void);
-[; ;i2c.h: 10: extern void i2cNak(void);
-[; ;i2c.h: 11: extern void i2cWait(void);
-[; ;i2c.h: 12: extern void i2cSend(unsigned char dat);
-[; ;i2c.h: 13: extern unsigned char i2cRead(void);
+[; ;i2c.h: 4: extern void i2cInit(void);
+[; ;i2c.h: 5: extern void i2cStart(void);
+[; ;i2c.h: 6: extern void i2cStop(void);
+[; ;i2c.h: 7: extern void i2cRestart(void);
+[; ;i2c.h: 8: extern void i2cAck(void);
+[; ;i2c.h: 9: extern void i2cNak(void);
+[; ;i2c.h: 10: extern void i2cWait(void);
+[; ;i2c.h: 11: extern void i2cSend(unsigned char dat);
+[; ;i2c.h: 12: extern unsigned char i2cRead(void);
 [; ;lookuptable.h: 11: extern unsigned int getLookup(unsigned char value);
-"5 pca9685.c
-[v _debugState `uc ~T0 @X0 -> 128 `i s ]
-[; ;pca9685.c: 5: static unsigned char debugState[128];
-"7
+"10 pca9685.c
 [v _pcaGetAddress `(uc ~T0 @X0 1 ef1`uc ]
 {
-[; ;pca9685.c: 7: unsigned char pcaGetAddress(unsigned char which) {
+[; ;pca9685.c: 10: unsigned char pcaGetAddress(unsigned char which) {
 [e :U _pcaGetAddress ]
 [v _which `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;pca9685.c: 9: return (unsigned char)((unsigned char)0x80 + ( which == 0 ? 0 : 2));
-"9
+[; ;pca9685.c: 12: return (unsigned char)((unsigned char)0x80 + ( which == 0 ? 0 : 2));
+"12
 [e ) -> + -> -> -> 128 `i `uc `i ? == -> _which `i -> 0 `i : -> 0 `i -> 2 `i `uc ]
 [e $UE 1  ]
-[; ;pca9685.c: 10: }
-"10
+[; ;pca9685.c: 13: }
+"13
 [e :UE 1 ]
 }
-"12
+"15
 [v _pcaInit `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;pca9685.c: 12: void pcaInit(unsigned char which) {
+[; ;pca9685.c: 15: void pcaInit(unsigned char which) {
 [e :U _pcaInit ]
 [v _which `uc ~T0 @X0 1 r1 ]
 [f ]
-"14
-[v _i `uc ~T0 @X0 1 a ]
-[; ;pca9685.c: 14: unsigned char i;
-[; ;pca9685.c: 15: for (i = 0; i < 128; i++) {
-"15
-{
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 128 `i 3  ]
-[e $U 4  ]
-[e :U 3 ]
-{
-[; ;pca9685.c: 16: debugState[i] = 0;
-"16
-[e = *U + &U _debugState * -> _i `ux -> -> # *U &U _debugState `ui `ux -> -> 0 `i `uc ]
-"17
-}
-"15
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 128 `i 3  ]
-[e :U 4 ]
-"17
-}
-[; ;pca9685.c: 17: }
-[; ;pca9685.c: 23: pcaWakeUp(which);
-"23
+[; ;pca9685.c: 27: pcaWakeUp(which);
+"27
 [e ( _pcaWakeUp (1 _which ]
-[; ;pca9685.c: 25: }
-"25
+[; ;pca9685.c: 29: }
+"29
 [e :UE 2 ]
 }
-"28
+"32
 [v _pcaSetChannelRaw `(v ~T0 @X0 1 ef3`uc`uc`ui ]
 {
-[; ;pca9685.c: 28: void pcaSetChannelRaw(unsigned char which, unsigned char channel, unsigned int level) {
+[; ;pca9685.c: 32: void pcaSetChannelRaw(unsigned char which, unsigned char channel, unsigned int level) {
 [e :U _pcaSetChannelRaw ]
 [v _which `uc ~T0 @X0 1 r1 ]
 [v _channel `uc ~T0 @X0 1 r2 ]
 [v _level `ui ~T0 @X0 1 r3 ]
 [f ]
-[; ;pca9685.c: 30: i2cStart();
-"30
-[e ( _i2cStart ..  ]
-[; ;pca9685.c: 31: i2cSend(pcaGetAddress(which) );
-"31
-[e ( _i2cSend (1 ( _pcaGetAddress (1 _which ]
-[; ;pca9685.c: 32: i2cSend(( channel * 4U ) + 0x06U);
-"32
-[e ( _i2cSend (1 -> + * -> _channel `ui -> 4 `ui -> 6 `ui `uc ]
-[; ;pca9685.c: 33: i2cSend(0x00);
-"33
-[e ( _i2cSend (1 -> -> 0 `i `uc ]
-[; ;pca9685.c: 34: i2cSend(0x00);
+[; ;pca9685.c: 34: i2cStart();
 "34
-[e ( _i2cSend (1 -> -> 0 `i `uc ]
-[; ;pca9685.c: 35: i2cSend((unsigned char)(level & 0xFF));
+[e ( _i2cStart ..  ]
+[; ;pca9685.c: 35: i2cSend(pcaGetAddress(which) );
 "35
-[e ( _i2cSend (1 -> & _level -> -> 255 `i `ui `uc ]
-[; ;pca9685.c: 36: i2cSend((unsigned char)((level >> 8 ) & 0x0F));
+[e ( _i2cSend (1 ( _pcaGetAddress (1 _which ]
+[; ;pca9685.c: 36: i2cSend(( channel * 4U ) + 0x06U);
 "36
-[e ( _i2cSend (1 -> & >> _level -> 8 `i -> -> 15 `i `ui `uc ]
-[; ;pca9685.c: 37: i2cStop();
+[e ( _i2cSend (1 -> + * -> _channel `ui -> 4 `ui -> 6 `ui `uc ]
+[; ;pca9685.c: 37: i2cSend(0x00);
 "37
-[e ( _i2cStop ..  ]
-[; ;pca9685.c: 38: }
+[e ( _i2cSend (1 -> -> 0 `i `uc ]
+[; ;pca9685.c: 38: i2cSend(0x00);
 "38
-[e :UE 6 ]
-}
+[e ( _i2cSend (1 -> -> 0 `i `uc ]
+[; ;pca9685.c: 39: i2cSend((unsigned char)(level & 0xFF));
+"39
+[e ( _i2cSend (1 -> & _level -> -> 255 `i `ui `uc ]
+[; ;pca9685.c: 40: i2cSend((unsigned char)((level >> 8 ) & 0x0F));
 "40
+[e ( _i2cSend (1 -> & >> _level -> 8 `i -> -> 15 `i `ui `uc ]
+[; ;pca9685.c: 41: i2cStop();
+"41
+[e ( _i2cStop ..  ]
+[; ;pca9685.c: 42: }
+"42
+[e :UE 3 ]
+}
+"44
 [v _pcaSetChannelLin `(v ~T0 @X0 1 ef3`uc`uc`uc ]
 {
-[; ;pca9685.c: 40: void pcaSetChannelLin(unsigned char which, unsigned char channel, unsigned char value) {
+[; ;pca9685.c: 44: void pcaSetChannelLin(unsigned char which, unsigned char channel, unsigned char value) {
 [e :U _pcaSetChannelLin ]
 [v _which `uc ~T0 @X0 1 r1 ]
 [v _channel `uc ~T0 @X0 1 r2 ]
 [v _value `uc ~T0 @X0 1 r3 ]
 [f ]
-"42
-[v _v `ui ~T0 @X0 1 a ]
-[; ;pca9685.c: 42: unsigned int v = value;
-[e = _v -> _value `ui ]
-[; ;pca9685.c: 43: pcaSetChannelRaw(which, channel, v << 4);
-"43
-[e ( _pcaSetChannelRaw (3 , , _which _channel << _v -> 4 `i ]
-[; ;pca9685.c: 44: }
-"44
-[e :UE 7 ]
-}
 "46
+[v _v `ui ~T0 @X0 1 a ]
+[; ;pca9685.c: 46: unsigned int v = value;
+[e = _v -> _value `ui ]
+[; ;pca9685.c: 47: pcaSetChannelRaw(which, channel, v << 4);
+"47
+[e ( _pcaSetChannelRaw (3 , , _which _channel << _v -> 4 `i ]
+[; ;pca9685.c: 48: }
+"48
+[e :UE 4 ]
+}
+"50
 [v _pcaSetChannelLog `(v ~T0 @X0 1 ef3`uc`uc`uc ]
 {
-[; ;pca9685.c: 46: void pcaSetChannelLog(unsigned char which, unsigned char channel, unsigned char value) {
+[; ;pca9685.c: 50: void pcaSetChannelLog(unsigned char which, unsigned char channel, unsigned char value) {
 [e :U _pcaSetChannelLog ]
 [v _which `uc ~T0 @X0 1 r1 ]
 [v _channel `uc ~T0 @X0 1 r2 ]
 [v _value `uc ~T0 @X0 1 r3 ]
 [f ]
-[; ;pca9685.c: 48: pcaSetChannelRaw(which, channel, getLookup(value));
-"48
+[; ;pca9685.c: 52: pcaSetChannelRaw(which, channel, getLookup(value));
+"52
 [e ( _pcaSetChannelRaw (3 , , _which _channel ( _getLookup (1 _value ]
-[; ;pca9685.c: 49: }
-"49
-[e :UE 8 ]
+[; ;pca9685.c: 53: }
+"53
+[e :UE 5 ]
 }
-"51
+"55
 [v _pcaSleep `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;pca9685.c: 51: void pcaSleep(unsigned char which) {
+[; ;pca9685.c: 55: void pcaSleep(unsigned char which) {
 [e :U _pcaSleep ]
 [v _which `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;pca9685.c: 53: i2cStart();
-"53
-[e ( _i2cStart ..  ]
-[; ;pca9685.c: 54: i2cSend(pcaGetAddress(which) );
-"54
-[e ( _i2cSend (1 ( _pcaGetAddress (1 _which ]
-[; ;pca9685.c: 55: i2cSend(0x00);
-"55
-[e ( _i2cSend (1 -> -> 0 `i `uc ]
-[; ;pca9685.c: 56: i2cSend(0x10);
-"56
-[e ( _i2cSend (1 -> -> 16 `i `uc ]
-[; ;pca9685.c: 57: i2cStop();
+[; ;pca9685.c: 57: i2cStart();
 "57
-[e ( _i2cStop ..  ]
-[; ;pca9685.c: 58: }
+[e ( _i2cStart ..  ]
+[; ;pca9685.c: 58: i2cSend(pcaGetAddress(which) );
 "58
-[e :UE 9 ]
-}
+[e ( _i2cSend (1 ( _pcaGetAddress (1 _which ]
+[; ;pca9685.c: 59: i2cSend(0x00);
+"59
+[e ( _i2cSend (1 -> -> 0 `i `uc ]
+[; ;pca9685.c: 60: i2cSend(0x10);
 "60
+[e ( _i2cSend (1 -> -> 16 `i `uc ]
+[; ;pca9685.c: 61: i2cStop();
+"61
+[e ( _i2cStop ..  ]
+[; ;pca9685.c: 62: }
+"62
+[e :UE 6 ]
+}
+"64
 [v _pcaWakeUp `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;pca9685.c: 60: void pcaWakeUp(unsigned char which) {
+[; ;pca9685.c: 64: void pcaWakeUp(unsigned char which) {
 [e :U _pcaWakeUp ]
 [v _which `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;pca9685.c: 62: i2cStart();
-"62
-[e ( _i2cStart ..  ]
-[; ;pca9685.c: 63: i2cSend(pcaGetAddress(which));
-"63
-[e ( _i2cSend (1 ( _pcaGetAddress (1 _which ]
-[; ;pca9685.c: 64: i2cSend(0x00);
-"64
-[e ( _i2cSend (1 -> -> 0 `i `uc ]
-[; ;pca9685.c: 65: i2cSend(0x80 | 0x20);
-"65
-[e ( _i2cSend (1 -> | -> 128 `i -> 32 `i `uc ]
-[; ;pca9685.c: 66: i2cStop();
+[; ;pca9685.c: 66: i2cStart();
 "66
-[e ( _i2cStop ..  ]
-[; ;pca9685.c: 67: }
+[e ( _i2cStart ..  ]
+[; ;pca9685.c: 67: i2cSend(pcaGetAddress(which));
 "67
-[e :UE 10 ]
-}
+[e ( _i2cSend (1 ( _pcaGetAddress (1 _which ]
+[; ;pca9685.c: 68: i2cSend(0x00);
+"68
+[e ( _i2cSend (1 -> -> 0 `i `uc ]
+[; ;pca9685.c: 69: i2cSend(0x80 | 0x20);
 "69
+[e ( _i2cSend (1 -> | -> 128 `i -> 32 `i `uc ]
+[; ;pca9685.c: 70: i2cStop();
+"70
+[e ( _i2cStop ..  ]
+[; ;pca9685.c: 71: }
+"71
+[e :UE 7 ]
+}
+"73
 [v _pcaSetSpeed `(v ~T0 @X0 1 ef2`uc`ui ]
 {
-[; ;pca9685.c: 69: void pcaSetSpeed(unsigned char which, unsigned int hertz) {
+[; ;pca9685.c: 73: void pcaSetSpeed(unsigned char which, unsigned int hertz) {
 [e :U _pcaSetSpeed ]
 [v _which `uc ~T0 @X0 1 r1 ]
 [v _hertz `ui ~T0 @X0 1 r2 ]
 [f ]
-"71
-[v _data `ul ~T0 @X0 1 a ]
-[; ;pca9685.c: 71: unsigned long data = (unsigned long)(25000000L / ( 4096L * hertz)) - 1;
-[e = _data - -> / -> 25000000 `l * -> 4096 `l -> _hertz `l `ul -> -> -> 1 `i `l `ul ]
-[; ;pca9685.c: 73: i2cStart();
-"73
-[e ( _i2cStart ..  ]
-[; ;pca9685.c: 74: i2cSend(pcaGetAddress(which));
-"74
-[e ( _i2cSend (1 ( _pcaGetAddress (1 _which ]
-[; ;pca9685.c: 75: i2cSend(0xFE);
 "75
-[e ( _i2cSend (1 -> -> 254 `i `uc ]
-[; ;pca9685.c: 76: i2cSend((unsigned char) data);
-"76
-[e ( _i2cSend (1 -> _data `uc ]
-[; ;pca9685.c: 77: i2cStop();
+[v _data `ul ~T0 @X0 1 a ]
+[; ;pca9685.c: 75: unsigned long data = (unsigned long)(25000000L / ( 4096L * hertz)) - 1;
+[e = _data - -> / -> 25000000 `l * -> 4096 `l -> _hertz `l `ul -> -> -> 1 `i `l `ul ]
+[; ;pca9685.c: 77: i2cStart();
 "77
-[e ( _i2cStop ..  ]
-[; ;pca9685.c: 79: }
+[e ( _i2cStart ..  ]
+[; ;pca9685.c: 78: i2cSend(pcaGetAddress(which));
+"78
+[e ( _i2cSend (1 ( _pcaGetAddress (1 _which ]
+[; ;pca9685.c: 79: i2cSend(0xFE);
 "79
-[e :UE 11 ]
+[e ( _i2cSend (1 -> -> 254 `i `uc ]
+[; ;pca9685.c: 80: i2cSend((unsigned char) data);
+"80
+[e ( _i2cSend (1 -> _data `uc ]
+[; ;pca9685.c: 81: i2cStop();
+"81
+[e ( _i2cStop ..  ]
+[; ;pca9685.c: 82: }
+"82
+[e :UE 8 ]
 }
-"85
+"88
 [v _pcaSweepTest `(v ~T0 @X0 1 ef ]
 {
-[; ;pca9685.c: 85: void pcaSweepTest(void) {
+[; ;pca9685.c: 88: void pcaSweepTest(void) {
 [e :U _pcaSweepTest ]
 [f ]
-"87
+"90
 [v _i `uc ~T0 @X0 1 a ]
 [v _j `uc ~T0 @X0 1 a ]
-[; ;pca9685.c: 87: unsigned char i, j;
-[; ;pca9685.c: 89: for(;;) {
-"89
+[; ;pca9685.c: 90: unsigned char i, j;
+[; ;pca9685.c: 92: for(;;) {
+"92
 {
-[e :U 13 ]
+[e :U 10 ]
 {
-[; ;pca9685.c: 90: for (j = 0; j < 255; j++ ) {
-"90
+[; ;pca9685.c: 93: for (j = 0; j < 255; j++ ) {
+"93
 {
 [e = _j -> -> 0 `i `uc ]
-[e $ < -> _j `i -> 255 `i 16  ]
+[e $ < -> _j `i -> 255 `i 13  ]
+[e $U 14  ]
+[e :U 13 ]
+{
+[; ;pca9685.c: 94: for ( i = 0; i < 16; i++) {
+"94
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 16 `i 16  ]
 [e $U 17  ]
 [e :U 16 ]
 {
-[; ;pca9685.c: 91: for ( i = 0; i < 16; i++) {
-"91
-{
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 16 `i 19  ]
-[e $U 20  ]
-[e :U 19 ]
-{
-[; ;pca9685.c: 92: pcaSetChannelLog(0,i,j);
-"92
-[e ( _pcaSetChannelLog (3 , , -> -> 0 `i `uc _i _j ]
-"93
-}
-"91
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 16 `i 19  ]
-[e :U 20 ]
-"93
-}
-"94
-}
-"90
-[e ++ _j -> -> 1 `i `uc ]
-[e $ < -> _j `i -> 255 `i 16  ]
-[e :U 17 ]
-"94
-}
+[; ;pca9685.c: 95: pcaSetChannelLog(0,i,j);
 "95
+[e ( _pcaSetChannelLog (3 , , -> -> 0 `i `uc _i _j ]
+"96
 }
-[; ;pca9685.c: 93: }
-[; ;pca9685.c: 94: }
-[; ;pca9685.c: 95: }
-[e $U 13  ]
+"94
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 16 `i 16  ]
+[e :U 17 ]
+"96
+}
+"97
+}
+"93
+[e ++ _j -> -> 1 `i `uc ]
+[e $ < -> _j `i -> 255 `i 13  ]
 [e :U 14 ]
+"97
+}
+"98
 }
 [; ;pca9685.c: 96: }
-"96
-[e :UE 12 ]
+[; ;pca9685.c: 97: }
+[; ;pca9685.c: 98: }
+[e $U 10  ]
+[e :U 11 ]
+}
+[; ;pca9685.c: 99: }
+"99
+[e :UE 9 ]
 }

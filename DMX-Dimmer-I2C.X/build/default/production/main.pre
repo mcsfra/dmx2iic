@@ -3699,16 +3699,22 @@ extern __nonreentrant void _delay3(unsigned char);
 # 11 "hardware.h"
 extern void initHardware(void);
 
-# 15 "dmx.h"
-extern void initDebugBuffer();
-
-
+# 16 "dmx.h"
 extern void initDMX(void);
 extern void handleDMX(void);
-extern void setDMXNotSynced(void);
+
 extern unsigned char getDMXBaseAddress(void);
 
-# 5 "i2c.h"
+void resetDataWatchdog(void);
+extern void decrementDataWatchdog(void);
+
+void resetSignalWatchdog(void);
+extern unsigned char decrementSignalWatchdog(void);
+
+void resetFramingWatchdog() ;
+extern void decrementFramingWatchdog(void);
+
+# 4 "i2c.h"
 extern void i2cInit(void);
 extern void i2cStart(void);
 extern void i2cStop(void);
@@ -3743,7 +3749,6 @@ unsigned char level;
 
 extern void initChannels(void);
 extern void setChannelLevel(unsigned char channel, unsigned char value);
-extern unsigned char getChannelValue(unsigned char channel);
 extern void sendChangedChannels(void);
 extern void testChannelLevels(void);
 
@@ -3752,46 +3757,41 @@ unsigned char errorCounter = 0;
 
 unsigned char baseAddress;
 
-void generateValues(void);
-
+# 40
 void main(void) {
 
 initHardware();
 initChannels();
-
-initDebugBuffer();
-
 i2cInit();
-
 pcaInit(0);
 pcaInit(1);
-
 initDMX();
 
 RCONbits.IPEN = 1;
 
-# 37
+# 56
 INTCONbits.GIEH = 1;
 INTCONbits.GIEL = 1;
 
+# 63
 pcaWakeUp(0);
 pcaWakeUp(1);
 
 for (;;) {
 
-# 49
-if (OERR == 1) {
-errorCounter++;
+sendChangedChannels();
+
+
+decrementDataWatchdog();
+decrementFramingWatchdog();
+
+if ( decrementSignalWatchdog() == 1 ) {
 SPEN = 0;
 RCIE = 0;
 initDMX();
 }
 
-sendChangedChannels();
-
-
+# 82
 }
-
-
 }
 

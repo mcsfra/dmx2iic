@@ -18,7 +18,6 @@ typedef struct channelinfo  {
 
 extern void initChannels(void);
 extern void setChannelLevel(unsigned char channel, unsigned char value);
-extern unsigned char getChannelValue(unsigned char channel);
 extern void sendChangedChannels(void); 
 extern void testChannelLevels(void);
 

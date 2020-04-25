@@ -3696,14 +3696,20 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 15 "dmx.h"
-extern void initDebugBuffer();
-
-
+# 16 "dmx.h"
 extern void initDMX(void);
 extern void handleDMX(void);
-extern void setDMXNotSynced(void);
+
 extern unsigned char getDMXBaseAddress(void);
+
+void resetDataWatchdog(void);
+extern void decrementDataWatchdog(void);
+
+void resetSignalWatchdog(void);
+extern unsigned char decrementSignalWatchdog(void);
+
+void resetFramingWatchdog() ;
+extern void decrementFramingWatchdog(void);
 
 # 11 "channels.h"
 typedef struct channelinfo {
@@ -3716,27 +3722,14 @@ unsigned char level;
 
 extern void initChannels(void);
 extern void setChannelLevel(unsigned char channel, unsigned char value);
-extern unsigned char getChannelValue(unsigned char channel);
 extern void sendChangedChannels(void);
 extern void testChannelLevels(void);
 
-# 19 "dmx.c"
-unsigned char dmxDebugBuffer[128];
-
-
+# 26 "dmx.c"
 unsigned char dmxState;
-unsigned int currentAdress;
+unsigned char currentAdress;
 
-void initDebugBuffer() {
-unsigned char i;
-
-for (i = 0; i < 128;i++) {
-dmxDebugBuffer[i] = 0;
-}
-
-}
-
-
+# 32
 void initDMX(void) {
 
 BAUDCONbits.BRG16 = 1;
@@ -3752,35 +3745,33 @@ IPR1bits.RCIP = 0;
 
 currentAdress = 0;
 dmxState = 0x00;
-
 }
 
-# 61
+# 55
 unsigned char getDMXBaseAddress(void) {
 
 return (unsigned char)(PORTC >> 1U) & 0b01111100U;
 }
 
 
-
-unsigned char errflag;
-unsigned char received;
-
-unsigned char dummy;
-
 void handleDMX() {
 
 unsigned char baseAddress = getDMXBaseAddress();
+unsigned char eOverflow = (unsigned char)OERR;
+unsigned char eFraming = (unsigned char)FERR;
+unsigned char received = RCREG;
 
-# 80
-errflag = (unsigned char)FERR;
+resetSignalWatchdog();
 
-# 85
-received = RCREG;
+if ( eFraming == 1) {
 
-if ( (errflag == 1) && ( dmxState == 0x00) ) {
+if ( dmxState == 0x00 ) {
 currentAdress = 0;
 dmxState = 0x01;
+}
+else {
+resetFramingWatchdog();
+}
 return;
 }
 
@@ -3792,21 +3783,74 @@ return;
 
 if ( dmxState == 0x02) {
 
-if ( currentAdress < 128) {
-dmxDebugBuffer[currentAdress] = received;
-}
-
 if ( (currentAdress >= baseAddress) && (currentAdress < baseAddress + 32U)) {
 
-# 113
-setChannelLevel(currentAdress - baseAddress, received);
+if (received > 0) {
+resetDataWatchdog();
+}
+setChannelLevel((unsigned char)(currentAdress - baseAddress), received);
 }
 
-currentAdress++;
-
-if ( currentAdress >= 128)
+if ( ++currentAdress >= 128)
 dmxState = 0x00;
+}
+}
 
+# 117
+volatile unsigned int dataWatchdog = 0;
+
+void resetDataWatchdog() {
+dataWatchdog = 100;
+}
+
+void decrementDataWatchdog() {
+
+# 132
+if ( dataWatchdog > 0) {
+dataWatchdog--;
+LATCbits.LATC0 = 1;
+}
+else {
+LATCbits.LATC0 = 0;
+}
+}
+
+# 145
+volatile unsigned int signalWatchdog = 0;
+
+void resetSignalWatchdog() {
+
+signalWatchdog = 1000;
+}
+
+unsigned char decrementSignalWatchdog() {
+
+if ( signalWatchdog > 0) {
+signalWatchdog--;
+LATCbits.LATC1 = 0;
+return 0;
+}
+else {
+LATCbits.LATC1 = 1;
+return 1;
+}
+}
+
+# 172
+volatile unsigned int framingErrorWatchdog = 0;
+
+void resetFramingWatchdog() {
+LATCbits.LATC2 = 1;
+framingErrorWatchdog = 1000;
+}
+
+void decrementFramingWatchdog() {
+
+if (framingErrorWatchdog > 0) {
+framingErrorWatchdog--;
+}
+else {
+LATCbits.LATC2 = 0;
 }
 }
 

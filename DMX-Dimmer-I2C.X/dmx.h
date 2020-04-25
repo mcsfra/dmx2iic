@@ -8,17 +8,25 @@
 #ifndef __DMX_H__
 #define	__DMX_H__
 
-#define DMX_NOTSYNCED 0x00
-#define DMX_WAITSTART 0x01
-#define DMX_PAYLOAD	  0x02
-
-extern void initDebugBuffer();
+#define LED_FRAMINGERROR  LATCbits.LATC2
+#define LED_NOSIGNALERROR LATCbits.LATC1
+#define LED_DATAVALID     LATCbits.LATC0
 
 
 extern void initDMX(void);
 extern void handleDMX(void);
-extern void setDMXNotSynced(void);
+//extern void setDMXNotSynced(void);
 extern unsigned char getDMXBaseAddress(void); 
+
+void resetDataWatchdog(void);
+extern void decrementDataWatchdog(void);
+
+void resetSignalWatchdog(void);
+extern unsigned char decrementSignalWatchdog(void);
+
+void resetFramingWatchdog() ;
+extern void decrementFramingWatchdog(void);
+
 
 #endif	
 

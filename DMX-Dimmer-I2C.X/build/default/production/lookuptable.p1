@@ -1,10 +1,10 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [; ;lookuptable.h: 11: extern unsigned int getLookup(unsigned char value);
-"30 lookuptable.c
+"31 lookuptable.c
 [v _lookup `Cui ~T0 @X0 -> 0 `x e ]
 [i _lookup
 :U ..
-"31
+"32
 -> -> 0 `i `ui
 -> -> 1 `i `ui
 -> -> 2 `i `ui
@@ -21,7 +21,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 13 `i `ui
 -> -> 14 `i `ui
 -> -> 15 `i `ui
-"32
+"33
 -> -> 16 `i `ui
 -> -> 18 `i `ui
 -> -> 19 `i `ui
@@ -38,7 +38,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 33 `i `ui
 -> -> 35 `i `ui
 -> -> 36 `i `ui
-"33
+"34
 -> -> 38 `i `ui
 -> -> 40 `i `ui
 -> -> 41 `i `ui
@@ -55,7 +55,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 60 `i `ui
 -> -> 62 `i `ui
 -> -> 64 `i `ui
-"34
+"35
 -> -> 66 `i `ui
 -> -> 68 `i `ui
 -> -> 71 `i `ui
@@ -72,7 +72,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 96 `i `ui
 -> -> 99 `i `ui
 -> -> 101 `i `ui
-"35
+"36
 -> -> 104 `i `ui
 -> -> 107 `i `ui
 -> -> 109 `i `ui
@@ -89,7 +89,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 143 `i `ui
 -> -> 146 `i `ui
 -> -> 150 `i `ui
-"36
+"37
 -> -> 153 `i `ui
 -> -> 157 `i `ui
 -> -> 160 `i `ui
@@ -106,7 +106,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 204 `i `ui
 -> -> 209 `i `ui
 -> -> 213 `i `ui
-"37
+"38
 -> -> 218 `i `ui
 -> -> 223 `i `ui
 -> -> 227 `i `ui
@@ -123,7 +123,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 286 `i `ui
 -> -> 291 `i `ui
 -> -> 297 `i `ui
-"38
+"39
 -> -> 303 `i `ui
 -> -> 310 `i `ui
 -> -> 316 `i `ui
@@ -140,7 +140,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 392 `i `ui
 -> -> 400 `i `ui
 -> -> 408 `i `ui
-"39
+"40
 -> -> 416 `i `ui
 -> -> 424 `i `ui
 -> -> 432 `i `ui
@@ -157,7 +157,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 533 `i `ui
 -> -> 543 `i `ui
 -> -> 553 `i `ui
-"40
+"41
 -> -> 564 `i `ui
 -> -> 574 `i `ui
 -> -> 585 `i `ui
@@ -174,7 +174,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 718 `i `ui
 -> -> 731 `i `ui
 -> -> 745 `i `ui
-"41
+"42
 -> -> 759 `i `ui
 -> -> 773 `i `ui
 -> -> 787 `i `ui
@@ -191,7 +191,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 961 `i `ui
 -> -> 979 `i `ui
 -> -> 997 `i `ui
-"42
+"43
 -> -> 1015 `i `ui
 -> -> 1034 `i `ui
 -> -> 1052 `i `ui
@@ -208,7 +208,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 1282 `i `ui
 -> -> 1305 `i `ui
 -> -> 1329 `i `ui
-"43
+"44
 -> -> 1353 `i `ui
 -> -> 1377 `i `ui
 -> -> 1402 `i `ui
@@ -225,7 +225,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 1704 `i `ui
 -> -> 1735 `i `ui
 -> -> 1766 `i `ui
-"44
+"45
 -> -> 1797 `i `ui
 -> -> 1829 `i `ui
 -> -> 1862 `i `ui
@@ -242,7 +242,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 2260 `i `ui
 -> -> 2300 `i `ui
 -> -> 2341 `i `ui
-"45
+"46
 -> -> 2382 `i `ui
 -> -> 2425 `i `ui
 -> -> 2468 `i `ui
@@ -259,7 +259,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 2992 `i `ui
 -> -> 3044 `i `ui
 -> -> 3098 `i `ui
-"46
+"47
 -> -> 3153 `i `ui
 -> -> 3208 `i `ui
 -> -> 3265 `i `ui
@@ -275,37 +275,37 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 3887 `i `ui
 -> -> 3955 `i `ui
 -> -> 4024 `i `ui
-"47
+"48
 -> -> 4095 `i `ui
 ..
 ]
-[; ;lookuptable.c: 30: const unsigned int lookup[] = {
-[; ;lookuptable.c: 31: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
-[; ;lookuptable.c: 32: 16, 18, 19, 20, 21, 23, 24, 25, 26, 28, 29, 31, 32, 33, 35, 36,
-[; ;lookuptable.c: 33: 38, 40, 41, 43, 44, 46, 48, 49, 51, 53, 55, 57, 59, 60, 62, 64,
-[; ;lookuptable.c: 34: 66, 68, 71, 73, 75, 77, 79, 82, 84, 86, 89, 91, 94, 96, 99, 101,
-[; ;lookuptable.c: 35: 104, 107, 109, 112, 115, 118, 121, 124, 127, 130, 133, 136, 140, 143, 146, 150,
-[; ;lookuptable.c: 36: 153, 157, 160, 164, 168, 172, 175, 179, 183, 187, 192, 196, 200, 204, 209, 213,
-[; ;lookuptable.c: 37: 218, 223, 227, 232, 237, 242, 247, 252, 258, 263, 269, 274, 280, 286, 291, 297,
-[; ;lookuptable.c: 38: 303, 310, 316, 322, 329, 335, 342, 349, 356, 363, 370, 377, 385, 392, 400, 408,
-[; ;lookuptable.c: 39: 416, 424, 432, 441, 449, 458, 467, 476, 485, 494, 503, 513, 523, 533, 543, 553,
-[; ;lookuptable.c: 40: 564, 574, 585, 596, 608, 619, 631, 642, 655, 667, 679, 692, 705, 718, 731, 745,
-[; ;lookuptable.c: 41: 759, 773, 787, 801, 816, 831, 847, 862, 878, 894, 911, 927, 944, 961, 979, 997,
-[; ;lookuptable.c: 42: 1015, 1034, 1052, 1072, 1091, 1111, 1131, 1151, 1172, 1194, 1215, 1237, 1259, 1282, 1305, 1329,
-[; ;lookuptable.c: 43: 1353, 1377, 1402, 1427, 1453, 1479, 1505, 1532, 1560, 1588, 1616, 1645, 1674, 1704, 1735, 1766,
-[; ;lookuptable.c: 44: 1797, 1829, 1862, 1895, 1929, 1963, 1998, 2034, 2070, 2107, 2144, 2182, 2221, 2260, 2300, 2341,
-[; ;lookuptable.c: 45: 2382, 2425, 2468, 2511, 2556, 2601, 2647, 2694, 2741, 2790, 2839, 2889, 2940, 2992, 3044, 3098,
-[; ;lookuptable.c: 46: 3153, 3208, 3265, 3322, 3381, 3440, 3501, 3562, 3625, 3689, 3754, 3820, 3887, 3955, 4024, 4095
-[; ;lookuptable.c: 47: };
-"51
+[; ;lookuptable.c: 31: const unsigned int lookup[] = {
+[; ;lookuptable.c: 32: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
+[; ;lookuptable.c: 33: 16, 18, 19, 20, 21, 23, 24, 25, 26, 28, 29, 31, 32, 33, 35, 36,
+[; ;lookuptable.c: 34: 38, 40, 41, 43, 44, 46, 48, 49, 51, 53, 55, 57, 59, 60, 62, 64,
+[; ;lookuptable.c: 35: 66, 68, 71, 73, 75, 77, 79, 82, 84, 86, 89, 91, 94, 96, 99, 101,
+[; ;lookuptable.c: 36: 104, 107, 109, 112, 115, 118, 121, 124, 127, 130, 133, 136, 140, 143, 146, 150,
+[; ;lookuptable.c: 37: 153, 157, 160, 164, 168, 172, 175, 179, 183, 187, 192, 196, 200, 204, 209, 213,
+[; ;lookuptable.c: 38: 218, 223, 227, 232, 237, 242, 247, 252, 258, 263, 269, 274, 280, 286, 291, 297,
+[; ;lookuptable.c: 39: 303, 310, 316, 322, 329, 335, 342, 349, 356, 363, 370, 377, 385, 392, 400, 408,
+[; ;lookuptable.c: 40: 416, 424, 432, 441, 449, 458, 467, 476, 485, 494, 503, 513, 523, 533, 543, 553,
+[; ;lookuptable.c: 41: 564, 574, 585, 596, 608, 619, 631, 642, 655, 667, 679, 692, 705, 718, 731, 745,
+[; ;lookuptable.c: 42: 759, 773, 787, 801, 816, 831, 847, 862, 878, 894, 911, 927, 944, 961, 979, 997,
+[; ;lookuptable.c: 43: 1015, 1034, 1052, 1072, 1091, 1111, 1131, 1151, 1172, 1194, 1215, 1237, 1259, 1282, 1305, 1329,
+[; ;lookuptable.c: 44: 1353, 1377, 1402, 1427, 1453, 1479, 1505, 1532, 1560, 1588, 1616, 1645, 1674, 1704, 1735, 1766,
+[; ;lookuptable.c: 45: 1797, 1829, 1862, 1895, 1929, 1963, 1998, 2034, 2070, 2107, 2144, 2182, 2221, 2260, 2300, 2341,
+[; ;lookuptable.c: 46: 2382, 2425, 2468, 2511, 2556, 2601, 2647, 2694, 2741, 2790, 2839, 2889, 2940, 2992, 3044, 3098,
+[; ;lookuptable.c: 47: 3153, 3208, 3265, 3322, 3381, 3440, 3501, 3562, 3625, 3689, 3754, 3820, 3887, 3955, 4024, 4095
+[; ;lookuptable.c: 48: };
+"52
 [v _getLookup `(ui ~T0 @X0 1 ef1`uc ]
 {
-[; ;lookuptable.c: 51: unsigned int getLookup(unsigned char value) {
+[; ;lookuptable.c: 52: unsigned int getLookup(unsigned char value) {
 [e :U _getLookup ]
 [v _value `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;lookuptable.c: 53: return lookup[value];
-"53
+[; ;lookuptable.c: 54: return lookup[value];
+"54
 [e ) *U + &U _lookup * -> _value `ux -> -> # *U &U _lookup `ui `ux ]
 [e $UE 1  ]
 [; ;lookuptable.c: 55: }

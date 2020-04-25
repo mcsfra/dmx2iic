@@ -9,9 +9,11 @@
  * Version 1.0 Februar 2018
  */
 
+volatile CHANNELINFO channels[MAXCHANNELS];
 
-CHANNELINFO channels[MAXCHANNELS];
-
+/*
+ * Initializing of channeldata
+ */
 void initChannels()  {
     
     unsigned char i; 
@@ -22,19 +24,30 @@ void initChannels()  {
     }
 }
 
+/*
+ * Sets a channel to a level and marks the channel as changed. 
+ * This allows to identify chenged channels to reduce traffic on i2c
+ */
+
 void setChannelLevel(unsigned char channel, unsigned char level)   {
     
+    if ( channel >= MAXCHANNELS )  {                // Memory safety
+        return;
+    }
+    
     if ( channels[channel].level != level)  {  
-        channels[channel].level = level;
+        channels[channel].level    = level;
         channels[channel].bChanged = 1; 
     }
 }
 
+/*
+ * Transfers all changed channels via i2c.
+ */
 
 void sendChangedChannels(void)  {
     
     unsigned char i; 
-    unsigned int  lookup; 
     unsigned char device ; 
     unsigned char channel; 
     
@@ -58,8 +71,15 @@ void sendChangedChannels(void)  {
 }
 
 /*
- *  Testet ob wir den pca in sleep schicken koennen
- *
+ * Testet ob wir den pca in sleep schicken koennen
+ *  
+ *  !!! --- !!!
+ *  Die Verwendung dieser Methode führt zu irritationen. 
+ *  Es werden weitere kanäle mitgeführt. Beim aufruf von lichtstimmungen fällt das wenig auf, 
+ *  wenn einzelne kanäle gefadet werden, laufen ander kanäle mit. 
+ *  Das ist dann der fall wenn als startbedingung alle känäle == 0 sind. 
+ *  
+ *  Diese Methode wird also nicht verwendet.
  */
 
 static unsigned char bAllChannelsOff = 1; 
