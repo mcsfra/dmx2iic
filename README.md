@@ -1,2 +1,4 @@
 # dmx2iic
-Converts a DMX Stream to ICR Commands fpor PCA PWM Dimmers
+Converts a DMX Stream to I2C commands for PCA PWM Dimmers
+
+runs on Microchip PIC18F18K22
