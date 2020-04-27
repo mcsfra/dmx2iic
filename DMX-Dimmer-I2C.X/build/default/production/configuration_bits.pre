@@ -3699,7 +3699,7 @@ extern __nonreentrant void _delay3(unsigned char);
 
 # 12 "configuration_bits.c"
 #pragma config FOSC = IRC
-#pragma config PLLEN = OFF
+#pragma config PLLEN = ON
 #pragma config PCLKEN = ON
 #pragma config FCMEN = OFF
 #pragma config IESO = OFF

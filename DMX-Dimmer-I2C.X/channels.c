@@ -11,13 +11,14 @@
 
 volatile CHANNELINFO channels[MAXCHANNELS];
 
+
 /*
  * Initializing of channeldata
  */
 void initChannels()  {
     
     unsigned char i; 
-    
+   
     for (i = 0; i < MAXCHANNELS; i++)  {
         channels[i].bChanged = 0;
         channels[i].level    = 0;
@@ -27,24 +28,56 @@ void initChannels()  {
 /*
  * Sets a channel to a level and marks the channel as changed. 
  * This allows to identify chenged channels to reduce traffic on i2c
- */
+ * 
+ * [[ Editors Note: Diese Funktion ist in assembler unglaublich geschwätzig. 
+ * 
+ *  */
 
 void setChannelLevel(unsigned char channel, unsigned char level)   {
     
     if ( channel >= MAXCHANNELS )  {                // Memory safety
         return;
     }
-    
     if ( channels[channel].level != level)  {  
         channels[channel].level    = level;
         channels[channel].bChanged = 1; 
     }
 }
 
+
 /*
  * Transfers all changed channels via i2c.
  */
+void sendChangedChannels(void)  {
+    
+    unsigned char i; 
+    unsigned char device ; 
+    unsigned char channel; 
+    
+    for (i = 0; i < MAXCHANNELS; i++ )  {
 
+
+        
+        if ( channels[i].bChanged == 1)  {
+            channels[i].bChanged = 0; 
+           
+            if ( i > 15)  {
+               device  = 1;
+               channel = i - 16U;  
+            }
+            else  {
+               device  = 0;
+               channel = i;  
+            }
+            
+            pcaSetChannelLog(device, channel, channels[i].level);
+        }
+    }
+}
+
+
+
+/*
 void sendChangedChannels(void)  {
     
     unsigned char i; 
@@ -69,6 +102,8 @@ void sendChangedChannels(void)  {
         }
     }
 }
+*/
+
 
 /*
  * Testet ob wir den pca in sleep schicken koennen

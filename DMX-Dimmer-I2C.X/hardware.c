@@ -5,17 +5,18 @@
 
 void initHardware(void)  {
 
-  // 8MHz internal OscillatorBlock
+  OSCCONbits.IDLEN  = 0;         // Enter SLEEP on Sleep Instruction.  (Not required)
 
-  OSCCONbits.IDLEN = 0;
+  OSCCONbits.IRCF2  = 1;         // Internal Clock 8 MHz  
+  OSCCONbits.IRCF1  = 1;
+  
+  OSCCONbits.IRCF0  = 1;         // 16 MHz
 
-  OSCCONbits.IRCF2 = 1;
-  OSCCONbits.IRCF1 = 1;
-  OSCCONbits.IRCF0 = 0;
+  OSCCONbits.SCS1   = 1;         // Internal Oscillator Block
+  OSCCONbits.SCS0   = 0;         
 
-  OSCCONbits.SCS1  = 1;
-  OSCCONbits.SCS0  = 0;
-
+  OSCTUNEbits.PLLEN = 1;         // No effect? 
+  
   /*
   ** I/O
   */
@@ -32,7 +33,7 @@ void initHardware(void)  {
 
   PORTB   = 0x00;
   LATB    = 0x00;
-  TRISB   = 0b00100111;
+  TRISB   = 0b10100111;
 
   LATC    = 0x00;
   PORTC   = 0x00;

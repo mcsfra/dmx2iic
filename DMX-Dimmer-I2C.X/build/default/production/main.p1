@@ -53,20 +53,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S271 . . . . . ]
 "6122
 [v _INTCONbits `VS271 ~T0 @X0 0 e@4082 ]
+"7054
+[v _PEIE `Vb ~T0 @X0 0 e@32662 ]
 "45 pca9685.h
 [v _pcaWakeUp `(v ~T0 @X0 0 ef1`uc ]
+"7004 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f14k22.h
+[v _OERR `Vb ~T0 @X0 0 e@32089 ]
+"6670
+[v _CREN `Vb ~T0 @X0 0 e@32092 ]
+"17 dmx.h
+[v _resetDMX `(v ~T0 @X0 0 ef ]
+"43 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h
+[v ___nop `(v ~T0 @X0 0 ef ]
+[p i ___nop ]
 "21 channels.h
 [v _sendChangedChannels `(v ~T0 @X0 0 ef ]
-"22 dmx.h
+"24 dmx.h
 [v _decrementDataWatchdog `(v ~T0 @X0 0 ef ]
-"28
+"30
 [v _decrementFramingWatchdog `(v ~T0 @X0 0 ef ]
-"25
+"27
 [v _decrementSignalWatchdog `(uc ~T0 @X0 0 ef ]
-"7234 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f14k22.h
-[v _SPEN `Vb ~T0 @X0 0 e@32095 ]
-"7156
-[v _RCIE `Vb ~T0 @X0 0 e@31981 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2747,14 +2754,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
 [; ;hardware.h: 11: extern void initHardware(void);
 [; ;dmx.h: 16: extern void initDMX(void);
-[; ;dmx.h: 17: extern void handleDMX(void);
-[; ;dmx.h: 19: extern unsigned char getDMXBaseAddress(void);
-[; ;dmx.h: 21: void resetDataWatchdog(void);
-[; ;dmx.h: 22: extern void decrementDataWatchdog(void);
-[; ;dmx.h: 24: void resetSignalWatchdog(void);
-[; ;dmx.h: 25: extern unsigned char decrementSignalWatchdog(void);
-[; ;dmx.h: 27: void resetFramingWatchdog() ;
-[; ;dmx.h: 28: extern void decrementFramingWatchdog(void);
+[; ;dmx.h: 17: extern void resetDMX(void);
+[; ;dmx.h: 19: extern void handleDMX(void);
+[; ;dmx.h: 21: extern unsigned char getDMXBaseAddress(void);
+[; ;dmx.h: 23: inline void resetDataWatchdog(void);
+[; ;dmx.h: 24: extern void decrementDataWatchdog(void);
+[; ;dmx.h: 26: inline void resetSignalWatchdog(void);
+[; ;dmx.h: 27: extern unsigned char decrementSignalWatchdog(void);
+[; ;dmx.h: 29: inline void resetFramingWatchdog() ;
+[; ;dmx.h: 30: extern void decrementFramingWatchdog(void);
 [; ;i2c.h: 4: extern void i2cInit(void);
 [; ;i2c.h: 5: extern void i2cStart(void);
 [; ;i2c.h: 6: extern void i2cStop(void);
@@ -2824,50 +2832,71 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 57: INTCONbits.GIEL = 1;
 "57
 [e = . . _INTCONbits 2 1 -> -> 1 `i `uc ]
-[; ;main.c: 63: pcaWakeUp(0);
-"63
-[e ( _pcaWakeUp (1 -> -> 0 `i `uc ]
-[; ;main.c: 64: pcaWakeUp(1);
+[; ;main.c: 58: PEIE = 1;
+"58
+[e = _PEIE -> -> 1 `i `b ]
+[; ;main.c: 64: pcaWakeUp(0);
 "64
+[e ( _pcaWakeUp (1 -> -> 0 `i `uc ]
+[; ;main.c: 65: pcaWakeUp(1);
+"65
 [e ( _pcaWakeUp (1 -> -> 1 `i `uc ]
-[; ;main.c: 66: for (;;) {
-"66
+[; ;main.c: 67: for (;;) {
+"67
 {
 [e :U 281 ]
 {
-[; ;main.c: 68: sendChangedChannels();
-"68
-[e ( _sendChangedChannels ..  ]
-[; ;main.c: 71: decrementDataWatchdog();
-"71
-[e ( _decrementDataWatchdog ..  ]
-[; ;main.c: 72: decrementFramingWatchdog();
-"72
-[e ( _decrementFramingWatchdog ..  ]
-[; ;main.c: 74: if ( decrementSignalWatchdog() == 1 ) {
-"74
-[e $ ! == -> ( _decrementSignalWatchdog ..  `i -> 1 `i 284  ]
+[; ;main.c: 69: if ( OERR ) {
+"69
+[e $ ! _OERR 284  ]
 {
-[; ;main.c: 75: SPEN = 0;
+[; ;main.c: 70: CREN = 0;
+"70
+[e = _CREN -> -> 0 `i `b ]
+[; ;main.c: 71: resetDMX();
+"71
+[e ( _resetDMX ..  ]
+[; ;main.c: 73: __nop(); __nop(); __nop(); __nop(); __nop();
+"73
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[; ;main.c: 74: OERR = 0;
+"74
+[e = _OERR -> -> 0 `i `b ]
+[; ;main.c: 75: CREN = 1;
 "75
-[e = _SPEN -> -> 0 `i `b ]
-[; ;main.c: 76: RCIE = 0;
+[e = _CREN -> -> 1 `i `b ]
 "76
-[e = _RCIE -> -> 0 `i `b ]
-[; ;main.c: 77: initDMX();
-"77
-[e ( _initDMX ..  ]
-"78
 }
 [e :U 284 ]
-"82
+[; ;main.c: 76: }
+[; ;main.c: 80: sendChangedChannels();
+"80
+[e ( _sendChangedChannels ..  ]
+[; ;main.c: 83: decrementDataWatchdog();
+"83
+[e ( _decrementDataWatchdog ..  ]
+[; ;main.c: 84: decrementFramingWatchdog();
+"84
+[e ( _decrementFramingWatchdog ..  ]
+[; ;main.c: 87: if ( decrementSignalWatchdog() == 1 ) {
+"87
+[e $ ! == -> ( _decrementSignalWatchdog ..  `i -> 1 `i 285  ]
+{
+"91
 }
-[; ;main.c: 78: }
-[; ;main.c: 82: }
+[e :U 285 ]
+"95
+}
+[; ;main.c: 91: }
+[; ;main.c: 95: }
 [e $U 281  ]
 [e :U 282 ]
 }
-[; ;main.c: 83: }
-"83
+[; ;main.c: 96: }
+"96
 [e :UE 280 ]
 }

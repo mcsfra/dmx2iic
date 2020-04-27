@@ -2680,7 +2680,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "12 configuration_bits.c
 [p x FOSC=IRC ]
 "13
-[p x PLLEN=OFF ]
+[p x PLLEN=ON ]
 "14
 [p x PCLKEN=ON ]
 "15

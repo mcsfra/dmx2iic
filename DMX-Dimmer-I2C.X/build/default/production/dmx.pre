@@ -3698,17 +3698,19 @@ extern __nonreentrant void _delay3(unsigned char);
 
 # 16 "dmx.h"
 extern void initDMX(void);
+extern void resetDMX(void);
+
 extern void handleDMX(void);
 
 extern unsigned char getDMXBaseAddress(void);
 
-void resetDataWatchdog(void);
+inline void resetDataWatchdog(void);
 extern void decrementDataWatchdog(void);
 
-void resetSignalWatchdog(void);
+inline void resetSignalWatchdog(void);
 extern unsigned char decrementSignalWatchdog(void);
 
-void resetFramingWatchdog() ;
+inline void resetFramingWatchdog() ;
 extern void decrementFramingWatchdog(void);
 
 # 11 "channels.h"
@@ -3725,39 +3727,60 @@ extern void setChannelLevel(unsigned char channel, unsigned char value);
 extern void sendChangedChannels(void);
 extern void testChannelLevels(void);
 
-# 26 "dmx.c"
+# 27 "dmx.c"
 unsigned char dmxState;
 unsigned char currentAdress;
 
-# 32
-void initDMX(void) {
+unsigned char baseAddress;
+unsigned char topAddress;
 
-BAUDCONbits.BRG16 = 1;
-BAUDCONbits.CKTXP = 1;
-SPBRG1 = 1;
-SPBRGH = 0;
+# 39
+void initDMX() {
 
-RCSTA1bits.CREN = 1;
-RCSTA1bits.SPEN = 1;
-
-PIE1bits.RCIE = 1;
-IPR1bits.RCIP = 0;
+baseAddress = getDMXBaseAddress();
+topAddress = baseAddress + 32U;
 
 currentAdress = 0;
 dmxState = 0x00;
-}
+
+BAUDCONbits.BRG16 = 1;
 
 # 55
+SPBRG1 = 3;
+SPBRGH = 0;
+
+# 71
+BAUDCONbits.CKTXP = 1;
+
+RCSTA1bits.CREN = 1;
+RCSTA1bits.SPEN = 1;
+SYNC = 0;
+
+PIE1bits.RCIE = 1;
+IPR1bits.RCIP = 1;
+
+}
+
+void resetDMX() {
+
+RCSTA1bits.CREN = 0;
+currentAdress = 0;
+dmxState = 0x00;
+RCSTA1bits.CREN = 1;
+
+}
+
+# 97
 unsigned char getDMXBaseAddress(void) {
 
 return (unsigned char)(PORTC >> 1U) & 0b01111100U;
 }
 
-
+# 107
 void handleDMX() {
 
-unsigned char baseAddress = getDMXBaseAddress();
-unsigned char eOverflow = (unsigned char)OERR;
+
+
 unsigned char eFraming = (unsigned char)FERR;
 unsigned char received = RCREG;
 
@@ -3783,7 +3806,7 @@ return;
 
 if ( dmxState == 0x02) {
 
-if ( (currentAdress >= baseAddress) && (currentAdress < baseAddress + 32U)) {
+if ( (currentAdress >= baseAddress) && (currentAdress < topAddress)) {
 
 if (received > 0) {
 resetDataWatchdog();
@@ -3796,16 +3819,16 @@ dmxState = 0x00;
 }
 }
 
-# 117
+# 163
 volatile unsigned int dataWatchdog = 0;
 
-void resetDataWatchdog() {
+inline void resetDataWatchdog() {
 dataWatchdog = 100;
 }
 
 void decrementDataWatchdog() {
 
-# 132
+# 178
 if ( dataWatchdog > 0) {
 dataWatchdog--;
 LATCbits.LATC0 = 1;
@@ -3815,10 +3838,10 @@ LATCbits.LATC0 = 0;
 }
 }
 
-# 145
+# 191
 volatile unsigned int signalWatchdog = 0;
 
-void resetSignalWatchdog() {
+inline void resetSignalWatchdog() {
 
 signalWatchdog = 1000;
 }
@@ -3836,10 +3859,10 @@ return 1;
 }
 }
 
-# 172
+# 218
 volatile unsigned int framingErrorWatchdog = 0;
 
-void resetFramingWatchdog() {
+inline void resetFramingWatchdog() {
 LATCbits.LATC2 = 1;
 framingErrorWatchdog = 1000;
 }

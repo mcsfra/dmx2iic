@@ -14,17 +14,19 @@
 
 
 extern void initDMX(void);
+extern void resetDMX(void);
+
 extern void handleDMX(void);
 //extern void setDMXNotSynced(void);
 extern unsigned char getDMXBaseAddress(void); 
 
-void resetDataWatchdog(void);
+inline void resetDataWatchdog(void);
 extern void decrementDataWatchdog(void);
 
-void resetSignalWatchdog(void);
+inline void resetSignalWatchdog(void);
 extern unsigned char decrementSignalWatchdog(void);
 
-void resetFramingWatchdog() ;
+inline void resetFramingWatchdog() ;
 extern void decrementFramingWatchdog(void);
 
 

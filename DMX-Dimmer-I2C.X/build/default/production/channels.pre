@@ -3729,7 +3729,7 @@ extern unsigned int getLookup(unsigned char value);
 # 12 "channels.c"
 volatile CHANNELINFO channels[32U];
 
-# 17
+# 18
 void initChannels() {
 
 unsigned char i;
@@ -3740,20 +3740,19 @@ channels[i].level = 0;
 }
 }
 
-# 32
+# 36
 void setChannelLevel(unsigned char channel, unsigned char level) {
 
 if ( channel >= 32U ) {
 return;
 }
-
 if ( channels[channel].level != level) {
 channels[channel].level = level;
 channels[channel].bChanged = 1;
 }
 }
 
-# 48
+# 51
 void sendChangedChannels(void) {
 
 unsigned char i;
@@ -3761,6 +3760,8 @@ unsigned char device ;
 unsigned char channel;
 
 for (i = 0; i < 32U; i++ ) {
+
+
 
 if ( channels[i].bChanged == 1) {
 channels[i].bChanged = 0;
@@ -3779,7 +3780,7 @@ pcaSetChannelLog(device, channel, channels[i].level);
 }
 }
 
-# 85
+# 120
 static unsigned char bAllChannelsOff = 1;
 
 void testChannelLevels(void) {

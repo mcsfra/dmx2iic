@@ -3701,17 +3701,19 @@ extern void initHardware(void);
 
 # 16 "dmx.h"
 extern void initDMX(void);
+extern void resetDMX(void);
+
 extern void handleDMX(void);
 
 extern unsigned char getDMXBaseAddress(void);
 
-void resetDataWatchdog(void);
+inline void resetDataWatchdog(void);
 extern void decrementDataWatchdog(void);
 
-void resetSignalWatchdog(void);
+inline void resetSignalWatchdog(void);
 extern unsigned char decrementSignalWatchdog(void);
 
-void resetFramingWatchdog() ;
+inline void resetFramingWatchdog() ;
 extern void decrementFramingWatchdog(void);
 
 # 4 "i2c.h"
@@ -3772,12 +3774,24 @@ RCONbits.IPEN = 1;
 # 56
 INTCONbits.GIEH = 1;
 INTCONbits.GIEL = 1;
+PEIE = 1;
 
-# 63
+# 64
 pcaWakeUp(0);
 pcaWakeUp(1);
 
 for (;;) {
+
+if ( OERR ) {
+CREN = 0;
+resetDMX();
+
+__nop(); __nop(); __nop(); __nop(); __nop();
+OERR = 0;
+CREN = 1;
+}
+
+
 
 sendChangedChannels();
 
@@ -3785,13 +3799,14 @@ sendChangedChannels();
 decrementDataWatchdog();
 decrementFramingWatchdog();
 
+
 if ( decrementSignalWatchdog() == 1 ) {
-SPEN = 0;
-RCIE = 0;
-initDMX();
+
+
+
 }
 
-# 82
+# 95
 }
 }
 

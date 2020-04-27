@@ -2707,258 +2707,258 @@ Version 3.2 HI-TECH Software Intermediate Code
 "12 channels.c
 [v _channels `VS279 ~T0 @X0 -> 32 `ui e ]
 [; ;channels.c: 12: volatile CHANNELINFO channels[32U];
-"17
+"18
 [v _initChannels `(v ~T0 @X0 1 ef ]
 {
-[; ;channels.c: 17: void initChannels() {
+[; ;channels.c: 18: void initChannels() {
 [e :U _initChannels ]
 [f ]
-"19
+"20
 [v _i `uc ~T0 @X0 1 a ]
-[; ;channels.c: 19: unsigned char i;
-[; ;channels.c: 21: for (i = 0; i < 32U; i++) {
-"21
+[; ;channels.c: 20: unsigned char i;
+[; ;channels.c: 22: for (i = 0; i < 32U; i++) {
+"22
 {
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `ui -> 32 `ui 281  ]
 [e $U 282  ]
 [e :U 281 ]
 {
-[; ;channels.c: 22: channels[i].bChanged = 0;
-"22
-[e = . *U + &U _channels * -> _i `ux -> -> # *U &U _channels `ui `ux 0 -> -> 0 `i `uc ]
-[; ;channels.c: 23: channels[i].level = 0;
+[; ;channels.c: 23: channels[i].bChanged = 0;
 "23
-[e = . *U + &U _channels * -> _i `ux -> -> # *U &U _channels `ui `ux 1 -> -> 0 `i `uc ]
+[e = . *U + &U _channels * -> _i `ux -> -> # *U &U _channels `ui `ux 0 -> -> 0 `i `uc ]
+[; ;channels.c: 24: channels[i].level = 0;
 "24
+[e = . *U + &U _channels * -> _i `ux -> -> # *U &U _channels `ui `ux 1 -> -> 0 `i `uc ]
+"25
 }
-"21
+"22
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `ui -> 32 `ui 281  ]
 [e :U 282 ]
-"24
-}
-[; ;channels.c: 24: }
-[; ;channels.c: 25: }
 "25
+}
+[; ;channels.c: 25: }
+[; ;channels.c: 26: }
+"26
 [e :UE 280 ]
 }
-"32
+"36
 [v _setChannelLevel `(v ~T0 @X0 1 ef2`uc`uc ]
 {
-[; ;channels.c: 32: void setChannelLevel(unsigned char channel, unsigned char level) {
+[; ;channels.c: 36: void setChannelLevel(unsigned char channel, unsigned char level) {
 [e :U _setChannelLevel ]
 [v _channel `uc ~T0 @X0 1 r1 ]
 [v _level `uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;channels.c: 34: if ( channel >= 32U ) {
-"34
+[; ;channels.c: 38: if ( channel >= 32U ) {
+"38
 [e $ ! >= -> _channel `ui -> 32 `ui 285  ]
 {
-[; ;channels.c: 35: return;
-"35
+[; ;channels.c: 39: return;
+"39
 [e $UE 284  ]
-"36
+"40
 }
 [e :U 285 ]
-[; ;channels.c: 36: }
-[; ;channels.c: 38: if ( channels[channel].level != level) {
-"38
+[; ;channels.c: 40: }
+[; ;channels.c: 41: if ( channels[channel].level != level) {
+"41
 [e $ ! != -> . *U + &U _channels * -> _channel `ux -> -> # *U &U _channels `ui `ux 1 `i -> _level `i 286  ]
 {
-[; ;channels.c: 39: channels[channel].level = level;
-"39
+[; ;channels.c: 42: channels[channel].level = level;
+"42
 [e = . *U + &U _channels * -> _channel `ux -> -> # *U &U _channels `ui `ux 1 _level ]
-[; ;channels.c: 40: channels[channel].bChanged = 1;
-"40
+[; ;channels.c: 43: channels[channel].bChanged = 1;
+"43
 [e = . *U + &U _channels * -> _channel `ux -> -> # *U &U _channels `ui `ux 0 -> -> 1 `i `uc ]
-"41
+"44
 }
 [e :U 286 ]
-[; ;channels.c: 41: }
-[; ;channels.c: 42: }
-"42
+[; ;channels.c: 44: }
+[; ;channels.c: 45: }
+"45
 [e :UE 284 ]
 }
-"48
+"51
 [v _sendChangedChannels `(v ~T0 @X0 1 ef ]
 {
-[; ;channels.c: 48: void sendChangedChannels(void) {
+[; ;channels.c: 51: void sendChangedChannels(void) {
 [e :U _sendChangedChannels ]
 [f ]
-"50
+"53
 [v _i `uc ~T0 @X0 1 a ]
-"51
-[v _device `uc ~T0 @X0 1 a ]
-"52
-[v _channel `uc ~T0 @X0 1 a ]
-[; ;channels.c: 50: unsigned char i;
-[; ;channels.c: 51: unsigned char device ;
-[; ;channels.c: 52: unsigned char channel;
-[; ;channels.c: 54: for (i = 0; i < 32U; i++ ) {
 "54
+[v _device `uc ~T0 @X0 1 a ]
+"55
+[v _channel `uc ~T0 @X0 1 a ]
+[; ;channels.c: 53: unsigned char i;
+[; ;channels.c: 54: unsigned char device ;
+[; ;channels.c: 55: unsigned char channel;
+[; ;channels.c: 57: for (i = 0; i < 32U; i++ ) {
+"57
 {
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `ui -> 32 `ui 288  ]
 [e $U 289  ]
 [e :U 288 ]
 {
-[; ;channels.c: 56: if ( channels[i].bChanged == 1) {
-"56
+[; ;channels.c: 61: if ( channels[i].bChanged == 1) {
+"61
 [e $ ! == -> . *U + &U _channels * -> _i `ux -> -> # *U &U _channels `ui `ux 0 `i -> 1 `i 291  ]
 {
-[; ;channels.c: 57: channels[i].bChanged = 0;
-"57
+[; ;channels.c: 62: channels[i].bChanged = 0;
+"62
 [e = . *U + &U _channels * -> _i `ux -> -> # *U &U _channels `ui `ux 0 -> -> 0 `i `uc ]
-[; ;channels.c: 59: if ( i > 15) {
-"59
+[; ;channels.c: 64: if ( i > 15) {
+"64
 [e $ ! > -> _i `i -> 15 `i 292  ]
 {
-[; ;channels.c: 60: device = 1;
-"60
-[e = _device -> -> 1 `i `uc ]
-[; ;channels.c: 61: channel = i - 16U;
-"61
-[e = _channel -> - -> _i `ui -> 16 `ui `uc ]
-"62
-}
-[; ;channels.c: 62: }
-[e $U 293  ]
-"63
-[e :U 292 ]
-[; ;channels.c: 63: else {
-{
-[; ;channels.c: 64: device = 0;
-"64
-[e = _device -> -> 0 `i `uc ]
-[; ;channels.c: 65: channel = i;
+[; ;channels.c: 65: device = 1;
 "65
-[e = _channel _i ]
+[e = _device -> -> 1 `i `uc ]
+[; ;channels.c: 66: channel = i - 16U;
 "66
+[e = _channel -> - -> _i `ui -> 16 `ui `uc ]
+"67
+}
+[; ;channels.c: 67: }
+[e $U 293  ]
+"68
+[e :U 292 ]
+[; ;channels.c: 68: else {
+{
+[; ;channels.c: 69: device = 0;
+"69
+[e = _device -> -> 0 `i `uc ]
+[; ;channels.c: 70: channel = i;
+"70
+[e = _channel _i ]
+"71
 }
 [e :U 293 ]
-[; ;channels.c: 66: }
-[; ;channels.c: 68: pcaSetChannelLog(device, channel, channels[i].level);
-"68
+[; ;channels.c: 71: }
+[; ;channels.c: 73: pcaSetChannelLog(device, channel, channels[i].level);
+"73
 [e ( _pcaSetChannelLog (3 , , _device _channel . *U + &U _channels * -> _i `ux -> -> # *U &U _channels `ui `ux 1 ]
-"69
+"74
 }
 [e :U 291 ]
-"70
+"75
 }
-"54
+"57
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `ui -> 32 `ui 288  ]
 [e :U 289 ]
-"70
+"75
 }
-[; ;channels.c: 69: }
-[; ;channels.c: 70: }
-[; ;channels.c: 71: }
-"71
+[; ;channels.c: 74: }
+[; ;channels.c: 75: }
+[; ;channels.c: 76: }
+"76
 [e :UE 287 ]
 }
-"85
+"120
 [v _bAllChannelsOff `uc ~T0 @X0 1 s ]
 [i _bAllChannelsOff
 -> -> 1 `i `uc
 ]
-[; ;channels.c: 85: static unsigned char bAllChannelsOff = 1;
-"87
+[; ;channels.c: 120: static unsigned char bAllChannelsOff = 1;
+"122
 [v _testChannelLevels `(v ~T0 @X0 1 ef ]
 {
-[; ;channels.c: 87: void testChannelLevels(void) {
+[; ;channels.c: 122: void testChannelLevels(void) {
 [e :U _testChannelLevels ]
 [f ]
-"89
+"124
 [v _aChannelIsOn `uc ~T0 @X0 1 a ]
-[; ;channels.c: 89: unsigned char aChannelIsOn = 0;
+[; ;channels.c: 124: unsigned char aChannelIsOn = 0;
 [e = _aChannelIsOn -> -> 0 `i `uc ]
-"90
+"125
 [v _i `uc ~T0 @X0 1 a ]
-[; ;channels.c: 90: unsigned char i;
-[; ;channels.c: 92: for (i = 0; i < 32U; i++ ) {
-"92
+[; ;channels.c: 125: unsigned char i;
+[; ;channels.c: 127: for (i = 0; i < 32U; i++ ) {
+"127
 {
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `ui -> 32 `ui 295  ]
 [e $U 296  ]
 [e :U 295 ]
 {
-[; ;channels.c: 94: if ( channels[i].level > 0) {
-"94
+[; ;channels.c: 129: if ( channels[i].level > 0) {
+"129
 [e $ ! > -> . *U + &U _channels * -> _i `ux -> -> # *U &U _channels `ui `ux 1 `i -> 0 `i 298  ]
 {
-[; ;channels.c: 95: aChannelIsOn = 1;
-"95
+[; ;channels.c: 130: aChannelIsOn = 1;
+"130
 [e = _aChannelIsOn -> -> 1 `i `uc ]
-[; ;channels.c: 96: break;
-"96
+[; ;channels.c: 131: break;
+"131
 [e $U 296  ]
-"97
+"132
 }
 [e :U 298 ]
-"98
+"133
 }
-"92
+"127
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `ui -> 32 `ui 295  ]
 [e :U 296 ]
-"98
+"133
 }
-[; ;channels.c: 97: }
-[; ;channels.c: 98: }
-[; ;channels.c: 100: if ( bAllChannelsOff == 1 ) {
-"100
+[; ;channels.c: 132: }
+[; ;channels.c: 133: }
+[; ;channels.c: 135: if ( bAllChannelsOff == 1 ) {
+"135
 [e $ ! == -> _bAllChannelsOff `i -> 1 `i 299  ]
 {
-[; ;channels.c: 102: if (aChannelIsOn == 1) {
-"102
+[; ;channels.c: 137: if (aChannelIsOn == 1) {
+"137
 [e $ ! == -> _aChannelIsOn `i -> 1 `i 300  ]
 {
-[; ;channels.c: 103: pcaWakeUp(0);
-"103
+[; ;channels.c: 138: pcaWakeUp(0);
+"138
 [e ( _pcaWakeUp (1 -> -> 0 `i `uc ]
-[; ;channels.c: 104: pcaWakeUp(1);
-"104
+[; ;channels.c: 139: pcaWakeUp(1);
+"139
 [e ( _pcaWakeUp (1 -> -> 1 `i `uc ]
-[; ;channels.c: 105: bAllChannelsOff = 0;
-"105
+[; ;channels.c: 140: bAllChannelsOff = 0;
+"140
 [e = _bAllChannelsOff -> -> 0 `i `uc ]
-"106
+"141
 }
 [e :U 300 ]
-"107
+"142
 }
-[; ;channels.c: 106: }
-[; ;channels.c: 107: }
+[; ;channels.c: 141: }
+[; ;channels.c: 142: }
 [e $U 301  ]
-"108
+"143
 [e :U 299 ]
-[; ;channels.c: 108: else {
+[; ;channels.c: 143: else {
 {
-[; ;channels.c: 109: if (aChannelIsOn == 0) {
-"109
+[; ;channels.c: 144: if (aChannelIsOn == 0) {
+"144
 [e $ ! == -> _aChannelIsOn `i -> 0 `i 302  ]
 {
-[; ;channels.c: 110: pcaSleep(0);
-"110
+[; ;channels.c: 145: pcaSleep(0);
+"145
 [e ( _pcaSleep (1 -> -> 0 `i `uc ]
-[; ;channels.c: 111: pcaSleep(1);
-"111
+[; ;channels.c: 146: pcaSleep(1);
+"146
 [e ( _pcaSleep (1 -> -> 1 `i `uc ]
-[; ;channels.c: 112: bAllChannelsOff = 1;
-"112
+[; ;channels.c: 147: bAllChannelsOff = 1;
+"147
 [e = _bAllChannelsOff -> -> 1 `i `uc ]
-"113
+"148
 }
 [e :U 302 ]
-"114
+"149
 }
 [e :U 301 ]
-[; ;channels.c: 113: }
-[; ;channels.c: 114: }
-[; ;channels.c: 115: }
-"115
+[; ;channels.c: 148: }
+[; ;channels.c: 149: }
+[; ;channels.c: 150: }
+"150
 [e :UE 294 ]
 }

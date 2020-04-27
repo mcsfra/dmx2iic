@@ -15,9 +15,10 @@
 ** Datasheet Page 280
 */
 
-#define MEGAHERTZ 1000000
-#define FOSC (8 * MEGAHERTZ)
-
+//#define BAUDCLOCK_8MHZ 1 
+#define BAUDCLOCK_16MHZ 1 
+//#define BAUDCLOCK_32MHZ 1 
+//#define BAUDCLOCK_64MHZ 1 
 
 /*'
  * Variables for Statemachine
@@ -26,24 +27,46 @@
 unsigned char dmxState; 
 unsigned char currentAdress;
 
+unsigned char baseAddress; 
+unsigned char topAddress; 
+
 /*
  * Initialize DMX Hardware and internal statemachine 
+ * 
+ * 250000  8N2 
+ * 
  */
-void initDMX(void)  {
+void initDMX()  {
     
-    BAUDCONbits.BRG16 = 1;     // Baudratengenerator 8-Bit
-    BAUDCONbits.CKTXP = 1;     // polaritaet verdrehen
-    SPBRG1            = 1;     // Baudrate einstellen
-    SPBRGH            = 0;     //
-
-    RCSTA1bits.CREN   = 1;
-    RCSTA1bits.SPEN   = 1;
-
-    PIE1bits.RCIE     = 1;
-    IPR1bits.RCIP     = 0;     // Low Priority
+    baseAddress       = getDMXBaseAddress(); 
+    topAddress        = baseAddress + MAXCHANNELS;      // To save some cycles in the irq
 
     currentAdress     = 0;
     dmxState          = DMX_NOTSYNCED;
+    
+    BAUDCONbits.BRG16 = 1;     // Baudratengenerator 16-Bit
+
+    SPBRG1            = 3;     // Baudrate 250000 @ 16MHz
+    SPBRGH            = 0;     //
+    
+    BAUDCONbits.CKTXP = 1;      // polaritaet verdrehen
+    
+    RCSTA1bits.CREN   = 1;
+    RCSTA1bits.SPEN   = 1;
+    SYNC   = 0;                 // 2.01 - Review of Datasheet
+ 
+    PIE1bits.RCIE     = 1;
+    IPR1bits.RCIP     = 1;      // HIgh Priority
+
+}
+
+void resetDMX()  {
+    
+    RCSTA1bits.CREN = 0; 
+    currentAdress   = 0;
+    dmxState        = DMX_NOTSYNCED;
+    RCSTA1bits.CREN = 1; 
+    
 }
 
 /*
@@ -57,14 +80,11 @@ unsigned char getDMXBaseAddress(void)  {
     return (unsigned char)(PORTC >> 1U) & 0b01111100U;
 }
 
-
 void handleDMX()  {
     
-    unsigned char baseAddress = getDMXBaseAddress();             
-    unsigned char eOverflow   = (unsigned char)OERR;             // Read overflow error?
     unsigned char eFraming    = (unsigned char)FERR;             // Read framing error
     unsigned char received    = RCREG;                           // Read SerialIn register
-    
+        
     resetSignalWatchdog();                      // Received data, therefore at least a "signal" is available
    
     if ( eFraming == 1)  {                      // Framing Error 
@@ -87,7 +107,7 @@ void handleDMX()  {
 
     if ( dmxState == DMX_PAYLOAD)  {
       
-        if ( (currentAdress >= baseAddress) &&  (currentAdress < baseAddress + MAXCHANNELS))  {
+        if ( (currentAdress >= baseAddress) &&  (currentAdress < topAddress))  {
   
             if (received > 0)  {
                resetDataWatchdog(); 
@@ -100,13 +120,11 @@ void handleDMX()  {
     }
 }
 
-
 /*
  * DMX Error Monitoring
  * 
  *  [[ Editors Note: Diese Methoden sind doch sehr ähnlich; hier wäre eine generifizierung 
  *     Denkbar ]]
- *
  */
 
 /*
@@ -116,18 +134,11 @@ void handleDMX()  {
 
 volatile unsigned int dataWatchdog = 0; 
 
-void resetDataWatchdog()  {
+inline void resetDataWatchdog()  {
     dataWatchdog = 100; 
 }
 
 void decrementDataWatchdog()  {
-  
-  //  This codeblock should avoid   
-  //  if ( LATCbits.LATC2  == 1)   {    // in case of Framing Errrors, data cannot be good. We will override therefore the siganling of ghood data.
-  //   if (PORTCbits.RC2 == 1 )  {
-  //       LATCbits.LATC0 = 0; 
-  //       return;        
-  //   }
     
     if ( dataWatchdog > 0)  {
         dataWatchdog--; 
@@ -144,9 +155,9 @@ void decrementDataWatchdog()  {
 
 volatile unsigned int signalWatchdog = 0; 
 
-void resetSignalWatchdog()  {
+inline void resetSignalWatchdog()  {
 
-    signalWatchdog = 1000; 
+     signalWatchdog = 1000;   // Changed from 1000 to 10000. 
 }
 
 unsigned char decrementSignalWatchdog()  {
@@ -171,8 +182,8 @@ unsigned char decrementSignalWatchdog()  {
 
 volatile unsigned int framingErrorWatchdog = 0; 
 
-void resetFramingWatchdog()  {
-    LED_FRAMINGERROR  = 1; 
+inline void resetFramingWatchdog()  {
+    LED_FRAMINGERROR     = 1; 
     framingErrorWatchdog = 1000; 
 } 
 

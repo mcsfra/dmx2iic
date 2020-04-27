@@ -10,7 +10,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S99 . . . ]
 "2464
 [v _PIR1bits `VS99 ~T0 @X0 0 e@3998 ]
-"17 dmx.h
+"19 dmx.h
 [v _handleDMX `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -2691,37 +2691,50 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
 [; ;dmx.h: 16: extern void initDMX(void);
-[; ;dmx.h: 17: extern void handleDMX(void);
-[; ;dmx.h: 19: extern unsigned char getDMXBaseAddress(void);
-[; ;dmx.h: 21: void resetDataWatchdog(void);
-[; ;dmx.h: 22: extern void decrementDataWatchdog(void);
-[; ;dmx.h: 24: void resetSignalWatchdog(void);
-[; ;dmx.h: 25: extern unsigned char decrementSignalWatchdog(void);
-[; ;dmx.h: 27: void resetFramingWatchdog() ;
-[; ;dmx.h: 28: extern void decrementFramingWatchdog(void);
-[v $root$_low_isr `(v ~T0 @X0 0 e ]
-[v F2870 `(v ~T0 @X0 1 tf ]
-"19 interrupts.c
-[v _low_isr `ILF2870 ~T0 @X0 1 e ]
+[; ;dmx.h: 17: extern void resetDMX(void);
+[; ;dmx.h: 19: extern void handleDMX(void);
+[; ;dmx.h: 21: extern unsigned char getDMXBaseAddress(void);
+[; ;dmx.h: 23: inline void resetDataWatchdog(void);
+[; ;dmx.h: 24: extern void decrementDataWatchdog(void);
+[; ;dmx.h: 26: inline void resetSignalWatchdog(void);
+[; ;dmx.h: 27: extern unsigned char decrementSignalWatchdog(void);
+[; ;dmx.h: 29: inline void resetFramingWatchdog() ;
+[; ;dmx.h: 30: extern void decrementFramingWatchdog(void);
+[v $root$_high_isr `(v ~T0 @X0 0 e ]
+[v F2875 `(v ~T0 @X0 1 tf ]
+"14 interrupts.c
+[v _high_isr `IHF2875 ~T0 @X0 1 e ]
 {
-[; ;interrupts.c: 19: void low_priority interrupt low_isr(void) {
-[e :U _low_isr ]
+[; ;interrupts.c: 14: void high_priority interrupt high_isr(void) {
+[e :U _high_isr ]
 [f ]
-[; ;interrupts.c: 24: if (PIR1bits.RCIF == 1) {
-"24
+[; ;interrupts.c: 19: if (PIR1bits.RCIF == 1) {
+"19
 [e $ ! == -> . . _PIR1bits 0 5 `i -> 1 `i 280  ]
 {
-[; ;interrupts.c: 25: handleDMX();
-"25
+[; ;interrupts.c: 20: handleDMX();
+"20
 [e ( _handleDMX ..  ]
-[; ;interrupts.c: 26: PIR1bits.RCIF = 0;
-"26
+[; ;interrupts.c: 21: PIR1bits.RCIF = 0;
+"21
 [e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
-"27
+"22
 }
 [e :U 280 ]
-[; ;interrupts.c: 27: }
-[; ;interrupts.c: 28: }
-"28
+[; ;interrupts.c: 22: }
+[; ;interrupts.c: 23: }
+"23
 [e :UE 279 ]
+}
+[v $root$_low_isr `(v ~T0 @X0 0 e ]
+[v F2878 `(v ~T0 @X0 1 tf ]
+"32
+[v _low_isr `ILF2878 ~T0 @X0 1 e ]
+{
+[; ;interrupts.c: 32: void low_priority interrupt low_isr(void) {
+[e :U _low_isr ]
+[f ]
+[; ;interrupts.c: 41: }
+"41
+[e :UE 281 ]
 }

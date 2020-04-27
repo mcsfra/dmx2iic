@@ -47,7 +47,7 @@ void main(void)  {
     initDMX();                  // And finally dmx. 
   
     RCONbits.IPEN = 1;          // Peripheral Interrupts enable 
-
+    
     /*
      * Hier habe ich ein ToDo. Eigentlich dachte ich, dass ich auf den LoeInte4rrupt reagiere
      * Dennoch müssen wie es scheint BEIDE Bits gesetzt sein. Nanu?
@@ -55,7 +55,8 @@ void main(void)  {
 
     INTCONbits.GIEH = 1; 
     INTCONbits.GIEL = 1;
- 
+    PEIE = 1; 
+    
     /*
      *  Initialize connected PCAs
      */
@@ -64,17 +65,29 @@ void main(void)  {
     pcaWakeUp(1);
     
     for (;;)  {
+        
+        if ( OERR )  {
+           CREN = 0; 
+           resetDMX(); 
+           
+           __nop(); __nop(); __nop(); __nop(); __nop();
+           OERR = 0;
+           CREN = 1; 
+        }
+        
+        
          // Work
         sendChangedChannels(); 
 
         // Cable Monitoring         
         decrementDataWatchdog();            // Handle Watchdog for Channeldata within Addressrange > 0
         decrementFramingWatchdog();         // Watchdog for detection and reporting of framing errors ( cable copnnection interchanged )
+     
         
         if ( decrementSignalWatchdog() == 1 )  {  
-             SPEN = 0;
-             RCIE = 0;
-             initDMX();
+        //     SPEN = 0;
+        //     RCIE = 0;
+        //     initDMX();
         }
 #ifdef ADVANCED_POWER_SAVE    
             testChannelLevels();
