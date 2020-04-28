@@ -50,3 +50,10 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+*.p1
+*.pre
+DMX-Dimmer-I2C.X/dist/default/production/DMX-Dimmer-I2C.X.production.sym
+DMX-Dimmer-I2C.X/dist/default/production/DMX-Dimmer-I2C.X.production.sdb
+DMX-Dimmer-I2C.X/dist/default/production/DMX-Dimmer-I2C.X.production.rlf
+DMX-Dimmer-I2C.X/dist/default/production/DMX-Dimmer-I2C.X.production.lst
+DMX-Dimmer-I2C.X/dist/default/production/DMX-Dimmer-I2C.X.production.cmf

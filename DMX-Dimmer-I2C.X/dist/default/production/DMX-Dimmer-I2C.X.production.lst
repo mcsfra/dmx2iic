@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.45 build -152302408 
-                                                                                               Mon Apr 27 11:32:19 2020
+                                                                                               Mon Apr 27 21:19:12 2020
 
 Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160504
      1                           	processor	18F14K22
@@ -1204,7 +1204,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1190                           
   1191 ;; *************** function _resetDMX *****************
   1192 ;; Defined at:
-  1193 ;;		line 82 in file "dmx.c"
+  1193 ;;		line 63 in file "dmx.c"
   1194 ;; Parameters:    Size  Location     Type
   1195 ;;		None
   1196 ;; Auto vars:     Size  Location     Type
@@ -1238,21 +1238,21 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1224  000554                     _resetDMX:
   1225                           	opt stack 26
   1226                           
-  1227                           ;dmx.c: 84: RCSTA1bits.CREN = 0;
+  1227                           ;dmx.c: 65: RCSTA1bits.CREN = 0;
   1228                           
   1229                           ; BSR set to: 0
   1230                           ;incstack = 0
   1231  000554  98AB               	bcf	4011,4,c	;volatile
   1232                           
-  1233                           ;dmx.c: 85: currentAdress = 0;
+  1233                           ;dmx.c: 66: currentAdress = 0;
   1234  000556  0E00               	movlw	0
   1235  000558  6E37               	movwf	_currentAdress,c
   1236                           
-  1237                           ;dmx.c: 86: dmxState = 0x00;
+  1237                           ;dmx.c: 67: dmxState = 0x00;
   1238  00055A  0E00               	movlw	0
   1239  00055C  6E38               	movwf	_dmxState,c
   1240                           
-  1241                           ;dmx.c: 87: RCSTA1bits.CREN = 1;
+  1241                           ;dmx.c: 68: RCSTA1bits.CREN = 1;
   1242  00055E  88AB               	bsf	4011,4,c	;volatile
   1243  000560  0012               	return		;funcret
   1244  000562                     __end_of_resetDMX:
@@ -1813,78 +1813,78 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1799  00035C                     _initHardware:
   1800                           	opt stack 26
   1801                           
-  1802                           ;hardware.c: 10: OSCCONbits.IDLEN = 0;
+  1802                           ;hardware.c: 8: OSCCONbits.IDLEN = 0;
   1803                           
   1804                           ;incstack = 0
   1805  00035C  9ED3               	bcf	4051,7,c	;volatile
   1806                           
-  1807                           ;hardware.c: 12: OSCCONbits.IRCF2 = 1;
+  1807                           ;hardware.c: 10: OSCCONbits.IRCF2 = 1;
   1808  00035E  8CD3               	bsf	4051,6,c	;volatile
   1809                           
-  1810                           ;hardware.c: 13: OSCCONbits.IRCF1 = 1;
+  1810                           ;hardware.c: 11: OSCCONbits.IRCF1 = 1;
   1811  000360  8AD3               	bsf	4051,5,c	;volatile
   1812                           
-  1813                           ;hardware.c: 15: OSCCONbits.IRCF0 = 1;
+  1813                           ;hardware.c: 13: OSCCONbits.IRCF0 = 1;
   1814  000362  88D3               	bsf	4051,4,c	;volatile
   1815                           
-  1816                           ;hardware.c: 17: OSCCONbits.SCS1 = 1;
+  1816                           ;hardware.c: 15: OSCCONbits.SCS1 = 1;
   1817  000364  82D3               	bsf	4051,1,c	;volatile
   1818                           
-  1819                           ;hardware.c: 18: OSCCONbits.SCS0 = 0;
+  1819                           ;hardware.c: 16: OSCCONbits.SCS0 = 0;
   1820  000366  90D3               	bcf	4051,0,c	;volatile
   1821                           
-  1822                           ;hardware.c: 20: OSCTUNEbits.PLLEN = 1;
+  1822                           ;hardware.c: 18: OSCTUNEbits.PLLEN = 1;
   1823  000368  8C9B               	bsf	3995,6,c	;volatile
   1824                           
-  1825                           ;hardware.c: 26: CM1CON0 = 0;
+  1825                           ;hardware.c: 24: CM1CON0 = 0;
   1826  00036A  0E00               	movlw	0
   1827  00036C  6E6D               	movwf	3949,c	;volatile
   1828                           
-  1829                           ;hardware.c: 27: CM2CON0 = 0;
+  1829                           ;hardware.c: 25: CM2CON0 = 0;
   1830  00036E  0E00               	movlw	0
   1831  000370  6E6B               	movwf	3947,c	;volatile
   1832                           
-  1833                           ;hardware.c: 29: ANSEL = 0x00;
+  1833                           ;hardware.c: 27: ANSEL = 0x00;
   1834  000372  0E00               	movlw	0
   1835  000374  6E7E               	movwf	3966,c	;volatile
   1836                           
-  1837                           ;hardware.c: 30: ANSELH = 0x00;
+  1837                           ;hardware.c: 28: ANSELH = 0x00;
   1838  000376  0E00               	movlw	0
   1839  000378  6E7F               	movwf	3967,c	;volatile
   1840                           
-  1841                           ;hardware.c: 32: LATA = 0x00;
+  1841                           ;hardware.c: 30: LATA = 0x00;
   1842  00037A  0E00               	movlw	0
   1843  00037C  6E89               	movwf	3977,c	;volatile
   1844                           
-  1845                           ;hardware.c: 33: PORTA = 0x00;
+  1845                           ;hardware.c: 31: PORTA = 0x00;
   1846  00037E  0E00               	movlw	0
   1847  000380  6E80               	movwf	3968,c	;volatile
   1848                           
-  1849                           ;hardware.c: 34: TRISA = 0b00000011;
+  1849                           ;hardware.c: 32: TRISA = 0b00000011;
   1850  000382  0E03               	movlw	3
   1851  000384  6E92               	movwf	3986,c	;volatile
   1852                           
-  1853                           ;hardware.c: 36: PORTB = 0x00;
+  1853                           ;hardware.c: 34: PORTB = 0x00;
   1854  000386  0E00               	movlw	0
   1855  000388  6E81               	movwf	3969,c	;volatile
   1856                           
-  1857                           ;hardware.c: 37: LATB = 0x00;
+  1857                           ;hardware.c: 35: LATB = 0x00;
   1858  00038A  0E00               	movlw	0
   1859  00038C  6E8A               	movwf	3978,c	;volatile
   1860                           
-  1861                           ;hardware.c: 38: TRISB = 0b10100111;
+  1861                           ;hardware.c: 36: TRISB = 0b10100111;
   1862  00038E  0EA7               	movlw	167
   1863  000390  6E93               	movwf	3987,c	;volatile
   1864                           
-  1865                           ;hardware.c: 40: LATC = 0x00;
+  1865                           ;hardware.c: 38: LATC = 0x00;
   1866  000392  0E00               	movlw	0
   1867  000394  6E8B               	movwf	3979,c	;volatile
   1868                           
-  1869                           ;hardware.c: 41: PORTC = 0x00;
+  1869                           ;hardware.c: 39: PORTC = 0x00;
   1870  000396  0E00               	movlw	0
   1871  000398  6E82               	movwf	3970,c	;volatile
   1872                           
-  1873                           ;hardware.c: 42: TRISC = 0b11111000;
+  1873                           ;hardware.c: 40: TRISC = 0b11111000;
   1874  00039A  0EF8               	movlw	248
   1875  00039C  6E94               	movwf	3988,c	;volatile
   1876  00039E  0012               	return		;funcret
@@ -1963,30 +1963,30 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1949                           ;dmx.c: 47: BAUDCONbits.BRG16 = 1;
   1950  00042E  86B8               	bsf	4024,3,c	;volatile
   1951                           
-  1952                           ;dmx.c: 55: SPBRG1 = 3;
+  1952                           ;dmx.c: 49: SPBRG1 = 3;
   1953  000430  0E03               	movlw	3
   1954  000432  6EAF               	movwf	4015,c	;volatile
   1955                           
-  1956                           ;dmx.c: 56: SPBRGH = 0;
+  1956                           ;dmx.c: 50: SPBRGH = 0;
   1957  000434  0E00               	movlw	0
   1958  000436  6EB0               	movwf	4016,c	;volatile
   1959                           
-  1960                           ;dmx.c: 71: BAUDCONbits.CKTXP = 1;
+  1960                           ;dmx.c: 52: BAUDCONbits.CKTXP = 1;
   1961  000438  88B8               	bsf	4024,4,c	;volatile
   1962                           
-  1963                           ;dmx.c: 73: RCSTA1bits.CREN = 1;
+  1963                           ;dmx.c: 54: RCSTA1bits.CREN = 1;
   1964  00043A  88AB               	bsf	4011,4,c	;volatile
   1965                           
-  1966                           ;dmx.c: 74: RCSTA1bits.SPEN = 1;
+  1966                           ;dmx.c: 55: RCSTA1bits.SPEN = 1;
   1967  00043C  8EAB               	bsf	4011,7,c	;volatile
   1968                           
-  1969                           ;dmx.c: 75: SYNC = 0;
+  1969                           ;dmx.c: 56: SYNC = 0;
   1970  00043E  98AC               	bcf	4012,4,c	;volatile
   1971                           
-  1972                           ;dmx.c: 77: PIE1bits.RCIE = 1;
+  1972                           ;dmx.c: 58: PIE1bits.RCIE = 1;
   1973  000440  8A9D               	bsf	3997,5,c	;volatile
   1974                           
-  1975                           ;dmx.c: 78: IPR1bits.RCIP = 1;
+  1975                           ;dmx.c: 59: IPR1bits.RCIP = 1;
   1976  000442  8A9F               	bsf	3999,5,c	;volatile
   1977  000444  0012               	return		;funcret
   1978  000446                     __end_of_initDMX:
@@ -2008,7 +2008,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1994                           
   1995 ;; *************** function _getDMXBaseAddress *****************
   1996 ;; Defined at:
-  1997 ;;		line 97 in file "dmx.c"
+  1997 ;;		line 78 in file "dmx.c"
   1998 ;; Parameters:    Size  Location     Type
   1999 ;;		None
   2000 ;; Auto vars:     Size  Location     Type
@@ -2042,7 +2042,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2028  0005A0                     _getDMXBaseAddress:
   2029                           	opt stack 25
   2030                           
-  2031                           ;dmx.c: 99: return (unsigned char)(PORTC >> 1U) & 0b01111100U;
+  2031                           ;dmx.c: 80: return (unsigned char)(PORTC >> 1U) & 0b01111100U;
   2032                           
   2033                           ;incstack = 0
   2034  0005A0  90D8               	bcf	status,0,c
@@ -2252,7 +2252,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2238                           
   2239 ;; *************** function _decrementSignalWatchdog *****************
   2240 ;; Defined at:
-  2241 ;;		line 198 in file "dmx.c"
+  2241 ;;		line 163 in file "dmx.c"
   2242 ;; Parameters:    Size  Location     Type
   2243 ;;		None
   2244 ;; Auto vars:     Size  Location     Type
@@ -2286,7 +2286,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2272  0004D4                     _decrementSignalWatchdog:
   2273                           	opt stack 26
   2274                           
-  2275                           ;dmx.c: 200: if ( signalWatchdog > 0) {
+  2275                           ;dmx.c: 165: if ( signalWatchdog > 0) {
   2276                           
   2277                           ;incstack = 0
   2278  0004D4  502F               	movf	_signalWatchdog,w,c	;volatile
@@ -2294,26 +2294,26 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2280  0004D8  B4D8               	btfsc	status,2,c
   2281  0004DA  D006               	goto	l116
   2282                           
-  2283                           ;dmx.c: 201: signalWatchdog--;
+  2283                           ;dmx.c: 166: signalWatchdog--;
   2284  0004DC  062F               	decf	_signalWatchdog,f,c	;volatile
   2285  0004DE  A0D8               	btfss	status,0,c
   2286  0004E0  0630               	decf	_signalWatchdog+1,f,c	;volatile
   2287                           
-  2288                           ;dmx.c: 202: LATCbits.LATC1 = 0;
+  2288                           ;dmx.c: 167: LATCbits.LATC1 = 0;
   2289  0004E2  928B               	bcf	3979,1,c	;volatile
   2290                           
-  2291                           ;dmx.c: 203: return 0;
+  2291                           ;dmx.c: 168: return 0;
   2292  0004E4  0E00               	movlw	0
   2293                           
-  2294                           ;dmx.c: 204: }
+  2294                           ;dmx.c: 169: }
   2295  0004E6  0012               	return	
   2296  0004E8                     l116:
   2297                           
-  2298                           ;dmx.c: 205: else {
-  2299                           ;dmx.c: 206: LATCbits.LATC1 = 1;
+  2298                           ;dmx.c: 170: else {
+  2299                           ;dmx.c: 171: LATCbits.LATC1 = 1;
   2300  0004E8  828B               	bsf	3979,1,c	;volatile
   2301                           
-  2302                           ;dmx.c: 207: return 1;
+  2302                           ;dmx.c: 172: return 1;
   2303  0004EA  0E01               	movlw	1
   2304  0004EC  0012               	return	
   2305  0004EE                     __end_of_decrementSignalWatchdog:
@@ -2335,7 +2335,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2321                           
   2322 ;; *************** function _decrementFramingWatchdog *****************
   2323 ;; Defined at:
-  2324 ;;		line 225 in file "dmx.c"
+  2324 ;;		line 190 in file "dmx.c"
   2325 ;; Parameters:    Size  Location     Type
   2326 ;;		None
   2327 ;; Auto vars:     Size  Location     Type
@@ -2369,7 +2369,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2355  00051C                     _decrementFramingWatchdog:
   2356                           	opt stack 26
   2357                           
-  2358                           ;dmx.c: 227: if (framingErrorWatchdog > 0) {
+  2358                           ;dmx.c: 192: if (framingErrorWatchdog > 0) {
   2359                           
   2360                           ;incstack = 0
   2361  00051C  502D               	movf	_framingErrorWatchdog,w,c	;volatile
@@ -2377,17 +2377,17 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2363  000520  B4D8               	btfsc	status,2,c
   2364  000522  D004               	goto	l126
   2365                           
-  2366                           ;dmx.c: 228: framingErrorWatchdog--;
+  2366                           ;dmx.c: 193: framingErrorWatchdog--;
   2367  000524  062D               	decf	_framingErrorWatchdog,f,c	;volatile
   2368  000526  A0D8               	btfss	status,0,c
   2369  000528  062E               	decf	_framingErrorWatchdog+1,f,c	;volatile
   2370                           
-  2371                           ;dmx.c: 229: }
+  2371                           ;dmx.c: 194: }
   2372  00052A  0012               	return	
   2373  00052C                     l126:
   2374                           
-  2375                           ;dmx.c: 230: else {
-  2376                           ;dmx.c: 231: LATCbits.LATC2 = 0;
+  2375                           ;dmx.c: 195: else {
+  2376                           ;dmx.c: 196: LATCbits.LATC2 = 0;
   2377  00052C  948B               	bcf	3979,2,c	;volatile
   2378  00052E  0012               	return	
   2379  000530                     __end_of_decrementFramingWatchdog:
@@ -2409,7 +2409,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2395                           
   2396 ;; *************** function _decrementDataWatchdog *****************
   2397 ;; Defined at:
-  2398 ;;		line 169 in file "dmx.c"
+  2398 ;;		line 141 in file "dmx.c"
   2399 ;; Parameters:    Size  Location     Type
   2400 ;;		None
   2401 ;; Auto vars:     Size  Location     Type
@@ -2443,7 +2443,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2429  000506                     _decrementDataWatchdog:
   2430                           	opt stack 26
   2431                           
-  2432                           ;dmx.c: 178: if ( dataWatchdog > 0) {
+  2432                           ;dmx.c: 143: if ( dataWatchdog > 0) {
   2433                           
   2434                           ;incstack = 0
   2435  000506  5031               	movf	_dataWatchdog,w,c	;volatile
@@ -2451,20 +2451,20 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2437  00050A  B4D8               	btfsc	status,2,c
   2438  00050C  D005               	goto	l106
   2439                           
-  2440                           ;dmx.c: 179: dataWatchdog--;
+  2440                           ;dmx.c: 144: dataWatchdog--;
   2441  00050E  0631               	decf	_dataWatchdog,f,c	;volatile
   2442  000510  A0D8               	btfss	status,0,c
   2443  000512  0632               	decf	_dataWatchdog+1,f,c	;volatile
   2444                           
-  2445                           ;dmx.c: 180: LATCbits.LATC0 = 1;
+  2445                           ;dmx.c: 145: LATCbits.LATC0 = 1;
   2446  000514  808B               	bsf	3979,0,c	;volatile
   2447                           
-  2448                           ;dmx.c: 181: }
+  2448                           ;dmx.c: 146: }
   2449  000516  0012               	return	
   2450  000518                     l106:
   2451                           
-  2452                           ;dmx.c: 182: else {
-  2453                           ;dmx.c: 183: LATCbits.LATC0 = 0;
+  2452                           ;dmx.c: 147: else {
+  2453                           ;dmx.c: 148: LATCbits.LATC0 = 0;
   2454  000518  908B               	bcf	3979,0,c	;volatile
   2455  00051A  0012               	return	
   2456  00051C                     __end_of_decrementDataWatchdog:
@@ -2731,7 +2731,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2717                           
   2718 ;; *************** function _handleDMX *****************
   2719 ;; Defined at:
-  2720 ;;		line 107 in file "dmx.c"
+  2720 ;;		line 83 in file "dmx.c"
   2721 ;; Parameters:    Size  Location     Type
   2722 ;;		None
   2723 ;; Auto vars:     Size  Location     Type
@@ -2769,7 +2769,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2755  0001E6                     _handleDMX:
   2756                           	opt stack 22
   2757                           
-  2758                           ;dmx.c: 111: unsigned char eFraming = (unsigned char)FERR;
+  2758                           ;dmx.c: 85: unsigned char eFraming = (unsigned char)FERR;
   2759                           
   2760                           ;incstack = 0
   2761  0001E6  0E00               	movlw	0
@@ -2777,45 +2777,45 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2763  0001EA  0E01               	movlw	1
   2764  0001EC  6E04               	movwf	handleDMX@eFraming,c
   2765                           
-  2766                           ;dmx.c: 112: unsigned char received = RCREG;
+  2766                           ;dmx.c: 86: unsigned char received = RCREG;
   2767  0001EE  CFAE F005          	movff	4014,handleDMX@received	;volatile
   2768                           
-  2769                           ;dmx.c: 114: resetSignalWatchdog();
+  2769                           ;dmx.c: 88: resetSignalWatchdog();
   2770  0001F2  ECBE  F002         	call	_resetSignalWatchdog	;wreg free
   2771                           
-  2772                           ;dmx.c: 116: if ( eFraming == 1) {
+  2772                           ;dmx.c: 90: if ( eFraming == 1) {
   2773  0001F6  0404               	decf	handleDMX@eFraming,w,c
   2774  0001F8  A4D8               	btfss	status,2,c
   2775  0001FA  D00B               	goto	i2l90
   2776                           
-  2777                           ;dmx.c: 118: if ( dmxState == 0x00 ) {
+  2777                           ;dmx.c: 92: if ( dmxState == 0x00 ) {
   2778  0001FC  5038               	movf	_dmxState,w,c
   2779  0001FE  A4D8               	btfss	status,2,c
   2780  000200  D005               	goto	i2l91
   2781                           
-  2782                           ;dmx.c: 119: currentAdress = 0;
+  2782                           ;dmx.c: 93: currentAdress = 0;
   2783  000202  0E00               	movlw	0
   2784  000204  6E37               	movwf	_currentAdress,c
   2785                           
-  2786                           ;dmx.c: 120: dmxState = 0x01;
+  2786                           ;dmx.c: 94: dmxState = 0x01;
   2787  000206  0E01               	movlw	1
   2788  000208  6E38               	movwf	_dmxState,c
   2789                           
-  2790                           ;dmx.c: 121: }
+  2790                           ;dmx.c: 95: }
   2791  00020A  0012               	return	
   2792  00020C                     i2l91:
   2793                           
-  2794                           ;dmx.c: 122: else {
-  2795                           ;dmx.c: 123: resetFramingWatchdog();
+  2794                           ;dmx.c: 96: else {
+  2795                           ;dmx.c: 97: resetFramingWatchdog();
   2796  00020C  ECB8  F002         	call	_resetFramingWatchdog	;wreg free
   2797                           
-  2798                           ;dmx.c: 124: }
-  2799                           ;dmx.c: 125: return;
+  2798                           ;dmx.c: 98: }
+  2799                           ;dmx.c: 99: return;
   2800  000210  0012               	return	
   2801  000212                     i2l90:
   2802                           
-  2803                           ;dmx.c: 126: }
-  2804                           ;dmx.c: 128: if ( (dmxState == 0x01) && (received == 0x00) ) {
+  2803                           ;dmx.c: 100: }
+  2804                           ;dmx.c: 102: if ( (dmxState == 0x01) && (received == 0x00) ) {
   2805  000212  0438               	decf	_dmxState,w,c
   2806  000214  A4D8               	btfss	status,2,c
   2807  000216  D006               	goto	i2l94
@@ -2823,22 +2823,22 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2809  00021A  A4D8               	btfss	status,2,c
   2810  00021C  D003               	goto	i2l94
   2811                           
-  2812                           ;dmx.c: 130: dmxState = 0x02;
+  2812                           ;dmx.c: 104: dmxState = 0x02;
   2813  00021E  0E02               	movlw	2
   2814  000220  6E38               	movwf	_dmxState,c
   2815                           
-  2816                           ;dmx.c: 131: return;
+  2816                           ;dmx.c: 105: return;
   2817  000222  0012               	return	
   2818  000224                     i2l94:
   2819                           
-  2820                           ;dmx.c: 132: }
-  2821                           ;dmx.c: 134: if ( dmxState == 0x02) {
+  2820                           ;dmx.c: 106: }
+  2821                           ;dmx.c: 108: if ( dmxState == 0x02) {
   2822  000224  0E02               	movlw	2
   2823  000226  1838               	xorwf	_dmxState,w,c
   2824  000228  A4D8               	btfss	status,2,c
   2825  00022A  0012               	return	
   2826                           
-  2827                           ;dmx.c: 136: if ( (currentAdress >= baseAddress) && (currentAdress < topAddress)) {
+  2827                           ;dmx.c: 110: if ( (currentAdress >= baseAddress) && (currentAdress < topAddress)) {
   2828  00022C  5036               	movf	_baseAddress,w,c
   2829  00022E  5C37               	subwf	_currentAdress,w,c
   2830  000230  A0D8               	btfss	status,0,c
@@ -2848,15 +2848,15 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2834  000238  B0D8               	btfsc	status,0,c
   2835  00023A  D00B               	goto	i2l96
   2836                           
-  2837                           ;dmx.c: 138: if (received > 0) {
+  2837                           ;dmx.c: 112: if (received > 0) {
   2838  00023C  5005               	movf	handleDMX@received,w,c
   2839  00023E  A4D8               	btfss	status,2,c
   2840                           
-  2841                           ;dmx.c: 139: resetDataWatchdog();
+  2841                           ;dmx.c: 113: resetDataWatchdog();
   2842  000240  ECC3  F002         	call	_resetDataWatchdog	;wreg free
   2843                           
-  2844                           ;dmx.c: 140: }
-  2845                           ;dmx.c: 141: setChannelLevel((unsigned char)(currentAdress - baseAddress), received);
+  2844                           ;dmx.c: 114: }
+  2845                           ;dmx.c: 115: setChannelLevel((unsigned char)(currentAdress - baseAddress), received);
   2846  000244  C005  F001         	movff	handleDMX@received,setChannelLevel@level
   2847  000248  5036               	movf	_baseAddress,w,c
   2848  00024A  0800               	sublw	0
@@ -2864,14 +2864,14 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   2850  00024E  EC30  F001         	call	_setChannelLevel
   2851  000252                     i2l96:
   2852                           
-  2853                           ;dmx.c: 142: }
-  2854                           ;dmx.c: 144: if ( ++currentAdress >= 128)
+  2853                           ;dmx.c: 116: }
+  2854                           ;dmx.c: 118: if ( ++currentAdress >= 128)
   2855  000252  2A37               	incf	_currentAdress,f,c
   2856  000254  0E7F               	movlw	127
   2857  000256  6437               	cpfsgt	_currentAdress,c
   2858  000258  0012               	return	
   2859                           
-  2860                           ;dmx.c: 145: dmxState = 0x00;
+  2860                           ;dmx.c: 119: dmxState = 0x00;
   2861  00025A  0E00               	movlw	0
   2862  00025C  6E38               	movwf	_dmxState,c
   2863  00025E  0012               	return	
@@ -3018,7 +3018,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3004                           
   3005 ;; *************** function _resetSignalWatchdog *****************
   3006 ;; Defined at:
-  3007 ;;		line 193 in file "dmx.c"
+  3007 ;;		line 158 in file "dmx.c"
   3008 ;; Parameters:    Size  Location     Type
   3009 ;;		None
   3010 ;; Auto vars:     Size  Location     Type
@@ -3051,7 +3051,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3037  00057C                     _resetSignalWatchdog:
   3038                           	opt stack 22
   3039                           
-  3040                           ;dmx.c: 195: signalWatchdog = 1000;
+  3040                           ;dmx.c: 160: signalWatchdog = 1000;
   3041                           
   3042                           ;incstack = 0
   3043  00057C  0E03               	movlw	3
@@ -3085,7 +3085,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3071                           
   3072 ;; *************** function _resetFramingWatchdog *****************
   3073 ;; Defined at:
-  3074 ;;		line 220 in file "dmx.c"
+  3074 ;;		line 185 in file "dmx.c"
   3075 ;; Parameters:    Size  Location     Type
   3076 ;;		None
   3077 ;; Auto vars:     Size  Location     Type
@@ -3118,12 +3118,12 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3104  000570                     _resetFramingWatchdog:
   3105                           	opt stack 22
   3106                           
-  3107                           ;dmx.c: 221: LATCbits.LATC2 = 1;
+  3107                           ;dmx.c: 186: LATCbits.LATC2 = 1;
   3108                           
   3109                           ;incstack = 0
   3110  000570  848B               	bsf	3979,2,c	;volatile
   3111                           
-  3112                           ;dmx.c: 222: framingErrorWatchdog = 1000;
+  3112                           ;dmx.c: 187: framingErrorWatchdog = 1000;
   3113  000572  0E03               	movlw	3
   3114  000574  6E2E               	movwf	_framingErrorWatchdog+1,c	;volatile
   3115  000576  0EE8               	movlw	232
@@ -3155,7 +3155,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3141                           
   3142 ;; *************** function _resetDataWatchdog *****************
   3143 ;; Defined at:
-  3144 ;;		line 165 in file "dmx.c"
+  3144 ;;		line 137 in file "dmx.c"
   3145 ;; Parameters:    Size  Location     Type
   3146 ;;		None
   3147 ;; Auto vars:     Size  Location     Type
@@ -3188,7 +3188,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3174  000586                     _resetDataWatchdog:
   3175                           	opt stack 22
   3176                           
-  3177                           ;dmx.c: 166: dataWatchdog = 100;
+  3177                           ;dmx.c: 138: dataWatchdog = 100;
   3178                           
   3179                           ;incstack = 0
   3180  000586  0E00               	movlw	0
@@ -3535,7 +3535,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.45 build -152302408 
-Symbol Table                                                                                   Mon Apr 27 11:32:19 2020
+Symbol Table                                                                                   Mon Apr 27 21:19:12 2020
 
                        i2cSend@dat 00A0                        _SSPSTATbits 000FC7  
                                l11 03AE                                 l21 0176  

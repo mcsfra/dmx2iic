@@ -2732,67 +2732,67 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;hardware.c: 6: void initHardware(void) {
 [e :U _initHardware ]
 [f ]
-[; ;hardware.c: 10: OSCCONbits.IDLEN = 0;
-"10
+[; ;hardware.c: 8: OSCCONbits.IDLEN = 0;
+"8
 [e = . . _OSCCONbits 0 4 -> -> 0 `i `uc ]
-[; ;hardware.c: 12: OSCCONbits.IRCF2 = 1;
-"12
+[; ;hardware.c: 10: OSCCONbits.IRCF2 = 1;
+"10
 [e = . . _OSCCONbits 1 6 -> -> 1 `i `uc ]
-[; ;hardware.c: 13: OSCCONbits.IRCF1 = 1;
-"13
+[; ;hardware.c: 11: OSCCONbits.IRCF1 = 1;
+"11
 [e = . . _OSCCONbits 1 5 -> -> 1 `i `uc ]
-[; ;hardware.c: 15: OSCCONbits.IRCF0 = 1;
-"15
+[; ;hardware.c: 13: OSCCONbits.IRCF0 = 1;
+"13
 [e = . . _OSCCONbits 1 4 -> -> 1 `i `uc ]
-[; ;hardware.c: 17: OSCCONbits.SCS1 = 1;
-"17
+[; ;hardware.c: 15: OSCCONbits.SCS1 = 1;
+"15
 [e = . . _OSCCONbits 1 1 -> -> 1 `i `uc ]
-[; ;hardware.c: 18: OSCCONbits.SCS0 = 0;
-"18
+[; ;hardware.c: 16: OSCCONbits.SCS0 = 0;
+"16
 [e = . . _OSCCONbits 1 0 -> -> 0 `i `uc ]
-[; ;hardware.c: 20: OSCTUNEbits.PLLEN = 1;
-"20
+[; ;hardware.c: 18: OSCTUNEbits.PLLEN = 1;
+"18
 [e = . . _OSCTUNEbits 0 1 -> -> 1 `i `uc ]
-[; ;hardware.c: 26: CM1CON0 = 0;
-"26
+[; ;hardware.c: 24: CM1CON0 = 0;
+"24
 [e = _CM1CON0 -> -> 0 `i `uc ]
-[; ;hardware.c: 27: CM2CON0 = 0;
-"27
+[; ;hardware.c: 25: CM2CON0 = 0;
+"25
 [e = _CM2CON0 -> -> 0 `i `uc ]
-[; ;hardware.c: 29: ANSEL = 0x00;
-"29
+[; ;hardware.c: 27: ANSEL = 0x00;
+"27
 [e = _ANSEL -> -> 0 `i `uc ]
-[; ;hardware.c: 30: ANSELH = 0x00;
-"30
+[; ;hardware.c: 28: ANSELH = 0x00;
+"28
 [e = _ANSELH -> -> 0 `i `uc ]
-[; ;hardware.c: 32: LATA = 0x00;
-"32
+[; ;hardware.c: 30: LATA = 0x00;
+"30
 [e = _LATA -> -> 0 `i `uc ]
-[; ;hardware.c: 33: PORTA = 0x00;
-"33
+[; ;hardware.c: 31: PORTA = 0x00;
+"31
 [e = _PORTA -> -> 0 `i `uc ]
-[; ;hardware.c: 34: TRISA = 0b00000011;
-"34
+[; ;hardware.c: 32: TRISA = 0b00000011;
+"32
 [e = _TRISA -> -> 3 `i `uc ]
-[; ;hardware.c: 36: PORTB = 0x00;
-"36
+[; ;hardware.c: 34: PORTB = 0x00;
+"34
 [e = _PORTB -> -> 0 `i `uc ]
-[; ;hardware.c: 37: LATB = 0x00;
-"37
+[; ;hardware.c: 35: LATB = 0x00;
+"35
 [e = _LATB -> -> 0 `i `uc ]
-[; ;hardware.c: 38: TRISB = 0b10100111;
-"38
+[; ;hardware.c: 36: TRISB = 0b10100111;
+"36
 [e = _TRISB -> -> 167 `i `uc ]
-[; ;hardware.c: 40: LATC = 0x00;
-"40
+[; ;hardware.c: 38: LATC = 0x00;
+"38
 [e = _LATC -> -> 0 `i `uc ]
-[; ;hardware.c: 41: PORTC = 0x00;
-"41
+[; ;hardware.c: 39: PORTC = 0x00;
+"39
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;hardware.c: 42: TRISC = 0b11111000;
-"42
+[; ;hardware.c: 40: TRISC = 0b11111000;
+"40
 [e = _TRISC -> -> 248 `i `uc ]
-[; ;hardware.c: 49: }
-"49
+[; ;hardware.c: 47: }
+"47
 [e :UE 279 ]
 }

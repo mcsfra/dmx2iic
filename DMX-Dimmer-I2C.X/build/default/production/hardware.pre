@@ -3702,8 +3702,6 @@ extern void initHardware(void);
 # 6 "hardware.c"
 void initHardware(void) {
 
-
-
 OSCCONbits.IDLEN = 0;
 
 OSCCONbits.IRCF2 = 1;
@@ -3716,7 +3714,7 @@ OSCCONbits.SCS0 = 0;
 
 OSCTUNEbits.PLLEN = 1;
 
-# 26
+# 24
 CM1CON0 = 0;
 CM2CON0 = 0;
 
@@ -3735,5 +3733,5 @@ LATC = 0x00;
 PORTC = 0x00;
 TRISC = 0b11111000;
 
-# 49
+# 47
 }

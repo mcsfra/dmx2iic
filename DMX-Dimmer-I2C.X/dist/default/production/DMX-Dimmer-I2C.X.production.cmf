@@ -50,7 +50,7 @@ intcode CODE 0 8 8 6 1
 dataCOMRAM COMRAM 1 39 39 1 1
 bssCOMRAM COMRAM 1 2D 2D C 1
 mediumconst MEDIUMCONST 0 3DFE 3DFE 202 1
-$C:\Users\mcs-f\AppData\Local\Temp\ss1c.obj
+$C:\Users\mcs-f\AppData\Local\Temp\s9uo.obj
 idloc IDLOC 0 200000 200000 8 1
 init CODE 0 C6 C6 4 1
 reset_vec CODE 0 0 0 4 1
@@ -92,80 +92,80 @@ MEDIUMCONST 5A9-3DFD 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\DMX-Dimmer-I2C.X.production.obj
-18 intcodelo CODE >185:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+18 intcodelo CODE >150:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
 18 intcodelo CODE >32:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\interrupts.c
 6E intcodelo CODE >41:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\interrupts.c
 8 intcode CODE >14:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\interrupts.c
 8 intcode CODE >41:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\interrupts.c
-586 text27 CODE >165:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-586 text27 CODE >166:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-58E text27 CODE >167:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-570 text26 CODE >220:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-570 text26 CODE >221:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-572 text26 CODE >222:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-57A text26 CODE >223:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-57C text25 CODE >193:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-57C text25 CODE >195:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-584 text25 CODE >196:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+586 text27 CODE >137:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+586 text27 CODE >138:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+58E text27 CODE >139:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+570 text26 CODE >185:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+570 text26 CODE >186:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+572 text26 CODE >187:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+57A text26 CODE >188:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+57C text25 CODE >158:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+57C text25 CODE >160:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+584 text25 CODE >161:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
 260 text24 CODE >36:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\channels.c
 262 text24 CODE >38:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\channels.c
 26A text24 CODE >40:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\channels.c
 26A text24 CODE >41:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\channels.c
 28A text24 CODE >42:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\channels.c
 2A6 text24 CODE >43:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\channels.c
-1E6 text23 CODE >107:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-1E6 text23 CODE >111:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-1EE text23 CODE >112:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-1F2 text23 CODE >114:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-1F6 text23 CODE >116:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-1FC text23 CODE >118:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-202 text23 CODE >119:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-206 text23 CODE >120:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-20A text23 CODE >121:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-20C text23 CODE >122:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-20C text23 CODE >123:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-210 text23 CODE >125:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-212 text23 CODE >126:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-212 text23 CODE >128:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-21E text23 CODE >130:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-222 text23 CODE >131:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-224 text23 CODE >132:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-224 text23 CODE >134:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-22C text23 CODE >136:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-23C text23 CODE >138:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-240 text23 CODE >139:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-244 text23 CODE >141:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-252 text23 CODE >142:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-252 text23 CODE >144:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-25A text23 CODE >145:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+1E6 text23 CODE >83:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+1E6 text23 CODE >85:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+1EE text23 CODE >86:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+1F2 text23 CODE >88:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+1F6 text23 CODE >90:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+1FC text23 CODE >92:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+202 text23 CODE >93:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+206 text23 CODE >94:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+20A text23 CODE >95:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+20C text23 CODE >96:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+20C text23 CODE >97:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+210 text23 CODE >99:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+212 text23 CODE >100:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+212 text23 CODE >102:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+21E text23 CODE >104:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+222 text23 CODE >105:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+224 text23 CODE >106:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+224 text23 CODE >108:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+22C text23 CODE >110:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+23C text23 CODE >112:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+240 text23 CODE >113:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+244 text23 CODE >115:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+252 text23 CODE >116:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+252 text23 CODE >118:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+25A text23 CODE >119:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
 CA intcode_body CODE >14:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\interrupts.c
 112 intcode_body CODE >19:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\interrupts.c
 116 intcode_body CODE >20:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\interrupts.c
 11A intcode_body CODE >21:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\interrupts.c
 11C intcode_body CODE >22:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\interrupts.c
 11C intcode_body CODE >23:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\interrupts.c
-506 text20 CODE >169:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-506 text20 CODE >178:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-50E text20 CODE >179:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-514 text20 CODE >180:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-516 text20 CODE >181:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-518 text20 CODE >182:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-518 text20 CODE >183:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-51C text19 CODE >225:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-51C text19 CODE >227:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-524 text19 CODE >228:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-52A text19 CODE >229:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-52C text19 CODE >230:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-52C text19 CODE >231:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-4D4 text18 CODE >198:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-4D4 text18 CODE >200:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-4DC text18 CODE >201:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-4E2 text18 CODE >202:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-4E4 text18 CODE >203:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-4E6 text18 CODE >204:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-4E8 text18 CODE >205:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-4E8 text18 CODE >206:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-4EA text18 CODE >207:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+506 text20 CODE >141:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+506 text20 CODE >143:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+50E text20 CODE >144:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+514 text20 CODE >145:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+516 text20 CODE >146:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+518 text20 CODE >147:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+518 text20 CODE >148:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+51C text19 CODE >190:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+51C text19 CODE >192:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+524 text19 CODE >193:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+52A text19 CODE >194:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+52C text19 CODE >195:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+52C text19 CODE >196:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+4D4 text18 CODE >163:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+4D4 text18 CODE >165:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+4DC text18 CODE >166:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+4E2 text18 CODE >167:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+4E4 text18 CODE >168:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+4E6 text18 CODE >169:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+4E8 text18 CODE >170:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+4E8 text18 CODE >171:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+4EA text18 CODE >172:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
 4EE text17 CODE >7:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\i2c.c
 4EE text17 CODE >9:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\i2c.c
 4F0 text17 CODE >10:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\i2c.c
@@ -180,45 +180,45 @@ CA intcode_body CODE >14:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\inter
 3AE text16 CODE >23:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\channels.c
 3C2 text16 CODE >24:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\channels.c
 3DE text16 CODE >22:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\channels.c
-5A0 text15 CODE >97:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-5A0 text15 CODE >99:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+5A0 text15 CODE >78:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+5A0 text15 CODE >80:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
 41A text14 CODE >39:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
 41A text14 CODE >41:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
 420 text14 CODE >42:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
 426 text14 CODE >44:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
 42A text14 CODE >45:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
 42E text14 CODE >47:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-430 text14 CODE >55:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-434 text14 CODE >56:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-438 text14 CODE >71:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-43A text14 CODE >73:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-43C text14 CODE >74:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-43E text14 CODE >75:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-440 text14 CODE >77:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-442 text14 CODE >78:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-444 text14 CODE >80:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+430 text14 CODE >49:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+434 text14 CODE >50:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+438 text14 CODE >52:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+43A text14 CODE >54:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+43C text14 CODE >55:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+43E text14 CODE >56:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+440 text14 CODE >58:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+442 text14 CODE >59:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+444 text14 CODE >61:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
 35C text13 CODE >6:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
-35C text13 CODE >10:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
-35E text13 CODE >12:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
-360 text13 CODE >13:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
-362 text13 CODE >15:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
-364 text13 CODE >17:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
-366 text13 CODE >18:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
-368 text13 CODE >20:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
-36A text13 CODE >26:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
-36E text13 CODE >27:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
-372 text13 CODE >29:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
-376 text13 CODE >30:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
-37A text13 CODE >32:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
-37E text13 CODE >33:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
-382 text13 CODE >34:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
-386 text13 CODE >36:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
-38A text13 CODE >37:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
-38E text13 CODE >38:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
-392 text13 CODE >40:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
-396 text13 CODE >41:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
-39A text13 CODE >42:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
-39E text13 CODE >49:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
+35C text13 CODE >8:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
+35E text13 CODE >10:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
+360 text13 CODE >11:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
+362 text13 CODE >13:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
+364 text13 CODE >15:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
+366 text13 CODE >16:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
+368 text13 CODE >18:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
+36A text13 CODE >24:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
+36E text13 CODE >25:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
+372 text13 CODE >27:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
+376 text13 CODE >28:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
+37A text13 CODE >30:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
+37E text13 CODE >31:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
+382 text13 CODE >32:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
+386 text13 CODE >34:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
+38A text13 CODE >35:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
+38E text13 CODE >36:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
+392 text13 CODE >38:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
+396 text13 CODE >39:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
+39A text13 CODE >40:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
+39E text13 CODE >47:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\hardware.c
 542 text12 CODE >102:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\i2c.c
 542 text12 CODE >104:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\i2c.c
 530 text11 CODE >115:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\i2c.c
@@ -244,12 +244,12 @@ CA intcode_body CODE >14:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\inter
 562 text6 CODE >15:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\pca9685.c
 566 text6 CODE >27:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\pca9685.c
 56E text6 CODE >29:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\pca9685.c
-554 text5 CODE >82:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-554 text5 CODE >84:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-556 text5 CODE >85:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-55A text5 CODE >86:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-55E text5 CODE >87:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
-560 text5 CODE >89:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+554 text5 CODE >63:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+554 text5 CODE >65:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+556 text5 CODE >66:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+55A text5 CODE >67:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+55E text5 CODE >68:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
+560 text5 CODE >70:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\dmx.c
 46C text4 CODE >52:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\lookuptable.c
 470 text4 CODE >54:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\lookuptable.c
 316 text3 CODE >32:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\pca9685.c
@@ -306,36 +306,36 @@ CA intcode_body CODE >14:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\inter
 30C text0 CODE >84:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\main.c
 310 text0 CODE >87:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\main.c
 314 text0 CODE >95:D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\main.c
-3E2 cinit CODE >2498:C:\Users\mcs-f\AppData\Local\Temp\ss1c.
-3E2 cinit CODE >2500:C:\Users\mcs-f\AppData\Local\Temp\ss1c.
-3E2 cinit CODE >2503:C:\Users\mcs-f\AppData\Local\Temp\ss1c.
-3E2 cinit CODE >2554:C:\Users\mcs-f\AppData\Local\Temp\ss1c.
-3E4 cinit CODE >2555:C:\Users\mcs-f\AppData\Local\Temp\ss1c.
-3E6 cinit CODE >2556:C:\Users\mcs-f\AppData\Local\Temp\ss1c.
-3E8 cinit CODE >2557:C:\Users\mcs-f\AppData\Local\Temp\ss1c.
-3EA cinit CODE >2558:C:\Users\mcs-f\AppData\Local\Temp\ss1c.
-3EC cinit CODE >2559:C:\Users\mcs-f\AppData\Local\Temp\ss1c.
-3EE cinit CODE >2560:C:\Users\mcs-f\AppData\Local\Temp\ss1c.
-3F0 cinit CODE >2561:C:\Users\mcs-f\AppData\Local\Temp\ss1c.
-3F4 cinit CODE >2565:C:\Users\mcs-f\AppData\Local\Temp\ss1c.
-3F8 cinit CODE >2566:C:\Users\mcs-f\AppData\Local\Temp\ss1c.
-3FA cinit CODE >2567:C:\Users\mcs-f\AppData\Local\Temp\ss1c.
-3FA cinit CODE >2568:C:\Users\mcs-f\AppData\Local\Temp\ss1c.
-3FC cinit CODE >2569:C:\Users\mcs-f\AppData\Local\Temp\ss1c.
-3FE cinit CODE >2570:C:\Users\mcs-f\AppData\Local\Temp\ss1c.
-400 cinit CODE >2573:C:\Users\mcs-f\AppData\Local\Temp\ss1c.
-404 cinit CODE >2574:C:\Users\mcs-f\AppData\Local\Temp\ss1c.
-406 cinit CODE >2575:C:\Users\mcs-f\AppData\Local\Temp\ss1c.
-406 cinit CODE >2576:C:\Users\mcs-f\AppData\Local\Temp\ss1c.
-408 cinit CODE >2577:C:\Users\mcs-f\AppData\Local\Temp\ss1c.
-40A cinit CODE >2578:C:\Users\mcs-f\AppData\Local\Temp\ss1c.
-40C cinit CODE >2584:C:\Users\mcs-f\AppData\Local\Temp\ss1c.
-40C cinit CODE >2586:C:\Users\mcs-f\AppData\Local\Temp\ss1c.
-40E cinit CODE >2587:C:\Users\mcs-f\AppData\Local\Temp\ss1c.
-410 cinit CODE >2589:C:\Users\mcs-f\AppData\Local\Temp\ss1c.
-412 cinit CODE >2590:C:\Users\mcs-f\AppData\Local\Temp\ss1c.
-414 cinit CODE >2591:C:\Users\mcs-f\AppData\Local\Temp\ss1c.
-416 cinit CODE >2592:C:\Users\mcs-f\AppData\Local\Temp\ss1c.
+3E2 cinit CODE >2498:C:\Users\mcs-f\AppData\Local\Temp\s9uo.
+3E2 cinit CODE >2500:C:\Users\mcs-f\AppData\Local\Temp\s9uo.
+3E2 cinit CODE >2503:C:\Users\mcs-f\AppData\Local\Temp\s9uo.
+3E2 cinit CODE >2554:C:\Users\mcs-f\AppData\Local\Temp\s9uo.
+3E4 cinit CODE >2555:C:\Users\mcs-f\AppData\Local\Temp\s9uo.
+3E6 cinit CODE >2556:C:\Users\mcs-f\AppData\Local\Temp\s9uo.
+3E8 cinit CODE >2557:C:\Users\mcs-f\AppData\Local\Temp\s9uo.
+3EA cinit CODE >2558:C:\Users\mcs-f\AppData\Local\Temp\s9uo.
+3EC cinit CODE >2559:C:\Users\mcs-f\AppData\Local\Temp\s9uo.
+3EE cinit CODE >2560:C:\Users\mcs-f\AppData\Local\Temp\s9uo.
+3F0 cinit CODE >2561:C:\Users\mcs-f\AppData\Local\Temp\s9uo.
+3F4 cinit CODE >2565:C:\Users\mcs-f\AppData\Local\Temp\s9uo.
+3F8 cinit CODE >2566:C:\Users\mcs-f\AppData\Local\Temp\s9uo.
+3FA cinit CODE >2567:C:\Users\mcs-f\AppData\Local\Temp\s9uo.
+3FA cinit CODE >2568:C:\Users\mcs-f\AppData\Local\Temp\s9uo.
+3FC cinit CODE >2569:C:\Users\mcs-f\AppData\Local\Temp\s9uo.
+3FE cinit CODE >2570:C:\Users\mcs-f\AppData\Local\Temp\s9uo.
+400 cinit CODE >2573:C:\Users\mcs-f\AppData\Local\Temp\s9uo.
+404 cinit CODE >2574:C:\Users\mcs-f\AppData\Local\Temp\s9uo.
+406 cinit CODE >2575:C:\Users\mcs-f\AppData\Local\Temp\s9uo.
+406 cinit CODE >2576:C:\Users\mcs-f\AppData\Local\Temp\s9uo.
+408 cinit CODE >2577:C:\Users\mcs-f\AppData\Local\Temp\s9uo.
+40A cinit CODE >2578:C:\Users\mcs-f\AppData\Local\Temp\s9uo.
+40C cinit CODE >2584:C:\Users\mcs-f\AppData\Local\Temp\s9uo.
+40C cinit CODE >2586:C:\Users\mcs-f\AppData\Local\Temp\s9uo.
+40E cinit CODE >2587:C:\Users\mcs-f\AppData\Local\Temp\s9uo.
+410 cinit CODE >2589:C:\Users\mcs-f\AppData\Local\Temp\s9uo.
+412 cinit CODE >2590:C:\Users\mcs-f\AppData\Local\Temp\s9uo.
+414 cinit CODE >2591:C:\Users\mcs-f\AppData\Local\Temp\s9uo.
+416 cinit CODE >2592:C:\Users\mcs-f\AppData\Local\Temp\s9uo.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -358,7 +358,7 @@ _CM2CON0 F6B 0 ABS 0 - dist/default/production\DMX-Dimmer-I2C.X.production.obj
 handleDMX@eFraming 4 0 COMRAM 1 cstackCOMRAM dist/default/production\DMX-Dimmer-I2C.X.production.obj
 _pcaWakeUp 446 0 CODE 0 text7 dist/default/production\DMX-Dimmer-I2C.X.production.obj
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\DMX-Dimmer-I2C.X.production.obj
-__mediumconst 3DFE 0 MEDIUMCONST 0 mediumconst C:\Users\mcs-f\AppData\Local\Temp\ss1c.obj
+__mediumconst 3DFE 0 MEDIUMCONST 0 mediumconst C:\Users\mcs-f\AppData\Local\Temp\s9uo.obj
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\DMX-Dimmer-I2C.X.production.obj
 _i2cStart 598 0 CODE 0 text10 dist/default/production\DMX-Dimmer-I2C.X.production.obj
 pcaSetChannelLog@value A8 0 BANK0 1 cstackBANK0 dist/default/production\DMX-Dimmer-I2C.X.production.obj
@@ -378,10 +378,10 @@ _LATC F8B 0 ABS 0 - dist/default/production\DMX-Dimmer-I2C.X.production.obj
 _OERR 7D59 0 ABS 0 - dist/default/production\DMX-Dimmer-I2C.X.production.obj
 _PEIE 7F96 0 ABS 0 - dist/default/production\DMX-Dimmer-I2C.X.production.obj
 _SYNC 7D64 0 ABS 0 - dist/default/production\DMX-Dimmer-I2C.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\mcs-f\AppData\Local\Temp\ss1c.obj
+___sp 0 0 STACK 2 stack C:\Users\mcs-f\AppData\Local\Temp\s9uo.obj
 _main 2BC 0 CODE 0 text0 dist/default/production\DMX-Dimmer-I2C.X.production.obj
 btemp 3A 0 COMRAM 1 temp dist/default/production\DMX-Dimmer-I2C.X.production.obj
-start C6 0 CODE 0 init C:\Users\mcs-f\AppData\Local\Temp\ss1c.obj
+start C6 0 CODE 0 init C:\Users\mcs-f\AppData\Local\Temp\s9uo.obj
 __end_of_i2cStart 5A0 0 CODE 0 text10 dist/default/production\DMX-Dimmer-I2C.X.production.obj
 __size_of_main 0 0 ABS 0 - dist/default/production\DMX-Dimmer-I2C.X.production.obj
 __CFG_WDTEN$OFF 0 0 ABS 0 - dist/default/production\DMX-Dimmer-I2C.X.production.obj
@@ -394,11 +394,11 @@ __end_of_pcaGetAddress 4D4 0 CODE 0 text8 dist/default/production\DMX-Dimmer-I2C
 _baseAddress 36 0 COMRAM 1 bssCOMRAM dist/default/production\DMX-Dimmer-I2C.X.production.obj
 __HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\DMX-Dimmer-I2C.X.production.obj
 __size_of_low_isr 0 0 ABS 0 - dist/default/production\DMX-Dimmer-I2C.X.production.obj
-__accesstop 60 0 ABS 0 - C:\Users\mcs-f\AppData\Local\Temp\ss1c.obj
-intlevel0 0 0 CODE 0 text C:\Users\mcs-f\AppData\Local\Temp\ss1c.obj
-intlevel1 0 0 CODE 0 text C:\Users\mcs-f\AppData\Local\Temp\ss1c.obj
-intlevel2 0 0 CODE 0 text C:\Users\mcs-f\AppData\Local\Temp\ss1c.obj
-intlevel3 0 0 CODE 0 text C:\Users\mcs-f\AppData\Local\Temp\ss1c.obj
+__accesstop 60 0 ABS 0 - C:\Users\mcs-f\AppData\Local\Temp\s9uo.obj
+intlevel0 0 0 CODE 0 text C:\Users\mcs-f\AppData\Local\Temp\s9uo.obj
+intlevel1 0 0 CODE 0 text C:\Users\mcs-f\AppData\Local\Temp\s9uo.obj
+intlevel2 0 0 CODE 0 text C:\Users\mcs-f\AppData\Local\Temp\s9uo.obj
+intlevel3 0 0 CODE 0 text C:\Users\mcs-f\AppData\Local\Temp\s9uo.obj
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\DMX-Dimmer-I2C.X.production.obj
 _decrementSignalWatchdog 4D4 0 CODE 0 text18 dist/default/production\DMX-Dimmer-I2C.X.production.obj
 _OSCCONbits FD3 0 ABS 0 - dist/default/production\DMX-Dimmer-I2C.X.production.obj
@@ -413,8 +413,8 @@ __Hclrtext 0 0 ABS 0 clrtext dist/default/production\DMX-Dimmer-I2C.X.production
 __pidataCOMRAM 5A8 0 CODE 0 idataCOMRAM dist/default/production\DMX-Dimmer-I2C.X.production.obj
 _bAllChannelsOff 39 0 COMRAM 1 dataCOMRAM dist/default/production\DMX-Dimmer-I2C.X.production.obj
 _ANSELH F7F 0 ABS 0 - dist/default/production\DMX-Dimmer-I2C.X.production.obj
-___inthi_sp 0 0 STACK 2 stack C:\Users\mcs-f\AppData\Local\Temp\ss1c.obj
-___intlo_sp 0 0 STACK 2 stack C:\Users\mcs-f\AppData\Local\Temp\ss1c.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\mcs-f\AppData\Local\Temp\s9uo.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\mcs-f\AppData\Local\Temp\s9uo.obj
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\DMX-Dimmer-I2C.X.production.obj
 handleDMX@received 5 0 COMRAM 1 cstackCOMRAM dist/default/production\DMX-Dimmer-I2C.X.production.obj
 __size_of_initDMX 0 0 ABS 0 - dist/default/production\DMX-Dimmer-I2C.X.production.obj
@@ -490,7 +490,7 @@ __Htext9 0 0 ABS 0 text9 dist/default/production\DMX-Dimmer-I2C.X.production.obj
 __CFG_BBSIZ$OFF 0 0 ABS 0 - dist/default/production\DMX-Dimmer-I2C.X.production.obj
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\DMX-Dimmer-I2C.X.production.obj
 __Hbigram 0 0 ABS 0 bigram dist/default/production\DMX-Dimmer-I2C.X.production.obj
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\mcs-f\AppData\Local\Temp\ss1c.obj
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\mcs-f\AppData\Local\Temp\s9uo.obj
 _setChannelLevel 260 0 CODE 0 text24 dist/default/production\DMX-Dimmer-I2C.X.production.obj
 __Hcomram 0 0 ABS 0 comram dist/default/production\DMX-Dimmer-I2C.X.production.obj
 __Hconfig 30000E 0 CONFIG 0 config dist/default/production\DMX-Dimmer-I2C.X.production.obj
@@ -629,8 +629,8 @@ __size_of_i2cStop 0 0 ABS 0 - dist/default/production\DMX-Dimmer-I2C.X.productio
 __size_of_i2cWait 0 0 ABS 0 - dist/default/production\DMX-Dimmer-I2C.X.production.obj
 _resetDataWatchdog 586 0 CODE 0 text27 dist/default/production\DMX-Dimmer-I2C.X.production.obj
 _low_isr 18 0 CODE 0 intcodelo dist/default/production\DMX-Dimmer-I2C.X.production.obj
-stackhi 1FF 0 ABS 0 - C:\Users\mcs-f\AppData\Local\Temp\ss1c.obj
-stacklo AE 0 ABS 0 - C:\Users\mcs-f\AppData\Local\Temp\ss1c.obj
+stackhi 1FF 0 ABS 0 - C:\Users\mcs-f\AppData\Local\Temp\s9uo.obj
+stacklo AE 0 ABS 0 - C:\Users\mcs-f\AppData\Local\Temp\s9uo.obj
 __Lintcode 8 0 CODE 0 intcode dist/default/production\DMX-Dimmer-I2C.X.production.obj
 __Lintret 0 0 ABS 0 intret dist/default/production\DMX-Dimmer-I2C.X.production.obj
 __Lirdata 0 0 CODE 0 irdata dist/default/production\DMX-Dimmer-I2C.X.production.obj
@@ -690,7 +690,7 @@ __Ltext24 0 0 ABS 0 text24 dist/default/production\DMX-Dimmer-I2C.X.production.o
 __Ltext25 0 0 ABS 0 text25 dist/default/production\DMX-Dimmer-I2C.X.production.obj
 __Ltext26 0 0 ABS 0 text26 dist/default/production\DMX-Dimmer-I2C.X.production.obj
 __Ltext27 0 0 ABS 0 text27 dist/default/production\DMX-Dimmer-I2C.X.production.obj
-__ramtop 200 0 RAM 0 ramtop C:\Users\mcs-f\AppData\Local\Temp\ss1c.obj
+__ramtop 200 0 RAM 0 ramtop C:\Users\mcs-f\AppData\Local\Temp\s9uo.obj
 __Lpowerup C6 0 CODE 0 powerup dist/default/production\DMX-Dimmer-I2C.X.production.obj
 __end_of_getDMXBaseAddress 5A8 0 CODE 0 text15 dist/default/production\DMX-Dimmer-I2C.X.production.obj
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\DMX-Dimmer-I2C.X.production.obj

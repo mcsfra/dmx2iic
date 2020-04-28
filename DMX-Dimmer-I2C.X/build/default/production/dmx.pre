@@ -3745,11 +3745,9 @@ dmxState = 0x00;
 
 BAUDCONbits.BRG16 = 1;
 
-# 55
 SPBRG1 = 3;
 SPBRGH = 0;
 
-# 71
 BAUDCONbits.CKTXP = 1;
 
 RCSTA1bits.CREN = 1;
@@ -3770,16 +3768,13 @@ RCSTA1bits.CREN = 1;
 
 }
 
-# 97
+# 78
 unsigned char getDMXBaseAddress(void) {
 
 return (unsigned char)(PORTC >> 1U) & 0b01111100U;
 }
 
-# 107
 void handleDMX() {
-
-
 
 unsigned char eFraming = (unsigned char)FERR;
 unsigned char received = RCREG;
@@ -3819,7 +3814,7 @@ dmxState = 0x00;
 }
 }
 
-# 163
+# 135
 volatile unsigned int dataWatchdog = 0;
 
 inline void resetDataWatchdog() {
@@ -3828,7 +3823,6 @@ dataWatchdog = 100;
 
 void decrementDataWatchdog() {
 
-# 178
 if ( dataWatchdog > 0) {
 dataWatchdog--;
 LATCbits.LATC0 = 1;
@@ -3838,7 +3832,7 @@ LATCbits.LATC0 = 0;
 }
 }
 
-# 191
+# 156
 volatile unsigned int signalWatchdog = 0;
 
 inline void resetSignalWatchdog() {
@@ -3859,7 +3853,7 @@ return 1;
 }
 }
 
-# 218
+# 183
 volatile unsigned int framingErrorWatchdog = 0;
 
 inline void resetFramingWatchdog() {
