@@ -47,13 +47,13 @@
         <targetDevice>PIC18F14K22</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>PICkit3PlatformTool</platformTool>
+        <platformTool>noID</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>1.45</languageToolchainVersion>
+        <languageToolchainVersion>2.32</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC18F-K_DFP" vendor="Microchip" version="1.0.48"/>
+        <pack name="PIC18F-K_DFP" vendor="Microchip" version="1.5.114"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>
@@ -254,8 +254,8 @@
       </XC8-CO>
       <XC8-config-global>
         <property key="advanced-elf" value="true"/>
-        <property key="gcc-opt-driver-new" value="false"/>
-        <property key="gcc-opt-std" value="--std=c89"/>
+        <property key="gcc-opt-driver-new" value="true"/>
+        <property key="gcc-opt-std" value="-std=c90"/>
         <property key="gcc-output-file-format" value="dwarf-3"/>
         <property key="omit-pack-options" value="false"/>
         <property key="omit-pack-options-new" value="1"/>
