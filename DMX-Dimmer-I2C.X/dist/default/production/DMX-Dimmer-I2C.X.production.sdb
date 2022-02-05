@@ -99,6 +99,23 @@
 [v _PORTC PORTC `VEuc  1 e 1 @3970 ]
 "1540
 [v _LATA LATA `VEuc  1 e 1 @3977 ]
+[s S857 . 1 `uc 1 LATA0 1 0 :1:0 
+`uc 1 LATA1 1 0 :1:1 
+`uc 1 LATA2 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 LATA4 1 0 :1:4 
+`uc 1 LATA5 1 0 :1:5 
+]
+"1563
+[s S864 . 1 `uc 1 LA0 1 0 :1:0 
+`uc 1 LA1 1 0 :1:1 
+`uc 1 LA2 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 LA4 1 0 :1:4 
+`uc 1 LA5 1 0 :1:5 
+]
+[u S871 . 1 `S857 1 . 1 0 `S864 1 . 1 0 ]
+[v _LATAbits LATAbits `VES871  1 e 1 @3977 ]
 "1618
 [v _LATB LATB `VEuc  1 e 1 @3978 ]
 "1684
@@ -468,7 +485,7 @@
 "40
 [v _main main `(v  1 e 1 0 ]
 {
-"96
+"105
 } 0
 "51 D:\GitHub\dimmer-dmx-i2c\dmx2iic\DMX-Dimmer-I2C.X\channels.c
 [v _sendChangedChannels sendChangedChannels `(v  1 e 1 0 ]

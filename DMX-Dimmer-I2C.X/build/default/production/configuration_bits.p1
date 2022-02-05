@@ -2677,59 +2677,59 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
-"12 configuration_bits.c
+"14 configuration_bits.c
 [p x FOSC=IRC ]
-"13
-[p x PLLEN=ON ]
-"14
-[p x PCLKEN=ON ]
 "15
-[p x FCMEN=OFF ]
+[p x PLLEN=ON ]
 "16
+[p x PCLKEN=ON ]
+"17
+[p x FCMEN=OFF ]
+"18
 [p x IESO=OFF ]
-"19
-[p x PWRTEN=ON ]
-"20
-[p x BOREN=SBORDIS ]
 "21
+[p x PWRTEN=ON ]
+"22
+[p x BOREN=SBORDIS ]
+"23
 [p x BORV=19 ]
-"24
+"26
 [p x WDTEN=OFF ]
-"25
+"27
 [p x WDTPS=32768 ]
-"28
+"30
 [p x HFOFST=ON ]
-"29
+"31
 [p x MCLRE=ON ]
-"32
-[p x STVREN=ON ]
-"33
-[p x LVP=OFF ]
 "34
-[p x BBSIZ=OFF ]
+[p x STVREN=ON ]
 "35
+[p x LVP=OFF ]
+"36
+[p x BBSIZ=OFF ]
+"37
 [p x XINST=OFF ]
-"38
+"40
 [p x CP0=OFF ]
-"39
+"41
 [p x CP1=OFF ]
-"42
+"44
 [p x CPB=OFF ]
-"43
+"45
 [p x CPD=OFF ]
-"46
+"48
 [p x WRT0=OFF ]
-"47
+"49
 [p x WRT1=OFF ]
-"50
-[p x WRTC=OFF ]
-"51
-[p x WRTB=OFF ]
 "52
+[p x WRTC=OFF ]
+"53
+[p x WRTB=OFF ]
+"54
 [p x WRTD=OFF ]
-"55
+"57
 [p x EBTR0=OFF ]
-"56
+"58
 [p x EBTR1=OFF ]
-"59
+"61
 [p x EBTRB=OFF ]

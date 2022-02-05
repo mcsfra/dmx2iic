@@ -3699,7 +3699,7 @@ extern __nonreentrant void _delay3(unsigned char);
 # 11 "hardware.h"
 extern void initHardware(void);
 
-# 16 "dmx.h"
+# 17 "dmx.h"
 extern void initDMX(void);
 extern void resetDMX(void);
 
@@ -3782,6 +3782,15 @@ pcaWakeUp(1);
 
 for (;;) {
 
+
+
+if ( LATAbits.LATA2 == 1) {
+LATAbits.LATA2 = 0;
+}
+else {
+LATAbits.LATA2 = 1;
+}
+
 if ( OERR ) {
 CREN = 0;
 resetDMX();
@@ -3806,7 +3815,7 @@ if ( decrementSignalWatchdog() == 1 ) {
 
 }
 
-# 95
+# 104
 }
 }
 

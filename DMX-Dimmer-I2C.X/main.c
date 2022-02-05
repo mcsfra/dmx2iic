@@ -30,7 +30,7 @@ unsigned char baseAddress;
  * 14 --  RC2 - DMX State - Framing Error
  * 15 --  RC1 - DMX State - No Signal 
  * 16 --  RC0 - DMX State - IncomingData > 0
- * 17 --   
+ * 17 --  RA2 - Activity  
  * 18 --  RA1 - Programming DATA 
  * 19 --  RA0 - Programming CLOCK
  * 20 --  GND
@@ -65,6 +65,15 @@ void main(void)  {
     pcaWakeUp(1);
     
     for (;;)  {
+        
+        // Pin 17 - RA2        
+        
+        if ( CHIP_ACTIVITY == 1)  {
+            CHIP_ACTIVITY = 0; 
+        }
+        else  { 
+            CHIP_ACTIVITY = 1; 
+        }
         
         if ( OERR )  {
            CREN = 0; 

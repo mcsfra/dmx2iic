@@ -3696,7 +3696,7 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 16 "dmx.h"
+# 17 "dmx.h"
 extern void initDMX(void);
 extern void resetDMX(void);
 

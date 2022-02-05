@@ -13,6 +13,7 @@
 #define LED_DATAVALID     LATCbits.LATC0
 
 
+
 extern void initDMX(void);
 extern void resetDMX(void);
 

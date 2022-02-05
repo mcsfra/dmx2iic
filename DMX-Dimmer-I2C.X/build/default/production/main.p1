@@ -8,7 +8,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _i2cInit `(v ~T0 @X0 0 ef ]
 "39 pca9685.h
 [v _pcaInit `(v ~T0 @X0 0 ef1`uc ]
-"16 dmx.h
+"17 dmx.h
 [v _initDMX `(v ~T0 @X0 0 ef ]
 "5281 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f14k22.h
 [s S241 :1 `uc 1 ]
@@ -57,22 +57,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PEIE `Vb ~T0 @X0 0 e@32662 ]
 "45 pca9685.h
 [v _pcaWakeUp `(v ~T0 @X0 0 ef1`uc ]
-"7004 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f14k22.h
+"1546 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f14k22.h
+[s S67 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S67 . LATA0 LATA1 LATA2 . LATA4 LATA5 ]
+"1554
+[s S68 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S68 . LA0 LA1 LA2 . LA4 LA5 ]
+"1545
+[u S66 `S67 1 `S68 1 ]
+[n S66 . . . ]
+"1563
+[v _LATAbits `VS66 ~T0 @X0 0 e@3977 ]
+"7004
 [v _OERR `Vb ~T0 @X0 0 e@32089 ]
 "6670
 [v _CREN `Vb ~T0 @X0 0 e@32092 ]
-"17 dmx.h
+"18 dmx.h
 [v _resetDMX `(v ~T0 @X0 0 ef ]
 "43 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h
 [v ___nop `(v ~T0 @X0 0 ef ]
 [p i ___nop ]
 "21 channels.h
 [v _sendChangedChannels `(v ~T0 @X0 0 ef ]
-"24 dmx.h
+"25 dmx.h
 [v _decrementDataWatchdog `(v ~T0 @X0 0 ef ]
-"30
+"31
 [v _decrementFramingWatchdog `(v ~T0 @X0 0 ef ]
-"27
+"28
 [v _decrementSignalWatchdog `(uc ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -2753,16 +2764,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
 [; ;hardware.h: 11: extern void initHardware(void);
-[; ;dmx.h: 16: extern void initDMX(void);
-[; ;dmx.h: 17: extern void resetDMX(void);
-[; ;dmx.h: 19: extern void handleDMX(void);
-[; ;dmx.h: 21: extern unsigned char getDMXBaseAddress(void);
-[; ;dmx.h: 23: inline void resetDataWatchdog(void);
-[; ;dmx.h: 24: extern void decrementDataWatchdog(void);
-[; ;dmx.h: 26: inline void resetSignalWatchdog(void);
-[; ;dmx.h: 27: extern unsigned char decrementSignalWatchdog(void);
-[; ;dmx.h: 29: inline void resetFramingWatchdog() ;
-[; ;dmx.h: 30: extern void decrementFramingWatchdog(void);
+[; ;dmx.h: 17: extern void initDMX(void);
+[; ;dmx.h: 18: extern void resetDMX(void);
+[; ;dmx.h: 20: extern void handleDMX(void);
+[; ;dmx.h: 22: extern unsigned char getDMXBaseAddress(void);
+[; ;dmx.h: 24: inline void resetDataWatchdog(void);
+[; ;dmx.h: 25: extern void decrementDataWatchdog(void);
+[; ;dmx.h: 27: inline void resetSignalWatchdog(void);
+[; ;dmx.h: 28: extern unsigned char decrementSignalWatchdog(void);
+[; ;dmx.h: 30: inline void resetFramingWatchdog() ;
+[; ;dmx.h: 31: extern void decrementFramingWatchdog(void);
 [; ;i2c.h: 4: extern void i2cInit(void);
 [; ;i2c.h: 5: extern void i2cStart(void);
 [; ;i2c.h: 6: extern void i2cStop(void);
@@ -2846,57 +2857,79 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [e :U 281 ]
 {
-[; ;main.c: 69: if ( OERR ) {
-"69
-[e $ ! _OERR 284  ]
-{
-[; ;main.c: 70: CREN = 0;
-"70
-[e = _CREN -> -> 0 `i `b ]
-[; ;main.c: 71: resetDMX();
+[; ;main.c: 71: if ( LATAbits.LATA2 == 1) {
 "71
-[e ( _resetDMX ..  ]
-[; ;main.c: 73: __nop(); __nop(); __nop(); __nop(); __nop();
+[e $ ! == -> . . _LATAbits 0 2 `i -> 1 `i 284  ]
+{
+[; ;main.c: 72: LATAbits.LATA2 = 0;
+"72
+[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
 "73
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[; ;main.c: 74: OERR = 0;
+}
+[; ;main.c: 73: }
+[e $U 285  ]
 "74
-[e = _OERR -> -> 0 `i `b ]
-[; ;main.c: 75: CREN = 1;
+[e :U 284 ]
+[; ;main.c: 74: else {
+{
+[; ;main.c: 75: LATAbits.LATA2 = 1;
 "75
-[e = _CREN -> -> 1 `i `b ]
+[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
 "76
 }
-[e :U 284 ]
-[; ;main.c: 76: }
-[; ;main.c: 80: sendChangedChannels();
-"80
-[e ( _sendChangedChannels ..  ]
-[; ;main.c: 83: decrementDataWatchdog();
-"83
-[e ( _decrementDataWatchdog ..  ]
-[; ;main.c: 84: decrementFramingWatchdog();
-"84
-[e ( _decrementFramingWatchdog ..  ]
-[; ;main.c: 87: if ( decrementSignalWatchdog() == 1 ) {
-"87
-[e $ ! == -> ( _decrementSignalWatchdog ..  `i -> 1 `i 285  ]
-{
-"91
-}
 [e :U 285 ]
-"95
+[; ;main.c: 76: }
+[; ;main.c: 78: if ( OERR ) {
+"78
+[e $ ! _OERR 286  ]
+{
+[; ;main.c: 79: CREN = 0;
+"79
+[e = _CREN -> -> 0 `i `b ]
+[; ;main.c: 80: resetDMX();
+"80
+[e ( _resetDMX ..  ]
+[; ;main.c: 82: __nop(); __nop(); __nop(); __nop(); __nop();
+"82
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[; ;main.c: 83: OERR = 0;
+"83
+[e = _OERR -> -> 0 `i `b ]
+[; ;main.c: 84: CREN = 1;
+"84
+[e = _CREN -> -> 1 `i `b ]
+"85
 }
-[; ;main.c: 91: }
-[; ;main.c: 95: }
+[e :U 286 ]
+[; ;main.c: 85: }
+[; ;main.c: 89: sendChangedChannels();
+"89
+[e ( _sendChangedChannels ..  ]
+[; ;main.c: 92: decrementDataWatchdog();
+"92
+[e ( _decrementDataWatchdog ..  ]
+[; ;main.c: 93: decrementFramingWatchdog();
+"93
+[e ( _decrementFramingWatchdog ..  ]
+[; ;main.c: 96: if ( decrementSignalWatchdog() == 1 ) {
+"96
+[e $ ! == -> ( _decrementSignalWatchdog ..  `i -> 1 `i 287  ]
+{
+"100
+}
+[e :U 287 ]
+"104
+}
+[; ;main.c: 100: }
+[; ;main.c: 104: }
 [e $U 281  ]
 [e :U 282 ]
 }
-[; ;main.c: 96: }
-"96
+[; ;main.c: 105: }
+"105
 [e :UE 280 ]
 }

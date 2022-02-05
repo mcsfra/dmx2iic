@@ -10,5 +10,8 @@
 
 extern void initHardware(void);
 
+#define CHIP_ACTIVITY     LATAbits.LATA2
+
+
 #endif	/* HARDWARE_H */
 
